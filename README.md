@@ -1,6 +1,10 @@
 
+## Introduction
+  StarConsoleLink add the link to your console, which allows you to click on the link area rapid positioning to the log line
 
-StarConsoleLink add the link to your console, which allows you to click on the link area rapid positioning to the log line
+![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/example_image.jpg "Title here")
+
+## How to use
 
 1.  Run StarConsoleLink in you Xcode
 
@@ -10,9 +14,11 @@ StarConsoleLink add the link to your console, which allows you to click on the l
 
 4.  If you want to custom you log, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15]
 
-
+## Define
+```
 #ifdef DEBUG
 #define NSLog(format, ...) NSLog(@"[INFO][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 #else
 #define NSLog(...) while(0){}
 #endif
+```
