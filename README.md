@@ -14,6 +14,7 @@
 
 4.  If you want to custom you log, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15]
 
+## Example
 * Objective-C
 ```objective-c
 #ifdef DEBUG
