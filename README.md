@@ -74,4 +74,8 @@ class Logger: NSObject {
 }
 
 ```
+And then you can log within a Swift method like so:
 
+```Swift
+Logger.info("StarLinkConsole")
+```
