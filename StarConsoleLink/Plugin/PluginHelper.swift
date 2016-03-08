@@ -33,7 +33,6 @@ class PluginHelper: NSObject {
             if subview.isKindOfClass(targetClass) {
                 return subview
             }
-            
             if let view = getViewByClassName(name, inContainer: subview) {
                 return view
             }
@@ -49,20 +48,18 @@ extension PluginHelper {
     
     static func workspacePath() -> String? {
         
-        //        let document = NSApp.orderedDocuments.first
-        //        if let workspacePath = document?.fileURL?.URLByDeletingLastPathComponent?.URLByDeletingLastPathComponent?.path {
-        //            return workspacePath
-        //        }
+        // let document = NSApp.orderedDocuments.first
+        // if let workspacePath = document?.fileURL?.URLByDeletingLastPathComponent?.URLByDeletingLastPathComponent?.path {
+        // return workspacePath
+        // }
         
         if let workspacePath = StarFunctions.workspacePath() {
             return workspacePath
         }
         
-        guard let anyClass = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type,
-            let windowControllers = anyClass.valueForKey("workspaceWindowControllers") as? [NSObject],
-            let window = NSApp.keyWindow ?? NSApp.windows.first else {
-                Logger.info("Failed to establish workspace path")
-                return nil
+        guard let anyClass = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type, let windowControllers = anyClass.valueForKey("workspaceWindowControllers") as? [NSObject], let window = NSApp.keyWindow ?? NSApp.windows.first else {
+            Logger.info("Failed to establish workspace path")
+            return nil
         }
         var workspace: NSObject?
         for controller in windowControllers {

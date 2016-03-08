@@ -200,13 +200,13 @@
 		F8FC46181C59E7EB0037FEE5 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
+				F83C54BB1C76D04C00B03BCF /* SnapKit */,
 				F810731A1C7E98A700FEFA7C /* StarFunctions.h */,
 				F810731B1C7E98A700FEFA7C /* StarFunctions.m */,
-				F83C54BB1C76D04C00B03BCF /* SnapKit */,
-				F8FC461E1C59E7EB0037FEE5 /* Logger.swift */,
 				F8FC46191C59E7EB0037FEE5 /* JRSwizzle.h */,
 				F8FC461A1C59E7EB0037FEE5 /* JRSwizzle.m */,
 				F8FC461D1C59E7EB0037FEE5 /* PluginHelper.swift */,
+				F8FC461E1C59E7EB0037FEE5 /* Logger.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
