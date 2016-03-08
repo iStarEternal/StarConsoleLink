@@ -14,16 +14,16 @@
 
 4.  If you want to custom you log, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15]
 
-### Objective-C
-```
+* Objective-C
+```objective-c
 #ifdef DEBUG
 #define NSLog(format, ...) NSLog(@"[INFO][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 #else
 #define NSLog(...) while(0){}
 #endif
 ```
-### Swift
-```
+* Swift
+```swift
 
 import Foundation 
 
