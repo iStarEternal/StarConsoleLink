@@ -22,6 +22,10 @@
 #define NSLog(...) while(0){}
 #endif
 ```
+And then you can log within a Objective-C method like so:
+```Objective-C
+NSLog("StarLinkConsole")
+```
 * Swift
 ```swift
 
