@@ -17,11 +17,61 @@
 ## Example
 * Objective-C
 ```objective-c
-#ifdef DEBUG
-#define NSLog(format, ...) NSLog(@"[INFO][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+#if DEBUG
+#define NSLog(format, ...) NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define XCodeColors 1
+
+#if XCodeColors != 0
+#define XCODE_COLORS_ESCAPE @"\033["
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
+#define LogInfo(format, ...) \
+NSLog(XCODE_COLORS_ESCAPE @"fg11,11,11;" @"[Info][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogError(format, ...) \
+NSLog(XCODE_COLORS_ESCAPE @"fg255,0,0;" @"[Error][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogWarning(format, ...) \
+NSLog(XCODE_COLORS_ESCAPE @"fg244,189,10;" @"[Warning][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogSuccess(format, ...) \
+NSLog(XCODE_COLORS_ESCAPE @"fg0,153,0;" @"[Success][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogFailure(format, ...) \
+NSLog(XCODE_COLORS_ESCAPE @"fg255,0,0;" @"[Failure][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
 #else
-#define NSLog(...) while(0){}
+
+#define LogInfo(format, ...) \
+NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogError(format, ...) \
+NSLog(@"[Error][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogWarning(format, ...) \
+NSLog(@"[Warning][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogSuccess(format, ...) \
+NSLog(@"[Success][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogFailure(format, ...) \
+NSLog(@"[Failure][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
 #endif
+
+#else
+
+#define NSLog(...) while(0){}
+#define LogInfo(...) while(0){}
+#define LogError(...) while(0){}
+#define LogWarning(...) while(0){}
+#define LogSuccess(...) while(0){}
+#define LogFailure(...) while(0){}
+#endif
+
 ```
 And then you can log within a Objective-C method like so:
 ```Objective-C
