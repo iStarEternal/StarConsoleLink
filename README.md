@@ -75,7 +75,7 @@ NSLog(@"[Failure][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPath
 ```
 And then you can log within a Objective-C method like so:
 ```Objective-C
-NSLog("StarLinkConsole")
+NSLog("StarConsoleLink")
 ```
 * Swift
 ```swift
@@ -132,5 +132,5 @@ class Logger: NSObject {
 And then you can log within a Swift method like so:
 
 ```Swift
-Logger.info("StarLinkConsole")
+Logger.info("StarConsoleLink")
 ```
