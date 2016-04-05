@@ -37,7 +37,8 @@ extension NSTextStorage {
     }
     
     func applyANSIColors(textStorageRange: NSRange, escapeSeq: String) {
-        ApplyANSIColors(self, textStorageRange, escapeSeq)
+        LogColorKit.applyANSIColorsWithTextStorage(self, textStorageRange: textStorageRange, escapeSeq: escapeSeq)
+        // ApplyANSIColors(self, textStorageRange, escapeSeq)
     }
     
     private func injectLinks() {
@@ -72,3 +73,7 @@ extension NSTextStorage {
     }
     
 }
+
+
+
+

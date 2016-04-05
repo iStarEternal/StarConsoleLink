@@ -11,6 +11,9 @@
 
 @interface LogColorKit : NSObject
 
-void ApplyANSIColors(NSTextStorage *textStorage, NSRange textStorageRange, NSString *escapeSeq);
++ (void)applyANSIColorsWithTextStorage:(NSTextStorage *)textStorage
+                      textStorageRange:(NSRange)textStorageRange
+                             escapeSeq:(NSString *)escapeSeq;
+//void ApplyANSIColors(NSTextStorage *textStorage, NSRange textStorageRange, NSString *escapeSeq);
 
 @end

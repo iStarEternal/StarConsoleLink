@@ -25,7 +25,7 @@ class Logger: NSObject {
     }
     
     // WEIGHT: 0
-    class func debug<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func debug<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         //        guard DEBUG != 0 else {
         //            return
         //        }
@@ -33,22 +33,22 @@ class Logger: NSObject {
     }
     
     // WEIGHT: 0
-    class func info<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func info<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Info", color: "11,11,11", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
     // WEIGHT: 2
-    class func warning<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func warning<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Warning", color: "244,189,10", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
     // WEIGHT: 4
-    class func error<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func error<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Error", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
     // WEIGHT: 5
-    class func important<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func important<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Important][如果发现该行日志，应该及时处理", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
@@ -58,12 +58,12 @@ class Logger: NSObject {
 extension Logger {
     
     // WEIGHT: 0
-    class func success<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func success<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Success", color: "0,153,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
     // WEIGHT: 1
-    class func failure<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func failure<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Failure", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 }
@@ -72,20 +72,20 @@ extension Logger {
 extension Logger {
     
     // WEIGHT: 5+
-    class func assertionFailure(value: String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func assertionFailure(value: String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         
         print(value, title: "Assert", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.assertionFailure(value)
         
     }
     // WEIGHT: 5+
-    class func assert(flag: Bool, value:String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func assert(flag: Bool, value:String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "Assert", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.assert(flag)
         
     }
     // WEIGHT: 5+
-    class func fatalError(value: String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    class func fatalError(value: String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: "FatalError", color: "255,0,0", functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.fatalError(value)
     }

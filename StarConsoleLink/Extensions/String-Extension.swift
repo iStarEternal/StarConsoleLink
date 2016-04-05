@@ -45,7 +45,8 @@ extension String {
         get {
             let startIndex = self.startIndex.advancedBy(r.startIndex)
             let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
-            return self[Range(start: startIndex, end: endIndex)]
+//            return self[Range(start: startIndex, end: endIndex)]
+            return self[startIndex ..< endIndex]
         }
     }
     
@@ -82,7 +83,7 @@ extension String {
         
         if first.hasSuffix("/") {
             var firstArray = first.componentsSeparatedByString("/")
-            for var i = firstArray.count - 1; i >= 0; i-- {
+            for var i = firstArray.count - 1; i >= 0; i -= 1 {
                 if firstArray[i] == "" {
                     firstArray.removeLast()
                 }

@@ -67,8 +67,8 @@
 		F83C54E31C76FE1800B03BCF /* LogColorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogColorKit.m; sourceTree = "<group>"; };
 		F8B809361C63255300853EA8 /* NSColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A11C5A1EBC00391DD0 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
-		F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTextStorage-Extension.swift"; path = "Extensions/NSTextStorage-Extension.swift"; sourceTree = "<group>"; };
-		F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSTextView-Extension.swift"; path = "Extensions/NSTextView-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextStorage-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operator-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
 		F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarConsoleLink.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +166,6 @@
 				F8FC46181C59E7EB0037FEE5 /* Plugin */,
 				F8FC45F81C59E79C0037FEE5 /* Extensions */,
 				F83C54AF1C76C8A600B03BCF /* Business */,
-				F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */,
-				F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */,
 				F8FC45F01C59E7570037FEE5 /* NSObject-Extension.swift */,
 				F8FC45EE1C59E7570037FEE5 /* StarConsoleLink.swift */,
 				F8FC45F21C59E7570037FEE5 /* Info.plist */,
@@ -193,6 +191,8 @@
 				F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */,
 				F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */,
 				F8B809361C63255300853EA8 /* NSColor-Extension.swift */,
+				F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */,
+				F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

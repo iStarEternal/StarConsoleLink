@@ -71,7 +71,7 @@ extension NSTextView {
             
             prevSearchPath = searchPath
             searchPath = searchPath.OCString.stringByDeletingLastPathComponent
-            searchCount++
+            searchCount += 1
             let searchPathCount = searchPath.componentsSeparatedByString("/").count
             if searchPathCount <= 3 || searchCount >= 2 {
                 return nil
@@ -96,7 +96,7 @@ extension NSTextView {
             return
         }
         var currentLine = 1
-        for var index = 0; index < text.length; currentLine++ {
+        for var index = 0; index < text.length; currentLine += 1 {
             let lineRange = text.lineRangeForRange(NSMakeRange(index, 0))
             index = NSMaxRange(lineRange)
             if currentLine == line {

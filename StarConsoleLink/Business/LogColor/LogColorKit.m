@@ -9,6 +9,10 @@
 #import "LogColorKit.h"
 
 @implementation LogColorKit
++ (void)applyANSIColorsWithTextStorage:(NSTextStorage *)textStorage textStorageRange:(NSRange)textStorageRange escapeSeq:(NSString *)escapeSeq {
+    ApplyANSIColors(textStorage, textStorageRange, escapeSeq);
+}
+
 // https://github.com/robbiehanson/XcodeColors
 void ApplyANSIColors(NSTextStorage *textStorage, NSRange textStorageRange, NSString *escapeSeq) {
     NSRange range = [[textStorage string] rangeOfString:escapeSeq options:0 range:textStorageRange];
@@ -19,23 +23,23 @@ void ApplyANSIColors(NSTextStorage *textStorage, NSRange textStorageRange, NSStr
     }
     
     // Architecture:
-    // 
+    //
     // We're going to split the string into components separated by the given escape sequence.
     // Then we're going to loop over the components, looking for color codes at the beginning of each component.
-    // 
+    //
     // For example, if the input string is "Hello__fg124,12,12;World" (with __ representing the escape sequence),
     // then our components would be: (
     //   "Hello"
     //   "fg124,12,12;World"
     // )
-    // 
+    //
     // We would find a color code (rgb 124, 12, 12) for the foreground color in the second component.
     // At that point, the parsed foreground color goes into an attributes dictionary (attrs),
     // and the foreground color stays in effect (for the current component & future components)
     // until it gets cleared via a different foreground color, or a clear sequence.
-    // 
+    //
     // The attributes are applied to the entire range of the component, and then we move onto the next component.
-    // 
+    //
     // At the very end, we go back and apply "invisible" attributes (zero font, and clear text)
     // to the escape and color sequences.
     

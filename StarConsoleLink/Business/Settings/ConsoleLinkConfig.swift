@@ -47,17 +47,45 @@ class ConsoleLinkConfig: NSObject {
         }
     }
     
+}
+
+// MARK: - Enabled
+extension ConsoleLinkConfig {
     
+    private static let enabledStarConsoleLinkKey = "iStar.StarConsoleLink.EnabledStarConsoleLink"
+    private static let enabledLogLinksKey = "iStar.StarConsoleLink.EnabledLogLinks"
+    private static let enabledLogColorsKey = "iStar.StarConsoleLink.EnabledLogColors"
     
-    static var isOpenConsoleLinkKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
-    
-    static var enabledConsoleLink: Bool {
+    /// 允许插件启用
+    static var enabledStarConsoleLink: Bool {
         get {
-            let enabled: Bool? = configForKey(isOpenConsoleLinkKey)
+            let enabled: Bool? = configForKey(enabledStarConsoleLinkKey)
             return enabled ?? false
         }
         set {
-            setConfig(newValue, forKey: isOpenConsoleLinkKey)
+            setConfig(newValue, forKey: enabledStarConsoleLinkKey)
+        }
+    }
+    
+    /// 是否允许日志超链接
+    static var enabledLogLinks: Bool {
+        get {
+            let enabled: Bool? = configForKey(enabledLogLinksKey)
+            return enabled ?? false
+        }
+        set {
+            setConfig(newValue, forKey: enabledLogLinksKey)
+        }
+    }
+    
+    /// 是否允许日志颜色
+    static var enabledLogColors: Bool {
+        get {
+            let enabled: Bool? = configForKey(enabledLogColorsKey)
+            return enabled ?? false
+        }
+        set {
+            setConfig(newValue, forKey: enabledLogColorsKey)
         }
     }
     

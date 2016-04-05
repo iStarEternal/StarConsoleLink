@@ -24,8 +24,8 @@ class StarConsoleLink: NSObject {
     init(bundle: NSBundle) {
         self.bundle = bundle
         super.init()
-        center.addObserver(self, selector: "finishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        center.addObserver(self, selector: "controlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
+        center.addObserver(self, selector: #selector(StarConsoleLink.finishLaunchingNotification(_:)), name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        center.addObserver(self, selector: #selector(StarConsoleLink.controlGroupDidChangeNotification(_:)), name: "IDEControlGroupDidChangeNotificationName", object: nil)
     }
     
     override static func initialize() {
@@ -51,7 +51,7 @@ class StarConsoleLink: NSObject {
             NSCursorAttributeName: NSCursor.pointingHandCursor(),
             NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
         ]
-        textStorage.usedInConsole = ConsoleLinkConfig.enabledConsoleLink
+        textStorage.usedInConsole = ConsoleLinkConfig.enabledLogLinks
     }
     
     
@@ -59,8 +59,10 @@ class StarConsoleLink: NSObject {
     
     static func swizzleMethods() {
         do {
-            try NSTextStorage.self.jr_swizzleMethod("fixAttributesInRange:", withMethod: "star_fixAttributesInRange:")
-            try NSTextView.self.jr_swizzleMethod("mouseDown:", withMethod: "star_mouseDown:")
+            try NSTextStorage.self.jr_swizzleMethod(#selector(NSMutableAttributedString.fixAttributesInRange(_:)), withMethod: #selector(NSTextStorage.star_fixAttributesInRange(_:)))
+            try NSTextView.self.jr_swizzleMethod(#selector(NSResponder.mouseDown(_:)), withMethod: #selector(NSTextView.star_mouseDown(_:))
+            )
+            
         }
         catch let error as NSError {
             Logger.info("Swizzling failed \(error)")
@@ -68,12 +70,35 @@ class StarConsoleLink: NSObject {
     }
     
     
-    // MARK: - 创建菜单
+    // MARK: - 菜单
+    
+    var pluginsMenuItem: NSMenuItem!
+    
+    var thisPluginItem: NSMenuItem!
+    
+    var enabledStarConsoleLinkItem: NSMenuItem!
+    
+    var enabledLogLinksItem: NSMenuItem!
+    
+    var enabledLogColorsItem: NSMenuItem!
+    
     
     func createMenuItems() {
         
+        createPluginsItem()
+        
+        // 在Plugins上创建Star Console Link 菜单
+        createThisPluginMenuItemWithSuperItem(pluginsMenuItem)
+        
+        createEnabledMenuItemWithSuperItem(thisPluginItem)
+        
+        createSettingsItemWithSuperItem(thisPluginItem)
+        
+    }
+    
+    func createPluginsItem() {
         // 主菜单上创建 Plugins菜单
-        var pluginsMenuItem: NSMenuItem! = NSApp.mainMenu?.itemWithTitle("Plugins")
+        pluginsMenuItem = NSApp.mainMenu?.itemWithTitle("Plugins")
         if pluginsMenuItem == nil {
             pluginsMenuItem = NSMenuItem()
             pluginsMenuItem.title = "Plugins"
@@ -82,63 +107,130 @@ class StarConsoleLink: NSObject {
                 NSApp.mainMenu?.insertItem(pluginsMenuItem, atIndex: windowIndex)
             }
         }
-        
-        // 在Plugins上创建Star Console Link 菜单
-        var starConsoleLinkItem: NSMenuItem! = pluginsMenuItem.submenu?.itemWithTitle("Star Console Link")
-        if starConsoleLinkItem == nil {
-            starConsoleLinkItem = NSMenuItem()
-            starConsoleLinkItem.title = "Star Console Link"
-            starConsoleLinkItem.submenu = NSMenu(title: "Star Console Link")
-            pluginsMenuItem.submenu?.addItem(NSMenuItem.separatorItem())
-            pluginsMenuItem.submenu?.addItem(starConsoleLinkItem)
+    }
+    
+    func createThisPluginMenuItemWithSuperItem(superItem: NSMenuItem) {
+        thisPluginItem = superItem.submenu?.itemWithTitle("Star Console Link")
+        if thisPluginItem == nil {
+            thisPluginItem = NSMenuItem()
+            thisPluginItem.title = "Star Console Link"
+            thisPluginItem.submenu = NSMenu(title: "Star Console Link")
+            superItem.submenu?.addItem(NSMenuItem.separatorItem())
+            superItem.submenu?.addItem(thisPluginItem)
         }
         
-        // 在Star Console Link 菜单上创建开关
-        var enabledConsoleLinkItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Enabled")
-        if enabledConsoleLinkItem == nil {
-            enabledConsoleLinkItem = NSMenuItem() 
-            enabledConsoleLinkItem.title = "Enabled"
-            enabledConsoleLinkItem.target = self
-            enabledConsoleLinkItem.action = "handleEnabledConsoleLink:"
-            starConsoleLinkItem.submenu?.addItem(enabledConsoleLinkItem)
-            ConsoleLinkConfig.enabledConsoleLink = true
+        
+    }
+    
+    func createEnabledMenuItemWithSuperItem(superItem: NSMenuItem) {
+        
+        // 创建开关
+        enabledStarConsoleLinkItem = superItem.submenu?.itemWithTitle("Enabled Star Console Link")
+        if enabledStarConsoleLinkItem == nil {
+            enabledStarConsoleLinkItem = NSMenuItem()
+            enabledStarConsoleLinkItem.title = "Enabled Star Console Link"
+            enabledStarConsoleLinkItem.target = self
+            enabledStarConsoleLinkItem.action = #selector(StarConsoleLink.handleEnabledStarConsoleLink(_:))
+            superItem.submenu?.addItem(enabledStarConsoleLinkItem)
+            ConsoleLinkConfig.enabledStarConsoleLink = true
         }
         
-        enabledConsoleLinkItem.state = ConsoleLinkConfig.enabledConsoleLink ? NSOnState : NSOffState
+        
+        // 创建链接开关
+        enabledLogLinksItem = superItem.submenu?.itemWithTitle("Enabled Log Links")
+        if enabledLogLinksItem == nil {
+            enabledLogLinksItem = NSMenuItem()
+            enabledLogLinksItem.title = "Enabled Log Links"
+            enabledLogLinksItem.target = self
+            enabledLogLinksItem.action = #selector(StarConsoleLink.handleEnabledLogLinks(_:))
+            
+            enabledLogLinksItem.enabled = false
+            superItem.submenu?.addItem(enabledLogLinksItem)
+            ConsoleLinkConfig.enabledLogLinks = true
+        }
+        
+        // 创建颜色开关
+        enabledLogColorsItem = superItem.submenu?.itemWithTitle("Enabled Log Colors")
+        if enabledLogColorsItem == nil {
+            enabledLogColorsItem = NSMenuItem()
+            enabledLogColorsItem.title = "Enabled Log Colors"
+            enabledLogColorsItem.target = self
+            enabledLogColorsItem.action = #selector(StarConsoleLink.handleEnabledLogColors(_:))
+            superItem.submenu?.addItem(enabledLogColorsItem)
+            ConsoleLinkConfig.enabledLogColors = true
+        }
+        
+        enabledStarConsoleLinkItem.state = ConsoleLinkConfig.enabledStarConsoleLink ? NSOnState : NSOffState
+        enabledLogLinksItem.enabled = false// ConsoleLinkConfig.enabledStarConsoleLink
+        enabledLogColorsItem.enabled = ConsoleLinkConfig.enabledStarConsoleLink
+        
+        
+        enabledLogLinksItem.state = ConsoleLinkConfig.enabledLogLinks ? NSOnState : NSOffState
+        enabledLogColorsItem.state = ConsoleLinkConfig.enabledLogColors ? NSOnState : NSOffState
         
         
         
-        // 在Star Console Link 菜单上创建开关
-        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
+    }
+    
+    func createSettingsItemWithSuperItem(superItem: NSMenuItem) {
+        
+        
+        // 颜色设置：开发中
+        var showSettingsItem: NSMenuItem! = superItem.submenu?.itemWithTitle("Log Colors Settings")
         if showSettingsItem == nil {
-            showSettingsItem = NSMenuItem() 
-            showSettingsItem.title = "Settings"
+            showSettingsItem = NSMenuItem()
+            showSettingsItem.title = "Log Color Settings"
             showSettingsItem.target = self
-            showSettingsItem.action = "handleShowSettingsItem:"
-            starConsoleLinkItem.submenu?.addItem(showSettingsItem)
+            showSettingsItem.action = #selector(StarConsoleLink.handleShowLogColorSettingsItem(_:))
+            showSettingsItem.enabled = false
+            superItem.submenu?.addItem(NSMenuItem.separatorItem())
+            superItem.submenu?.addItem(showSettingsItem)
         }
         
     }
     
-    func handleEnabledConsoleLink(item: NSMenuItem) {
+    
+    func createMenuItemWithTitle() {
+        
+        
+    }
+    
+    
+    func handleEnabledStarConsoleLink(sender: NSMenuItem) {
         
         let consoleTextView = PluginHelper.consoleTextView()
         let textStorage = consoleTextView?.valueForKey("textStorage") as? NSTextStorage
-        if item.state == NSOnState {
-            ConsoleLinkConfig.enabledConsoleLink = false
-            item.state = NSOffState
-            textStorage?.usedInConsole = false
+        
+        
+        if sender.state == NSOnState {
+            sender.state = NSOffState
+            ConsoleLinkConfig.enabledStarConsoleLink = false
         }
         else {
-            ConsoleLinkConfig.enabledConsoleLink = true
-            item.state = NSOnState
-            textStorage?.usedInConsole = true
+            sender.state = NSOnState
+            ConsoleLinkConfig.enabledStarConsoleLink = true
         }
+        
+        
+        textStorage?.usedInConsole = ConsoleLinkConfig.enabledStarConsoleLink
+        enabledLogLinksItem.enabled = ConsoleLinkConfig.enabledStarConsoleLink
+        enabledLogColorsItem.enabled = ConsoleLinkConfig.enabledStarConsoleLink
+        
     }
+    
+    func handleEnabledLogLinks(sender: NSMenuItem) {
+        
+    }
+    
+    func handleEnabledLogColors(sender: NSMenuItem) {
+        
+    }
+    
+    
     
     var settingsWindowController: SettingsWindowController!
     
-    func handleShowSettingsItem(item: NSMenuItem) {
+    func handleShowLogColorSettingsItem(sender: NSMenuItem) {
         settingsWindowController = SettingsWindowController(windowNibName: "SettingsWindowController")
         settingsWindowController.bundle = bundle
         settingsWindowController.showWindow(nil)
