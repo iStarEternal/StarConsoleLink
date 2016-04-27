@@ -20,8 +20,8 @@
     LogWarning(@"------------------ ObjectiveC Logger Test ------------------");
     LogDebug(@"调试");
     LogInfo(@"消息");
-    LogError(@"错误");
     LogWarning(@"警告");
+    LogError(@"错误");
     LogSuccess(@"成功");
     LogFailure(@"失败");
 }
