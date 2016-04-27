@@ -1,6 +1,14 @@
 
 ## Introduction
-StarConsoleLink add the link to your console, which allows you to click on the link area rapid positioning to the log line
+StarConsoleLink inject the link to your Xcode console, which allows you to click on the link area rapid positioning to the log line
+
+## The New Featrue
+
+StarConsoleLink Integrated with XcodeColors
+
+Thank for you support @robbiehanson
+https://github.com/robbiehanson/XcodeColors
+
 
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/example_image.png "Title here")
 
@@ -105,7 +113,7 @@ NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathCom
 ```
 And then you can log within a Objective-C method like so:
 ```Objective-C
-NSLog("StarConsoleLink")
+LogInfo("StarConsoleLink");
 ```
 * Swift
 ```swift
