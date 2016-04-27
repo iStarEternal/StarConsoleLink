@@ -24,18 +24,18 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 First.  Run StarConsoleLink in you Xcode.
 
-Second.  If you are using Swift, Copy /StarConsoleLink/Plugin/Logger.swift in you project.
+Second.  If you are using Swift, Copy Logger.swift to you project.
 
-Third.  If you are using Objective-C, Copy below text in you PrefixHeader.pch.
+Third.  If you are using Objective-C, Copy OCLogger.h define to you PrefixHeader.pch.
 
 Fourth.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
 
 
 第一步：用Xcode打开并运行StarConsoleLink。
 
-第二步：如果你使用的是Swift，请拷贝/StarConsoleLink/Plugin/Logger.swift到你的项目中去。
+第二步：如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
 
-第三步：如果你使用的是Objective-C，请拷贝OCLogger中的宏定义到你的PCH文件中去。
+第三步：如果你使用的是Objective-C，请拷贝OCLogger.h中的宏定义到你的PCH文件中去。
 
 第四步：如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
