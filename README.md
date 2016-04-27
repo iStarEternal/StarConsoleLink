@@ -44,16 +44,8 @@ Fourth.  If you want to custom you logs, please follow the rules: [FileName.exte
 * Objective-C
 ```objective-c
 
-#if DEBUG
 
 #define XCodeColors 1
-
-#if XCodeColors != 0      // color begin
-
-#define XCODE_COLORS_ESCAPE @"\033["
-#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
-#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
-#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
 
 #define InfoColor @"22,22,22"          // 黑色
 #define InfoTitle @"Info"
@@ -72,6 +64,17 @@ Fourth.  If you want to custom you logs, please follow the rules: [FileName.exte
 
 #define FailureColor @"196,26,22"      // 红色
 #define FailureTitle @"Failure"
+
+
+#if DEBUG
+
+#if XCodeColors != 0      // color begin
+
+#define XCODE_COLORS_ESCAPE @"\033["
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
 
 
 
@@ -96,27 +99,25 @@ NSLog(XCODE_COLORS_ESCAPE @"fg" FailureColor @";" @"[" FailureTitle @"][%@:%d] %
 #else
 
 #define LogInfo(format, ...) \
-NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+NSLog(@"[" InfoTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 
 #define LogDebug(format, ...) \
-NSLog(@"[Debug][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
-
-#define LogError(format, ...) \
-NSLog(@"[Error][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+NSLog(@"[" DebugTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 
 #define LogWarning(format, ...) \
-NSLog(@"[Warning][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+NSLog(@"[" WarningTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+
+#define LogError(format, ...) \
+NSLog(@"[" ErrorTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 
 #define LogSuccess(format, ...) \
-NSLog(@"[Success][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+NSLog(@"[" SuccessTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 
 #define LogFailure(format, ...) \
-NSLog(@"[Failure][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+NSLog(@"[" FailureTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 
 #endif  // color end
 
-#define NSLog(format, ...)\
-NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
 #else
 
 #define LogInfo(...) while(0){}
@@ -125,7 +126,6 @@ NSLog(@"[Info][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathCom
 #define LogWarning(...) while(0){}
 #define LogSuccess(...) while(0){}
 #define LogFailure(...) while(0){}
-#define NSLog(...) while(0){}
 #endif
 
 ```
