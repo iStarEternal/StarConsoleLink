@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F812403E1C74254A0050E620 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F812403D1C74254A0050E620 /* README.md */; };
+		F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */; };
+		F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */; };
+		F83C54DF1C76D5D500B03BCF /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */; };
+		F83C54E01C76D5D500B03BCF /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */; };
+		F83C54E41C76FE1800B03BCF /* LogColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F83C54E31C76FE1800B03BCF /* LogColorKit.m */; };
+		F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B809361C63255300853EA8 /* NSColor-Extension.swift */; };
+		F8F23F1A1CD0F28B002623E4 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F151CD0F28B002623E4 /* JRSwizzle.m */; };
+		F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F161CD0F28B002623E4 /* PluginHelper.swift */; };
+		F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F191CD0F28B002623E4 /* StarFunctions.m */; };
+		F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F1E1CD0F2DF002623E4 /* Logger.swift */; };
+		F8F23F221CD0F2DF002623E4 /* OCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F201CD0F2DF002623E4 /* OCLogger.m */; };
+		F8F23F241CD0F35A002623E4 /* NSObject-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */; };
+		F8F804A81C5A1EBC00391DD0 /* NSTextStorage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */; };
+		F8F804A91C5A1EBC00391DD0 /* NSTextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */; };
+		F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */; };
+		F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */; };
+		F8FC45ED1C59E7570037FEE5 /* StarConsoleLink.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = F8FC45EC1C59E7570037FEE5 /* StarConsoleLink.xcscheme */; };
+		F8FC45EF1C59E7570037FEE5 /* StarConsoleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FC45EE1C59E7570037FEE5 /* StarConsoleLink.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F812403D1C74254A0050E620 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch-Extension.swift"; sourceTree = "<group>"; };
+		F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLinkConfig.swift; sourceTree = "<group>"; };
+		F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
+		F83C54E21C76FE1800B03BCF /* LogColorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogColorKit.h; sourceTree = "<group>"; };
+		F83C54E31C76FE1800B03BCF /* LogColorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogColorKit.m; sourceTree = "<group>"; };
+		F8B809361C63255300853EA8 /* NSColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor-Extension.swift"; sourceTree = "<group>"; };
+		F8F23F141CD0F28B002623E4 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		F8F23F151CD0F28B002623E4 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		F8F23F161CD0F28B002623E4 /* PluginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginHelper.swift; sourceTree = "<group>"; };
+		F8F23F181CD0F28B002623E4 /* StarFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarFunctions.h; sourceTree = "<group>"; };
+		F8F23F191CD0F28B002623E4 /* StarFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarFunctions.m; sourceTree = "<group>"; };
+		F8F23F1E1CD0F2DF002623E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F8F23F1F1CD0F2DF002623E4 /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
+		F8F23F201CD0F2DF002623E4 /* OCLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLogger.m; sourceTree = "<group>"; };
+		F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextStorage-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operator-Extension.swift"; sourceTree = "<group>"; };
+		F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarConsoleLink.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8FC45EC1C59E7570037FEE5 /* StarConsoleLink.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = StarConsoleLink.xcscheme; path = StarConsoleLink.xcodeproj/xcshareddata/xcschemes/StarConsoleLink.xcscheme; sourceTree = SOURCE_ROOT; };
+		F8FC45EE1C59E7570037FEE5 /* StarConsoleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarConsoleLink.swift; sourceTree = "<group>"; };
+		F8FC45F21C59E7570037FEE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8FC46141C59E7D50037FEE5 /* StarConsoleLink-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarConsoleLink-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8B3742F1C5F9A3D00DF4C91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F83C54AF1C76C8A600B03BCF /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				F83C54E11C76FDF200B03BCF /* LogColor */,
+				F83C54B01C76C8CE00B03BCF /* Settings */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		F83C54B01C76C8CE00B03BCF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */,
+				F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */,
+				F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F83C54E11C76FDF200B03BCF /* LogColor */ = {
+			isa = PBXGroup;
+			children = (
+				F83C54E21C76FE1800B03BCF /* LogColorKit.h */,
+				F83C54E31C76FE1800B03BCF /* LogColorKit.m */,
+			);
+			path = LogColor;
+			sourceTree = "<group>";
+		};
+		F8F23F131CD0F28B002623E4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F8F23F141CD0F28B002623E4 /* JRSwizzle.h */,
+				F8F23F151CD0F28B002623E4 /* JRSwizzle.m */,
+				F8F23F161CD0F28B002623E4 /* PluginHelper.swift */,
+				F8F23F181CD0F28B002623E4 /* StarFunctions.h */,
+				F8F23F191CD0F28B002623E4 /* StarFunctions.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F8F23F1D1CD0F2C0002623E4 /* Need */ = {
+			isa = PBXGroup;
+			children = (
+				F8F23F1E1CD0F2DF002623E4 /* Logger.swift */,
+				F8F23F1F1CD0F2DF002623E4 /* OCLogger.h */,
+				F8F23F201CD0F2DF002623E4 /* OCLogger.m */,
+			);
+			path = Need;
+			sourceTree = "<group>";
+		};
+		F8FC45E01C59E7570037FEE5 = {
+			isa = PBXGroup;
+			children = (
+				F8FC45EA1C59E7570037FEE5 /* StarConsoleLink */,
+				F8FC45E91C59E7570037FEE5 /* Products */,
+				F812403D1C74254A0050E620 /* README.md */,
+			);
+			sourceTree = "<group>";
+		};
+		F8FC45E91C59E7570037FEE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8FC45EA1C59E7570037FEE5 /* StarConsoleLink */ = {
+			isa = PBXGroup;
+			children = (
+				F8F23F1D1CD0F2C0002623E4 /* Need */,
+				F8F23F131CD0F28B002623E4 /* Library */,
+				F8FC45F81C59E79C0037FEE5 /* Extensions */,
+				F83C54AF1C76C8A600B03BCF /* Business */,
+				F8FC45EE1C59E7570037FEE5 /* StarConsoleLink.swift */,
+				F8FC45F21C59E7570037FEE5 /* Info.plist */,
+				F8FC45EB1C59E7570037FEE5 /* Supporting Files */,
+				F8FC46141C59E7D50037FEE5 /* StarConsoleLink-Bridging-Header.h */,
+			);
+			path = StarConsoleLink;
+			sourceTree = "<group>";
+		};
+		F8FC45EB1C59E7570037FEE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8FC45EC1C59E7570037FEE5 /* StarConsoleLink.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8FC45F81C59E79C0037FEE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */,
+				F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */,
+				F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */,
+				F8B809361C63255300853EA8 /* NSColor-Extension.swift */,
+				F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */,
+				F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */,
+				F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8FC45E71C59E7570037FEE5 /* StarConsoleLink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8FC45F51C59E7570037FEE5 /* Build configuration list for PBXNativeTarget "StarConsoleLink" */;
+			buildPhases = (
+				F8FC45E51C59E7570037FEE5 /* Sources */,
+				F8FC45E61C59E7570037FEE5 /* Resources */,
+				F8B3742F1C5F9A3D00DF4C91 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StarConsoleLink;
+			productName = StarConsoleLink;
+			productReference = F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8FC45E11C59E7570037FEE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = AbsoluteStar;
+				TargetAttributes = {
+					F8FC45E71C59E7570037FEE5 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = F8FC45E41C59E7570037FEE5 /* Build configuration list for PBXProject "StarConsoleLink" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F8FC45E01C59E7570037FEE5;
+			productRefGroup = F8FC45E91C59E7570037FEE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8FC45E71C59E7570037FEE5 /* StarConsoleLink */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8FC45E61C59E7570037FEE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8FC45ED1C59E7570037FEE5 /* StarConsoleLink.xcscheme in Resources */,
+				F83C54E01C76D5D500B03BCF /* SettingsWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8FC45E51C59E7570037FEE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F23F241CD0F35A002623E4 /* NSObject-Extension.swift in Sources */,
+				F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */,
+				F83C54DF1C76D5D500B03BCF /* SettingsWindowController.swift in Sources */,
+				F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */,
+				F8F804A81C5A1EBC00391DD0 /* NSTextStorage-Extension.swift in Sources */,
+				F8FC45EF1C59E7570037FEE5 /* StarConsoleLink.swift in Sources */,
+				F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */,
+				F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */,
+				F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */,
+				F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */,
+				F812403E1C74254A0050E620 /* README.md in Sources */,
+				F8F23F221CD0F2DF002623E4 /* OCLogger.m in Sources */,
+				F8F23F1A1CD0F28B002623E4 /* JRSwizzle.m in Sources */,
+				F8F804A91C5A1EBC00391DD0 /* NSTextView-Extension.swift in Sources */,
+				F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */,
+				F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */,
+				F83C54E41C76FE1800B03BCF /* LogColorKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F8FC45F31C59E7570037FEE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		F8FC45F41C59E7570037FEE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		F8FC45F61C59E7570037FEE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = StarConsoleLink/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = iStar.AbsoluteStar.StarConsoleLink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StarConsoleLink/StarConsoleLink-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		F8FC45F71C59E7570037FEE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = StarConsoleLink/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = iStar.AbsoluteStar.StarConsoleLink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StarConsoleLink/StarConsoleLink-Bridging-Header.h";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8FC45E41C59E7570037FEE5 /* Build configuration list for PBXProject "StarConsoleLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FC45F31C59E7570037FEE5 /* Debug */,
+				F8FC45F41C59E7570037FEE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8FC45F51C59E7570037FEE5 /* Build configuration list for PBXNativeTarget "StarConsoleLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8FC45F61C59E7570037FEE5 /* Debug */,
+				F8FC45F71C59E7570037FEE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8FC45E11C59E7570037FEE5 /* Project object */;
+}
