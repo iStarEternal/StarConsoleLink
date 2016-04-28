@@ -42,8 +42,7 @@ Fourth.  If you want to custom you logs, please follow the rules: [FileName.exte
 ## Install
 ```install
 
-curl -fsSL https://github.com/iStarEternal/StarConsoleLink/blob/master/Scripts/install.sh | sh
-
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
 
