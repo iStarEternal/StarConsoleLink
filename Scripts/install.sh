@@ -1,4 +1,20 @@
 #!/usr/bin/env bash
+# Set up the environment.
+
+PLUGIN_DIR="$HOME/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
+STARCONSOLELINK_PATH="$PLUGIN_DIR/StarConsoleLink.xcplugin"
+DOMAIN="https://github.com"
+
+
+# check path, remove if exist
+
+if [ -d "$PLUGIN_DIR" ]; then
+    if [ -d "$STARCONSOLELINK_PATH" ]; then
+        echo ""
+        echo "Remove $STARCONSOLELINK_PATH"
+        rm -rf "$STARCONSOLELINK_PATH"
+    fi
+fi
 
 echo ""
 echo "Downloading StarConsoleLink..."
