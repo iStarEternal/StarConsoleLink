@@ -8,7 +8,7 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/example_image.png "Title here")
 
 
-## The New Featrue
+## The New Feature
 
 StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
 
@@ -20,33 +20,35 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 谢谢@robbiehanson提供的支持。
 
 
-## How to use
+## How to use ?
 
-First.  Run StarConsoleLink in you Xcode.
+1.  Run StarConsoleLink in you Xcode.
 
-Second.  If you are using Swift, Copy Logger.swift to you project.
+2.  If you are using Swift, Copy Logger.swift to you project.
 
-Third.  If you are using Objective-C, Copy OCLogger.h define to you PrefixHeader.pch.
+3.  If you are using Objective-C, Copy OCLogger.h define to you PrefixHeader.pch.
 
-Fourth.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
+4.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
 
 
-第一步：用Xcode打开并运行StarConsoleLink。
+一、用Xcode打开并运行StarConsoleLink。
 
-第二步：如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
+二、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
 
-第三步：如果你使用的是Objective-C，请拷贝OCLogger.h中的宏定义到你的PCH文件中去。
+三、如果你使用的是Objective-C，请拷贝OCLogger.h中的宏定义到你的PCH文件中去。
 
-第四步：如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
+四、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
+
 
 ## Install
-```install
 
+```install
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
 
 ## Example
+
 * Objective-C
 ```objective-c
 

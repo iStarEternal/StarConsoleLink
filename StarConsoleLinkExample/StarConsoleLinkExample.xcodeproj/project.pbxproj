@@ -10,7 +10,6 @@
 		F8F23F041CD0EFE0002623E4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F031CD0EFE0002623E4 /* main.swift */; };
 		F8F23F101CD0EFE7002623E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F0B1CD0EFE7002623E4 /* Logger.swift */; };
 		F8F23F111CD0EFE7002623E4 /* OCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */; };
-		F8F23F121CD0EFE7002623E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F0E1CD0EFE7002623E4 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +31,6 @@
 		F8F23F0B1CD0EFE7002623E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
 		F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLogger.m; sourceTree = "<group>"; };
-		F8F23F0E1CD0EFE7002623E4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 				F8F23F0B1CD0EFE7002623E4 /* Logger.swift */,
 				F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */,
 				F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */,
-				F8F23F0E1CD0EFE7002623E4 /* ViewController.swift */,
 				F8F23F0A1CD0EFE6002623E4 /* StarConsoleLinkExample-Bridging-Header.h */,
 			);
 			path = StarConsoleLinkExample;
@@ -134,7 +131,6 @@
 			files = (
 				F8F23F041CD0EFE0002623E4 /* main.swift in Sources */,
 				F8F23F111CD0EFE7002623E4 /* OCLogger.m in Sources */,
-				F8F23F121CD0EFE7002623E4 /* ViewController.swift in Sources */,
 				F8F23F101CD0EFE7002623E4 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +260,7 @@
 				F8F23F091CD0EFE0002623E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

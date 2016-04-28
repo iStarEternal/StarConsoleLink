@@ -2,7 +2,7 @@
 //  OCLogger.h
 //  StarConsoleLinkExample
 //
-//  Created by 黄耀红 on 16/2/17.
+//  Created by 星星 on 16/1/28.
 //  Copyright © 2016年 AbsoluteStar. All rights reserved.
 //
 
