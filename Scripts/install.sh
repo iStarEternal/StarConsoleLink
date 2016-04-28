@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+
 # Set up the environment.
+echo "Install StarConsoleLink Begin"
 
 PLUGIN_DIR="$HOME/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
 STARCONSOLELINK_PATH="$PLUGIN_DIR/StarConsoleLink.xcplugin"
 DOMAIN="https://github.com"
-
 
 # check path, remove if exist
 
