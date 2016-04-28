@@ -30,7 +30,7 @@ let ErrorColor = "196,26,22"        // 红色
 let ErrorTitle = "Error"
 
 let ImportantColor = "196,26,22"    // 红色
-let ImportantTitle = "Important - 如果发现该行日志，应该及时处理"
+let ImportantTitle = "Important - 及时处理"
 
 let SuccessColor = "0,116,0"        // 绿色
 let SuccessTitle = "Success"

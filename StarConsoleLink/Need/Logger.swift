@@ -14,7 +14,7 @@ struct LogColor {
     static let ESCAPE = "\u{001b}["
     static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
     static let RESET_BG = ESCAPE + "bg;" // Clear any background color
-    static let RESET = ESCAPE + ";"   // Clear any foreground or background color
+    static let RESET = ESCAPE + ";"      // Clear any foreground or background color
 }
 
 let InfoColor = "22,22,22"          // 黑色

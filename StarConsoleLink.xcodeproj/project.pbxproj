@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */; };
-		F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */; };
-		F83C54DF1C76D5D500B03BCF /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */; };
-		F83C54E01C76D5D500B03BCF /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */; };
-		F83C54E41C76FE1800B03BCF /* LogColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F83C54E31C76FE1800B03BCF /* LogColorKit.m */; };
 		F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B809361C63255300853EA8 /* NSColor-Extension.swift */; };
-		F8F23F1A1CD0F28B002623E4 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F151CD0F28B002623E4 /* JRSwizzle.m */; };
+		F8D69B551CD1DF1800F8EB06 /* LogColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B541CD1DF1800F8EB06 /* LogColorKit.m */; };
+		F8D69B591CD1DFCD00F8EB06 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B581CD1DFCD00F8EB06 /* JRSwizzle.m */; };
+		F8D69B5D1CD1E03F00F8EB06 /* NSObject-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B5A1CD1E03F00F8EB06 /* NSObject-Extension.swift */; };
+		F8D69B5E1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B5B1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift */; };
+		F8D69B5F1CD1E03F00F8EB06 /* NSTextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B5C1CD1E03F00F8EB06 /* NSTextView-Extension.swift */; };
+		F8D69B651CD1E07F00F8EB06 /* ConsoleLinkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B621CD1E07F00F8EB06 /* ConsoleLinkConfig.swift */; };
+		F8D69B661CD1E07F00F8EB06 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B631CD1E07F00F8EB06 /* SettingsWindowController.swift */; };
+		F8D69B671CD1E07F00F8EB06 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D69B641CD1E07F00F8EB06 /* SettingsWindowController.xib */; };
 		F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F161CD0F28B002623E4 /* PluginHelper.swift */; };
 		F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F191CD0F28B002623E4 /* StarFunctions.m */; };
 		F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F1E1CD0F2DF002623E4 /* Logger.swift */; };
-		F8F23F221CD0F2DF002623E4 /* OCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F201CD0F2DF002623E4 /* OCLogger.m */; };
-		F8F23F241CD0F35A002623E4 /* NSObject-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */; };
-		F8F804A81C5A1EBC00391DD0 /* NSTextStorage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */; };
-		F8F804A91C5A1EBC00391DD0 /* NSTextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */; };
 		F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */; };
 		F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */; };
 		F8FC45ED1C59E7570037FEE5 /* StarConsoleLink.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = F8FC45EC1C59E7570037FEE5 /* StarConsoleLink.xcscheme */; };
@@ -29,23 +28,22 @@
 
 /* Begin PBXFileReference section */
 		F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch-Extension.swift"; sourceTree = "<group>"; };
-		F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLinkConfig.swift; sourceTree = "<group>"; };
-		F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
-		F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
-		F83C54E21C76FE1800B03BCF /* LogColorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogColorKit.h; sourceTree = "<group>"; };
-		F83C54E31C76FE1800B03BCF /* LogColorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogColorKit.m; sourceTree = "<group>"; };
 		F8B809361C63255300853EA8 /* NSColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor-Extension.swift"; sourceTree = "<group>"; };
-		F8F23F141CD0F28B002623E4 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
-		F8F23F151CD0F28B002623E4 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		F8D69B4D1CD1DD6300F8EB06 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		F8D69B531CD1DF1800F8EB06 /* LogColorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogColorKit.h; sourceTree = "<group>"; };
+		F8D69B541CD1DF1800F8EB06 /* LogColorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogColorKit.m; sourceTree = "<group>"; };
+		F8D69B571CD1DFCD00F8EB06 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		F8D69B581CD1DFCD00F8EB06 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		F8D69B5A1CD1E03F00F8EB06 /* NSObject-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject-Extension.swift"; sourceTree = "<group>"; };
+		F8D69B5B1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextStorage-Extension.swift"; sourceTree = "<group>"; };
+		F8D69B5C1CD1E03F00F8EB06 /* NSTextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView-Extension.swift"; sourceTree = "<group>"; };
+		F8D69B621CD1E07F00F8EB06 /* ConsoleLinkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLinkConfig.swift; sourceTree = "<group>"; };
+		F8D69B631CD1E07F00F8EB06 /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		F8D69B641CD1E07F00F8EB06 /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
 		F8F23F161CD0F28B002623E4 /* PluginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginHelper.swift; sourceTree = "<group>"; };
 		F8F23F181CD0F28B002623E4 /* StarFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarFunctions.h; sourceTree = "<group>"; };
 		F8F23F191CD0F28B002623E4 /* StarFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarFunctions.m; sourceTree = "<group>"; };
 		F8F23F1E1CD0F2DF002623E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		F8F23F1F1CD0F2DF002623E4 /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
-		F8F23F201CD0F2DF002623E4 /* OCLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLogger.m; sourceTree = "<group>"; };
-		F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject-Extension.swift"; sourceTree = "<group>"; };
-		F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextStorage-Extension.swift"; sourceTree = "<group>"; };
-		F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operator-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
 		F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarConsoleLink.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,39 +64,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F83C54AF1C76C8A600B03BCF /* Business */ = {
+		F8D69B521CD1DF1800F8EB06 /* LogColor */ = {
 			isa = PBXGroup;
 			children = (
-				F83C54E11C76FDF200B03BCF /* LogColor */,
-				F83C54B01C76C8CE00B03BCF /* Settings */,
+				F8D69B531CD1DF1800F8EB06 /* LogColorKit.h */,
+				F8D69B541CD1DF1800F8EB06 /* LogColorKit.m */,
+			);
+			path = LogColor;
+			sourceTree = "<group>";
+		};
+		F8D69B561CD1DFCD00F8EB06 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				F8D69B571CD1DFCD00F8EB06 /* JRSwizzle.h */,
+				F8D69B581CD1DFCD00F8EB06 /* JRSwizzle.m */,
+			);
+			path = JRSwizzle;
+			sourceTree = "<group>";
+		};
+		F8D69B601CD1E07F00F8EB06 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				F8D69B611CD1E07F00F8EB06 /* Settings */,
 			);
 			path = Business;
 			sourceTree = "<group>";
 		};
-		F83C54B01C76C8CE00B03BCF /* Settings */ = {
+		F8D69B611CD1E07F00F8EB06 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */,
-				F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */,
-				F83C54DE1C76D5D500B03BCF /* SettingsWindowController.xib */,
+				F8D69B621CD1E07F00F8EB06 /* ConsoleLinkConfig.swift */,
+				F8D69B631CD1E07F00F8EB06 /* SettingsWindowController.swift */,
+				F8D69B641CD1E07F00F8EB06 /* SettingsWindowController.xib */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		F83C54E11C76FDF200B03BCF /* LogColor */ = {
-			isa = PBXGroup;
-			children = (
-				F83C54E21C76FE1800B03BCF /* LogColorKit.h */,
-				F83C54E31C76FE1800B03BCF /* LogColorKit.m */,
-			);
-			path = LogColor;
 			sourceTree = "<group>";
 		};
 		F8F23F131CD0F28B002623E4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				F8F23F141CD0F28B002623E4 /* JRSwizzle.h */,
-				F8F23F151CD0F28B002623E4 /* JRSwizzle.m */,
+				F8D69B561CD1DFCD00F8EB06 /* JRSwizzle */,
+				F8D69B521CD1DF1800F8EB06 /* LogColor */,
 				F8F23F161CD0F28B002623E4 /* PluginHelper.swift */,
 				F8F23F181CD0F28B002623E4 /* StarFunctions.h */,
 				F8F23F191CD0F28B002623E4 /* StarFunctions.m */,
@@ -110,8 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F8F23F1E1CD0F2DF002623E4 /* Logger.swift */,
-				F8F23F1F1CD0F2DF002623E4 /* OCLogger.h */,
-				F8F23F201CD0F2DF002623E4 /* OCLogger.m */,
+				F8D69B4D1CD1DD6300F8EB06 /* Logger.h */,
 			);
 			path = Need;
 			sourceTree = "<group>";
@@ -138,8 +143,11 @@
 				F8F23F1D1CD0F2C0002623E4 /* Need */,
 				F8F23F131CD0F28B002623E4 /* Library */,
 				F8FC45F81C59E79C0037FEE5 /* Extensions */,
-				F83C54AF1C76C8A600B03BCF /* Business */,
+				F8D69B601CD1E07F00F8EB06 /* Business */,
 				F8FC45EE1C59E7570037FEE5 /* StarConsoleLink.swift */,
+				F8D69B5A1CD1E03F00F8EB06 /* NSObject-Extension.swift */,
+				F8D69B5B1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift */,
+				F8D69B5C1CD1E03F00F8EB06 /* NSTextView-Extension.swift */,
 				F8FC45F21C59E7570037FEE5 /* Info.plist */,
 				F8FC45EB1C59E7570037FEE5 /* Supporting Files */,
 				F8FC46141C59E7D50037FEE5 /* StarConsoleLink-Bridging-Header.h */,
@@ -162,9 +170,6 @@
 				F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */,
 				F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */,
 				F8B809361C63255300853EA8 /* NSColor-Extension.swift */,
-				F8F804A21C5A1EBC00391DD0 /* NSTextStorage-Extension.swift */,
-				F8F804A31C5A1EBC00391DD0 /* NSTextView-Extension.swift */,
-				F8F23F231CD0F35A002623E4 /* NSObject-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,8 +231,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D69B671CD1E07F00F8EB06 /* SettingsWindowController.xib in Resources */,
 				F8FC45ED1C59E7570037FEE5 /* StarConsoleLink.xcscheme in Resources */,
-				F83C54E01C76D5D500B03BCF /* SettingsWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,22 +243,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F23F241CD0F35A002623E4 /* NSObject-Extension.swift in Sources */,
+				F8D69B551CD1DF1800F8EB06 /* LogColorKit.m in Sources */,
 				F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */,
-				F83C54DF1C76D5D500B03BCF /* SettingsWindowController.swift in Sources */,
 				F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */,
-				F8F804A81C5A1EBC00391DD0 /* NSTextStorage-Extension.swift in Sources */,
+				F8D69B5E1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift in Sources */,
+				F8D69B5D1CD1E03F00F8EB06 /* NSObject-Extension.swift in Sources */,
+				F8D69B651CD1E07F00F8EB06 /* ConsoleLinkConfig.swift in Sources */,
+				F8D69B5F1CD1E03F00F8EB06 /* NSTextView-Extension.swift in Sources */,
 				F8FC45EF1C59E7570037FEE5 /* StarConsoleLink.swift in Sources */,
 				F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */,
 				F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */,
 				F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */,
-				F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */,
-				F8F23F221CD0F2DF002623E4 /* OCLogger.m in Sources */,
-				F8F23F1A1CD0F28B002623E4 /* JRSwizzle.m in Sources */,
-				F8F804A91C5A1EBC00391DD0 /* NSTextView-Extension.swift in Sources */,
+				F8D69B591CD1DFCD00F8EB06 /* JRSwizzle.m in Sources */,
 				F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */,
+				F8D69B661CD1E07F00F8EB06 /* SettingsWindowController.swift in Sources */,
 				F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */,
-				F83C54E41C76FE1800B03BCF /* LogColorKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

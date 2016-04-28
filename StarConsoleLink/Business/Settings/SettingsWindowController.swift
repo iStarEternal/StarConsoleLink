@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+/// 开发中 未完成 以后颜色由Xcode配置，不再由代码配
 class SettingsWindowController: NSWindowController {
     
     
@@ -44,6 +44,7 @@ class SettingsWindowController: NSWindowController {
     }
     
     func loadConfig() {
+        
         debugLogKeywordTextField.stringValue = ConsoleLinkConfig.debugLogKeyword
         infoLogKeywordTextField.stringValue = ConsoleLinkConfig.infoLogKeyword
         warningLogKeywordTextField.stringValue = ConsoleLinkConfig.warningLogKeyword

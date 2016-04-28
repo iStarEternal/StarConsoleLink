@@ -8,10 +8,11 @@
 
 
 
-
-
-
 #import "OCLogger.h"
+
+@interface OCLogger ()
+
+@end
 
 @implementation OCLogger
 
