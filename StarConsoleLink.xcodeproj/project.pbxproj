@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F812403E1C74254A0050E620 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F812403D1C74254A0050E620 /* README.md */; };
 		F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */; };
 		F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */; };
 		F83C54DF1C76D5D500B03BCF /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */; };
@@ -29,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F812403D1C74254A0050E620 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch-Extension.swift"; sourceTree = "<group>"; };
 		F83C54B11C76C8E000B03BCF /* ConsoleLinkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLinkConfig.swift; sourceTree = "<group>"; };
 		F83C54DD1C76D5D500B03BCF /* SettingsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			children = (
 				F8FC45EA1C59E7570037FEE5 /* StarConsoleLink */,
 				F8FC45E91C59E7570037FEE5 /* Products */,
-				F812403D1C74254A0050E620 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,7 +248,6 @@
 				F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */,
 				F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */,
 				F83C54B21C76C8E000B03BCF /* ConsoleLinkConfig.swift in Sources */,
-				F812403E1C74254A0050E620 /* README.md in Sources */,
 				F8F23F221CD0F2DF002623E4 /* OCLogger.m in Sources */,
 				F8F23F1A1CD0F28B002623E4 /* JRSwizzle.m in Sources */,
 				F8F804A91C5A1EBC00391DD0 /* NSTextView-Extension.swift in Sources */,

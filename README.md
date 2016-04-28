@@ -39,6 +39,13 @@ Fourth.  If you want to custom you logs, please follow the rules: [FileName.exte
 
 第四步：如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
+## Install
+```install
+
+curl -fsSL https://github.com/iStarEternal/StarConsoleLink/blob/master/Scripts/install.sh | sh
+
+```
+
 
 ## Example
 * Objective-C
