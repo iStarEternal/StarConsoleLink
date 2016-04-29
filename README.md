@@ -14,30 +14,9 @@ StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs
 
 Thank for you support @robbiehanson.  https://github.com/robbiehanson/XcodeColors
 
-
 StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 谢谢@robbiehanson提供的支持。
-
-
-## How to use ?
-
-1.  Run StarConsoleLink in you Xcode.
-
-2.  If you are using Swift, Copy Logger.swift to you project.
-
-3.  If you are using Objective-C, Copy OCLogger.h define to you PrefixHeader.pch.
-
-4.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
-
-
-一、用Xcode打开并运行StarConsoleLink。
-
-二、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
-
-三、如果你使用的是Objective-C，请拷贝OCLogger.h中的宏定义到你的PCH文件中去。
-
-四、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
 
 ## Install
@@ -47,11 +26,32 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 ```
 
 
+## Uninstall
+
+```uninstall
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
+```
+
+
+## How to use ?
+
+1.  If you are using Swift, Copy Logger.swift to you project.
+
+2.  If you are using Objective-C, Copy OCLogger.h define to you PrefixHeader.pch.
+
+3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
+
+一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
+
+二、如果你使用的是Objective-C，请拷贝OCLogger.h中的宏定义到你的PCH文件中去。
+
+三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
+
+
 ## Example
 
 * Objective-C
 ```objective-c
-
 
 #define XCodeColors 1
 
@@ -73,7 +73,6 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 #define FailureColor @"196,26,22"      // 红色
 #define FailureTitle @"Failure"
 
-
 #if DEBUG
 
 #if XCodeColors != 0      // color begin
@@ -82,9 +81,6 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 #define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
 #define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
 #define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
-
-
-
 
 #define LogInfo(format, ...) \
 NSLog(XCODE_COLORS_ESCAPE @"fg" InfoColor @";" @"[" InfoTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
@@ -146,10 +142,10 @@ LogInfo("StarConsoleLink");
 
 struct LogColor {
 
-static let ESCAPE = "\u{001b}["
-static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
-static let RESET_BG = ESCAPE + "bg;" // Clear any background color
-static let RESET = ESCAPE + ";"   // Clear any foreground or background color
+    static let ESCAPE = "\u{001b}["
+    static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
+    static let RESET_BG = ESCAPE + "bg;" // Clear any background color
+    static let RESET = ESCAPE + ";"   // Clear any foreground or background color
 }
 
 let InfoColor = "22,22,22"          // 黑色
@@ -170,38 +166,37 @@ let ImportantTitle = "Important - 如果发现该行日志，应该及时处理"
 
 class Logger: NSObject {
 
-// WEIGHT: 0
-class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
-Swift.print("\(LogColor.ESCAPE)fg\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET)")
-}
+    // WEIGHT: 0
+    class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
+        Swift.print("\(LogColor.ESCAPE)fg\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET)")
+    }
 
-// WEIGHT: 0
-class func info<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
-print(value, title: InfoTitle, color: InfoColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-}
+    // WEIGHT: 0
+    class func info<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+        print(value, title: InfoTitle, color: InfoColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    }
 
-// WEIGHT: 0
-class func debug<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
-print(value, title: DebugTitle, color: DebugColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-}
+    // WEIGHT: 0
+    class func debug<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+        print(value, title: DebugTitle, color: DebugColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    }
 
-// WEIGHT: 2
-class func warning<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
-print(value, title: WarningTitle, color: WarningColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-}
+    // WEIGHT: 2
+    class func warning<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+        print(value, title: WarningTitle, color: WarningColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    }
 
-// WEIGHT: 4
-class func error<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
-print(value, title: ErrorTitle, color: ErrorColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-}
+    // WEIGHT: 4
+    class func error<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+        print(value, title: ErrorTitle, color: ErrorColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    }
 
-// WEIGHT: 5
-class func important<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
-print(value, title: ImportantTitle, color: ImportantColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-}
+    // WEIGHT: 5
+    class func important<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+        print(value, title: ImportantTitle, color: ImportantColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+    }
 
 }
-
 
 ```
 And then you can log within a Swift method like so:
