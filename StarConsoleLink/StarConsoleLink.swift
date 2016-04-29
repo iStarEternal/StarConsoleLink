@@ -25,8 +25,12 @@ class StarConsoleLink: NSObject {
         self.bundle = bundle
         super.init()
         
-        center.addObserver(self, selector: #selector(finishLaunchingNotification(_:)), name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        center.addObserver(self, selector: #selector(controlGroupDidChangeNotification(_:)), name: "IDEControlGroupDidChangeNotificationName", object: nil)
+        //        center.addObserver(self, selector: #selector(finishLaunchingNotification(_:)), name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        //        center.addObserver(self, selector: #selector(controlGroupDidChangeNotification(_:)), name: "IDEControlGroupDidChangeNotificationName", object: nil)
+        
+        
+        center.addObserver(self, selector: "finishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        center.addObserver(self, selector: "controlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
     }
     
     override static func initialize() {
@@ -61,8 +65,11 @@ class StarConsoleLink: NSObject {
     static func swizzleMethods() {
         do {
             
-            try NSTextStorage.self.jr_swizzleMethod(#selector(NSTextStorage.fixAttributesInRange(_:)), withMethod: #selector(NSTextStorage.star_fixAttributesInRange(_:)))
-            try NSTextView.self.jr_swizzleMethod(#selector(NSTextView.mouseDown(_:)), withMethod: #selector(NSTextView.star_mouseDown(_:)))
+            // try NSTextStorage.self.jr_swizzleMethod(#selector(NSTextStorage.fixAttributesInRange(_:)), withMethod: #selector(NSTextStorage.star_fixAttributesInRange(_:)))
+            // try NSTextView.self.jr_swizzleMethod(#selector(NSTextView.mouseDown(_:)), withMethod: #selector(NSTextView.star_mouseDown(_:)))
+            
+            try NSTextStorage.self.jr_swizzleMethod("fixAttributesInRange:", withMethod: "star_fixAttributesInRange:")
+            try NSTextView.self.jr_swizzleMethod("mouseDown:", withMethod: "star_mouseDown:")
         }
         catch let error as NSError {
             Logger.info("Swizzling failed \(error)")
@@ -98,10 +105,11 @@ class StarConsoleLink: NSObject {
         // 在Star Console Link 菜单上创建开关
         var enabledConsoleLinkItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Enabled")
         if enabledConsoleLinkItem == nil {
-            enabledConsoleLinkItem = NSMenuItem() 
+            enabledConsoleLinkItem = NSMenuItem()
             enabledConsoleLinkItem.title = "Enabled"
             enabledConsoleLinkItem.target = self
-            enabledConsoleLinkItem.action = #selector(handleEnabledConsoleLink(_:))
+            // enabledConsoleLinkItem.action = #selector(handleEnabledConsoleLink(_:))
+            enabledConsoleLinkItem.action = "handleEnabledConsoleLink:"
             starConsoleLinkItem.submenu?.addItem(enabledConsoleLinkItem)
             ConsoleLinkConfig.enabledConsoleLink = true
         }
@@ -113,10 +121,11 @@ class StarConsoleLink: NSObject {
         // 在Star Console Link 菜单上创建开关
         var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
         if showSettingsItem == nil {
-            showSettingsItem = NSMenuItem() 
+            showSettingsItem = NSMenuItem()
             showSettingsItem.title = "Settings"
             showSettingsItem.target = self
-            showSettingsItem.action = #selector(handleShowSettingsItem(_:))
+            // showSettingsItem.action = #selector(handleShowSettingsItem(_:))
+            showSettingsItem.action = "handleShowSettingsItem:"
             starConsoleLinkItem.submenu?.addItem(showSettingsItem)
         }
         
