@@ -263,7 +263,7 @@ __LINE__,\
 ```
 And then you can log within a Objective-C method like so:
 
-```Objective-C Log
+```Objective-C
 LogInfo("StarConsoleLink");
 ```
 

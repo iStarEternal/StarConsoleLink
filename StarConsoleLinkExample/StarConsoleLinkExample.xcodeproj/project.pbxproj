@@ -65,8 +65,8 @@
 		F8F23F021CD0EFE0002623E4 /* StarConsoleLinkExample */ = {
 			isa = PBXGroup;
 			children = (
-				F85C54F31CD369710049775F /* Logger.h */,
 				F8D69B691CD1E7B000F8EB06 /* Logger.swift */,
+				F85C54F31CD369710049775F /* Logger.h */,
 				F8D69B681CD1E7B000F8EB06 /* NSLog-Logger.h */,
 				F8F23F031CD0EFE0002623E4 /* main.swift */,
 				F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */,
