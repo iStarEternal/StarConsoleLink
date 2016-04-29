@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Logger.h"
 
 @interface OCLogger : NSObject
 

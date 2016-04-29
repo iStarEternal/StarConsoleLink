@@ -5,7 +5,11 @@ StarConsoleLink inject the link to your Xcode console, which allows you to click
 
 StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速定位到代码位置。
 
-![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/example_image.png "Title here")
+* This is Case Diagram for Objective-C
+![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/example_image_objc.png "Title here")
+
+* This is Case Diagram for Swift
+![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/example_image_swift.png "Title here")
 
 
 ## The New Feature
@@ -53,7 +57,21 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 * Objective-C
 ```objective-c
 
-#define XCodeColors 1
+#define StarDebug DEBUG
+#define StarXCodeColors 1
+
+#define XCODE_COLORS_ESCAPE @"\033["
+#define XCODE_COLORS_ESCAPE_FG XCODE_COLORS_ESCAPE @"fg"
+#define XCODE_COLORS_ESCAPE_BG XCODE_COLORS_ESCAPE @"bg"
+
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
+
+
+#define NSLogColor @"22,22,22"          // 黑色
+#define NSLogTitle @"Info"
 
 #define InfoColor @"22,22,22"          // 黑色
 #define InfoTitle @"Info"
@@ -73,79 +91,198 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 #define FailureColor @"196,26,22"      // 红色
 #define FailureTitle @"Failure"
 
-#if DEBUG
 
-#if XCodeColors != 0      // color begin
+#if StarDebug /* Debug Begin */
 
-#define XCODE_COLORS_ESCAPE @"\033["
-#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
-#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
-#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+#if StarXCodeColors != 0 /* Color Begin */
 
+// NSLog
+#define NSLog(format, ...) \
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[NSLogColor UTF8String],\
+[NSLogTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
+
+// Information
 #define LogInfo(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" InfoColor @";" @"[" InfoTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[InfoColor UTF8String],\
+[InfoTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
+// Debug
 #define LogDebug(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" DebugColor @";" @"[" DebugTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[DebugColor UTF8String],\
+[DebugTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
+// Warning
 #define LogWarning(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" WarningColor @";" @"[" WarningTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[WarningColor UTF8String],\
+[WarningTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
+// Error
 #define LogError(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" ErrorColor @";" @"[" ErrorTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[ErrorColor UTF8String],\
+[ErrorTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
+// Success
 #define LogSuccess(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" SuccessColor @";" @"[" SuccessTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[SuccessColor UTF8String],\
+[SuccessTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
+// Failure
 #define LogFailure(format, ...) \
-NSLog(XCODE_COLORS_ESCAPE @"fg" FailureColor @";" @"[" FailureTitle @"][%@:%d] %@" XCODE_COLORS_RESET, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("%s%s;[%s][%s:%d] %s %s \n",\
+[XCODE_COLORS_ESCAPE_FG UTF8String],\
+[FailureColor UTF8String],\
+[FailureTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+[XCODE_COLORS_RESET_FG UTF8String]\
+);\
 
-#else
+#else /* Color Else */
 
+// NSLog
+#define NSLog(format, ...) \
+printf("[%s][%s:%d] %s\n",\
+[NSLogTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
+
+// Information
 #define LogInfo(format, ...) \
-NSLog(@"[" InfoTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[InfoTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
+// Debug
 #define LogDebug(format, ...) \
-NSLog(@"[" DebugTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[DebugTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
+// Warning
 #define LogWarning(format, ...) \
-NSLog(@"[" WarningTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[WarningTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
+// Error
 #define LogError(format, ...) \
-NSLog(@"[" ErrorTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[ErrorTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
+// Success
 #define LogSuccess(format, ...) \
-NSLog(@"[" SuccessTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[SuccessTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
+// Failure
 #define LogFailure(format, ...) \
-NSLog(@"[" FailureTitle @"][%@:%d] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+printf("[%s][%s:%d] %s\n",\
+[FailureTitle UTF8String],\
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
+__LINE__,\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+);\
 
-#endif  // color end
+#endif /* Color End */
 
-#else
+#else /* Debug Else */
 
+#define NSLog(...) while(0){}
 #define LogInfo(...) while(0){}
 #define LogDebug(...) while(0){}
 #define LogError(...) while(0){}
 #define LogWarning(...) while(0){}
 #define LogSuccess(...) while(0){}
 #define LogFailure(...) while(0){}
-#endif
+
+#endif /* Debug End */
+
 
 ```
 And then you can log within a Objective-C method like so:
-```Objective-C
+
+```Objective-C Log
 LogInfo("StarConsoleLink");
 ```
+
 * Swift
 ```swift
 
+let StarDebug = true
+
 struct LogColor {
 
+    static let XcodeColors = true
+
     static let ESCAPE = "\u{001b}["
+    static let ESCAPE_FG = "\u{001b}[fg"
+    static let ESCAPE_BG = "\u{001b}[bg"
+
+    static let RESET = ESCAPE + ";"      // Clear any foreground or background color
     static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
     static let RESET_BG = ESCAPE + "bg;" // Clear any background color
-    static let RESET = ESCAPE + ";"   // Clear any foreground or background color
 }
 
 let InfoColor = "22,22,22"          // 黑色
@@ -168,7 +305,15 @@ class Logger: NSObject {
 
     // WEIGHT: 0
     class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
-        Swift.print("\(LogColor.ESCAPE)fg\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET)")
+        guard StarDebug else {
+            return
+        }
+        if LogColor.XcodeColors {
+            Swift.print("\(LogColor.ESCAPE_FG)\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET_FG)")
+        }
+        else {
+            Swift.print("[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)")
+        }
     }
 
     // WEIGHT: 0

@@ -9,6 +9,10 @@
 
 
 #import "OCLogger.h"
+#import "Logger.h"
+//#import "NSLog-Logger.h"
+
+
 
 @interface OCLogger ()
 
@@ -19,6 +23,7 @@
 - (void)runLog {
     
     LogWarning(@"------------------ ObjectiveC Logger Test ------------------");
+    NSLog(@"NSLog");
     LogDebug(@"调试");
     LogInfo(@"消息");
     LogWarning(@"警告");

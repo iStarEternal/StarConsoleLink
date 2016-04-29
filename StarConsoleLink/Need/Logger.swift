@@ -8,13 +8,19 @@
 
 import Foundation
 
+let StarDebug = true
 
 struct LogColor {
     
+    static let XcodeColors = true
+    
     static let ESCAPE = "\u{001b}["
+    static let ESCAPE_FG = "\u{001b}[fg"
+    static let ESCAPE_BG = "\u{001b}[bg"
+    
+    static let RESET = ESCAPE + ";"      // Clear any foreground or background color
     static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
     static let RESET_BG = ESCAPE + "bg;" // Clear any background color
-    static let RESET = ESCAPE + ";"      // Clear any foreground or background color
 }
 
 let InfoColor = "22,22,22"          // 黑色
@@ -50,7 +56,15 @@ class Logger: NSObject {
     
     // WEIGHT: 0
     class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
-        Swift.print("\(LogColor.ESCAPE)fg\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET)")
+        guard StarDebug else {
+            return
+        }
+        if LogColor.XcodeColors {
+            Swift.print("\(LogColor.ESCAPE_FG)\(color);[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)\(LogColor.RESET_FG)")
+        }
+        else {
+            Swift.print("[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)")
+        }
     }
     
     // WEIGHT: 0
