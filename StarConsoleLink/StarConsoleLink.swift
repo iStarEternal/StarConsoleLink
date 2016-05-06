@@ -25,42 +25,13 @@ class StarConsoleLink: NSObject {
         self.bundle = bundle
         super.init()
         
-        //        center.addObserver(self, selector: #selector(finishLaunchingNotification(_:)), name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        //        center.addObserver(self, selector: #selector(controlGroupDidChangeNotification(_:)), name: "IDEControlGroupDidChangeNotificationName", object: nil)
-        
-        
-        center.addObserver(self, selector: "finishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        center.addObserver(self, selector: "controlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
+        center.addObserver(self, selector: "handleFinishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        center.addObserver(self, selector: "handleControlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
     }
     
     override static func initialize() {
         swizzleMethods()
     }
-    
-    
-    // MARK: - 通知
-    
-    func finishLaunchingNotification(notification: NSNotification) {
-        center.removeObserver(self, name: NSApplicationDidFinishLaunchingNotification, object: nil)
-        createMenuItems()
-    }
-    
-    func controlGroupDidChangeNotification(notification: NSNotification) {
-        
-        // DVTSourceTextView
-        guard let consoleTextView = PluginHelper.consoleTextView(),
-            let textStorage = consoleTextView.valueForKey("textStorage") as? NSTextStorage else {
-                return
-        }
-        consoleTextView.linkTextAttributes = [
-            NSCursorAttributeName: NSCursor.pointingHandCursor(),
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
-        ]
-        textStorage.usedInConsole = ConsoleLinkConfig.enabledConsoleLink
-    }
-    
-    
-    // MARK: - 改变方法
     
     static func swizzleMethods() {
         do {
@@ -72,9 +43,36 @@ class StarConsoleLink: NSObject {
             try NSTextView.self.jr_swizzleMethod("mouseDown:", withMethod: "star_mouseDown:")
         }
         catch let error as NSError {
-            Logger.info("Swizzling failed \(error)")
+            Logger.info("Swizzling failure: \(error)")
         }
     }
+    
+    
+    
+    // MARK: - 通知
+    
+    func handleFinishLaunchingNotification(notification: NSNotification) {
+        center.removeObserver(self, name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        createMenuItems()
+    }
+    
+    func handleControlGroupDidChangeNotification(notification: NSNotification) {
+        
+        if let consoleTextView = PluginHelper.consoleTextView(), let textStorage = consoleTextView.textStorage {
+            
+            consoleTextView.linkTextAttributes = [
+                NSCursorAttributeName: NSCursor.pointingHandCursor(),
+                NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
+            ]
+            
+            textStorage.usedInConsole = ConsoleLinkConfig.isFirstLoad ? true : ConsoleLinkConfig.enabledConsoleLink
+            
+            // center.removeObserver(self, name: "IDEControlGroupDidChangeNotificationName", object: nil)
+            
+            Logger.warning("Used In XcodeConsole \(textStorage.usedInConsole)")
+        }
+    }
+    
     
     
     // MARK: - 创建菜单
@@ -119,22 +117,23 @@ class StarConsoleLink: NSObject {
         
         
         // 在Star Console Link 菜单上创建开关
-        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
-        if showSettingsItem == nil {
-            showSettingsItem = NSMenuItem()
-            showSettingsItem.title = "Settings"
-            showSettingsItem.target = self
-            // showSettingsItem.action = #selector(handleShowSettingsItem(_:))
-            showSettingsItem.action = "handleShowSettingsItem:"
-            starConsoleLinkItem.submenu?.addItem(showSettingsItem)
-        }
+        //        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
+        //        if showSettingsItem == nil {
+        //            showSettingsItem = NSMenuItem()
+        //            showSettingsItem.title = "Settings"
+        //            showSettingsItem.target = self
+        //            // showSettingsItem.action = #selector(handleShowSettingsItem(_:))
+        //            showSettingsItem.action = "handleShowSettingsItem:"
+        //            starConsoleLinkItem.submenu?.addItem(showSettingsItem)
+        //        }
         
     }
     
     func handleEnabledConsoleLink(item: NSMenuItem) {
         
         let consoleTextView = PluginHelper.consoleTextView()
-        let textStorage = consoleTextView?.valueForKey("textStorage") as? NSTextStorage
+        let textStorage = consoleTextView?.textStorage
+        
         if item.state == NSOnState {
             ConsoleLinkConfig.enabledConsoleLink = false
             item.state = NSOffState
@@ -146,6 +145,10 @@ class StarConsoleLink: NSObject {
             textStorage?.usedInConsole = true
         }
     }
+    
+    
+    
+    // MARK: - Setting Window
     
     var settingsWindowController: SettingsWindowController!
     

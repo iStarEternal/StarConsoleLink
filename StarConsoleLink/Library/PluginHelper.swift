@@ -9,6 +9,50 @@
 import Foundation
 import AppKit
 
+
+// MARK: - File Cache & Find File
+
+// [workspacePath : [fileName : filePath]]
+var filePathCache = [String : [String : String]]()
+
+func findFile(workspacePath : String, _ fileName : String) -> String? {
+    var thisWorkspaceCache = filePathCache[workspacePath] ?? [:]
+    if let result = thisWorkspaceCache[fileName] {
+        if NSFileManager.defaultManager().fileExistsAtPath(result) {
+            return result
+        }
+    }
+    
+    var searchPath = workspacePath
+    var prevSearchPath : String? = nil
+    var searchCount = 0
+    while true {
+        if let result = findFile(fileName, searchPath, prevSearchPath) where !result.isEmpty {
+            thisWorkspaceCache[fileName] = result
+            filePathCache[workspacePath] = thisWorkspaceCache
+            return result
+        }
+        
+        prevSearchPath = searchPath
+        searchPath = searchPath.OCString.stringByDeletingLastPathComponent
+        searchCount += 1
+        let searchPathCount = searchPath.componentsSeparatedByString("/").count
+        if searchPathCount <= 3 || searchCount >= 2 {
+            return nil
+        }
+    }
+}
+
+func findFile(fileName : String, _ searchPath : String, _ prevSearchPath : String?) -> String? {
+    let args = (prevSearchPath == nil ?
+        ["-L", searchPath, "-name", fileName, "-print", "-quit"] :
+        ["-L", searchPath, "-name", prevSearchPath!, "-prune", "-o", "-name", fileName, "-print", "-quit"])
+    return PluginHelper.runShellCommand("/usr/bin/find", arguments: args)
+}
+
+
+// MARK: - PluginHelper
+
 class PluginHelper: NSObject {
     
     static func runShellCommand(launchPath: String, arguments: [String]) -> String? {
@@ -26,6 +70,7 @@ class PluginHelper: NSObject {
     }
     
     static func getViewByClassName(name: String, inContainer container: NSView) -> NSView? {
+        
         guard let targetClass = NSClassFromString(name) else {
             return nil
         }
@@ -33,26 +78,17 @@ class PluginHelper: NSObject {
             if subview.isKindOfClass(targetClass) {
                 return subview
             }
-            
             if let view = getViewByClassName(name, inContainer: subview) {
                 return view
             }
         }
-        
         return nil
     }
 }
 
-// MARK: Accessing private API
-
 extension PluginHelper {
     
     static func workspacePath() -> String? {
-        
-        //        let document = NSApp.orderedDocuments.first
-        //        if let workspacePath = document?.fileURL?.URLByDeletingLastPathComponent?.URLByDeletingLastPathComponent?.path {
-        //            return workspacePath
-        //        }
         
         if let workspacePath = StarFunctions.workspacePath() {
             return workspacePath
@@ -79,6 +115,7 @@ extension PluginHelper {
         return workspacePath.stringByDeletingLastPathComponent as String
     }
     
+    // 代码台
     static func editorTextView(inWindow window: NSWindow? = NSApp.mainWindow) -> NSTextView? {
         guard let window = window,
             let windowController = window.windowController,
@@ -90,6 +127,7 @@ extension PluginHelper {
         return textView
     }
     
+    // DVTSourceTextView 控制台
     static func consoleTextView(inWindow window: NSWindow? = NSApp.mainWindow) -> NSTextView? {
         guard let contentView = window?.contentView,
             let consoleTextView = PluginHelper.getViewByClassName("IDEConsoleTextView", inContainer: contentView) as? NSTextView else {

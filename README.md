@@ -3,7 +3,7 @@
 
 StarConsoleLink inject the link to your Xcode console, which allows you to click on the link area rapid positioning to the log line.
 
-StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速定位到代码位置。
+StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速跳转到代码位置。
 
 * This is Case Diagram for Objective-C
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/example_image_objc.png "Title here")
@@ -57,8 +57,17 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 * Objective-C
 ```objective-c
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <execinfo.h>
+
+
+
 #define StarDebug DEBUG
 #define StarXCodeColors 1
+#define StarBackTrace 0
+
+#define StarBackTraceDepth 4
 
 #define XCODE_COLORS_ESCAPE @"\033["
 #define XCODE_COLORS_ESCAPE_FG XCODE_COLORS_ESCAPE @"fg"
@@ -91,164 +100,129 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 #define FailureColor @"196,26,22"      // 红色
 #define FailureTitle @"Failure"
 
+#define BackTraceColor @"22,22,22"          // 黑色
+#define BackTraceTitle @"BackTrace"
+
+
+const char* getBackTrace(BOOL stack, int depth);
+
+const char* getBackTrace(BOOL stack, int depth) {
+
+    if (stack) {
+        void* callstack[128];
+        int frames = backtrace(callstack, 128);
+        char **strs = backtrace_symbols(callstack, frames);
+        NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
+        for (int i = 1; i < frames; i++) {
+            NSString *str = [NSString stringWithUTF8String:strs[i]];
+            [backtrace addObject:str];
+            if (i == depth)
+                break;
+        }
+        free(strs);
+        return [[NSString stringWithFormat:@"\n%@", backtrace.description] UTF8String];
+    }
+    return "";
+}
+
 
 #if StarDebug /* Debug Begin */
 
 #if StarXCodeColors != 0 /* Color Begin */
 
-// NSLog
-#define NSLog(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
+#define PrivateLog(color, title, stack, format, ...)\
+printf("%s%s;[%s][%s:%d] %s %s %s\n",\
 [XCODE_COLORS_ESCAPE_FG UTF8String],\
-[NSLogColor UTF8String],\
-[NSLogTitle UTF8String],\
+[color UTF8String],\
+[title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
 [[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
+[XCODE_COLORS_RESET_FG UTF8String],\
+getBackTrace(stack, StarBackTraceDepth)\
 );\
+
+// NSLog
+#define NSLog(format, ...) \
+PrivateLog(NSLogColor, NSLogTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Information
 #define LogInfo(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[InfoColor UTF8String],\
-[InfoTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(InfoColor, InfoTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Debug
 #define LogDebug(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[DebugColor UTF8String],\
-[DebugTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(DebugColor, DebugTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Warning
 #define LogWarning(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[WarningColor UTF8String],\
-[WarningTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(WarningColor, WarningTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Error
 #define LogError(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[ErrorColor UTF8String],\
-[ErrorTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(ErrorColor, ErrorTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Success
 #define LogSuccess(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[SuccessColor UTF8String],\
-[SuccessTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(SuccessColor, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Failure
 #define LogFailure(format, ...) \
-printf("%s%s;[%s][%s:%d] %s %s \n",\
-[XCODE_COLORS_ESCAPE_FG UTF8String],\
-[FailureColor UTF8String],\
-[FailureTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String]\
-);\
+PrivateLog(FailureColor, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
+
+
+// Stack
+#define LogBackTrace(format, ...) \
+PrivateLog(BackTraceColor, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 
 #else /* Color Else */
 
-// NSLog
-#define NSLog(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[NSLogTitle UTF8String],\
+#define PrivateLog(color, title, stack, format, ...)\
+printf("[%s][%s:%d] %s %s\n",\
+[title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
+getBackTrace(stack, StarBackTraceDepth)\
 );\
+
+// NSLog
+#define NSLog(format, ...) \
+PrivateLog(0, NSLogTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Information
 #define LogInfo(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[InfoTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, InfoTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Debug
 #define LogDebug(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[DebugTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, DebugTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Warning
 #define LogWarning(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[WarningTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, WarningTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Error
 #define LogError(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[ErrorTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, ErrorTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Success
 #define LogSuccess(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[SuccessTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Failure
 #define LogFailure(format, ...) \
-printf("[%s][%s:%d] %s\n",\
-[FailureTitle UTF8String],\
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
-__LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
-);\
+PrivateLog(0, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
+
+// Stack
+#define LogBackTrace(format, ...) \
+PrivateLog(0, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 
 #endif /* Color End */
 
 #else /* Debug Else */
 
+#define PrivateLog(color, title, format, ...) while(0){}
 #define NSLog(...) while(0){}
 #define LogInfo(...) while(0){}
 #define LogDebug(...) while(0){}
@@ -256,6 +230,7 @@ __LINE__,\
 #define LogWarning(...) while(0){}
 #define LogSuccess(...) while(0){}
 #define LogFailure(...) while(0){}
+#define LogBackTrace(...) while(0){}
 
 #endif /* Debug End */
 

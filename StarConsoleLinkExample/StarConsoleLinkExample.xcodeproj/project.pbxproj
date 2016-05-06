@@ -26,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		F85C54F31CD369710049775F /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		F8D69B681CD1E7B000F8EB06 /* NSLog-Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLog-Logger.h"; sourceTree = "<group>"; };
 		F8D69B691CD1E7B000F8EB06 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F8F23F001CD0EFE0002623E4 /* StarConsoleLinkExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StarConsoleLinkExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F23F031CD0EFE0002623E4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 			children = (
 				F8D69B691CD1E7B000F8EB06 /* Logger.swift */,
 				F85C54F31CD369710049775F /* Logger.h */,
-				F8D69B681CD1E7B000F8EB06 /* NSLog-Logger.h */,
 				F8F23F031CD0EFE0002623E4 /* main.swift */,
 				F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */,
 				F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */,

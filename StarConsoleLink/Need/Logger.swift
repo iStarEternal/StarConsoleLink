@@ -56,6 +56,7 @@ class Logger: NSObject {
     
     // WEIGHT: 0
     class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
+        
         guard StarDebug else {
             return
         }

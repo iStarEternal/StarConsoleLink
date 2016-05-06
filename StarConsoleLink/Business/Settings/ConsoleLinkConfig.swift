@@ -47,7 +47,12 @@ class ConsoleLinkConfig: NSObject {
         }
     }
     
-    
+    static var isFirstLoad:Bool {
+        get {
+            let enabled: Bool? = configForKey(isOpenConsoleLinkKey)
+            return enabled == nil
+        }
+    }
     
     static var isOpenConsoleLinkKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
     
