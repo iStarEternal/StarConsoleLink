@@ -41,13 +41,13 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 
 1.  If you are using Swift, Copy Logger.swift to you project.
 
-2.  If you are using Objective-C, Copy Logger.h to you project and import to you PrefixHeader.pch.
+2.  If you are using Objective-C, Copy Logger.h and Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
 
 3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
 
 一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
 
-二、如果你使用的是Objective-C，请拷贝Logger.h到你的项目中去，并在你的.pch文件中#import它。
+二、如果你使用的是Objective-C，请拷贝Logger.h/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
 
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
@@ -57,17 +57,8 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 * Objective-C
 ```objective-c
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <execinfo.h>
-
-
-
 #define StarDebug DEBUG
 #define StarXCodeColors 1
-#define StarBackTrace 0
-
-#define StarBackTraceDepth 4
 
 #define XCODE_COLORS_ESCAPE @"\033["
 #define XCODE_COLORS_ESCAPE_FG XCODE_COLORS_ESCAPE @"fg"
@@ -85,138 +76,46 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 #define InfoColor @"22,22,22"          // 黑色
 #define InfoTitle @"Info"
 
-#define DebugColor @"28,0,207"         // 蓝色
-#define DebugTitle @"Debug"
-
-#define WarningColor @"218,130,53"     // 黄色
-#define WarningTitle @"Warning"
-
-#define ErrorColor @"196,26,22"        // 红色
-#define ErrorTitle @"Error"
-
-#define SuccessColor @"0,116,0"        // 绿色
-#define SuccessTitle @"Success"
-
-#define FailureColor @"196,26,22"      // 红色
-#define FailureTitle @"Failure"
-
-#define BackTraceColor @"22,22,22"          // 黑色
-#define BackTraceTitle @"BackTrace"
-
-
-const char* getBackTrace(BOOL stack, int depth);
-
-const char* getBackTrace(BOOL stack, int depth) {
-
-    if (stack) {
-        void* callstack[128];
-        int frames = backtrace(callstack, 128);
-        char **strs = backtrace_symbols(callstack, frames);
-        NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
-        for (int i = 1; i < frames; i++) {
-            NSString *str = [NSString stringWithUTF8String:strs[i]];
-            [backtrace addObject:str];
-            if (i == depth)
-                break;
-        }
-        free(strs);
-        return [[NSString stringWithFormat:@"\n%@", backtrace.description] UTF8String];
-    }
-    return "";
-}
-
-
 #if StarDebug /* Debug Begin */
 
 #if StarXCodeColors != 0 /* Color Begin */
 
-#define PrivateLog(color, title, stack, format, ...)\
-printf("%s%s;[%s][%s:%d] %s %s %s\n",\
+#define PrivateLog(color, title, format, ...)\
+printf("%s%s;[%s][%s:%d] %s %s\n",\
 [XCODE_COLORS_ESCAPE_FG UTF8String],\
 [color UTF8String],\
 [title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
 [[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-[XCODE_COLORS_RESET_FG UTF8String],\
-getBackTrace(stack, StarBackTraceDepth)\
+[XCODE_COLORS_RESET_FG UTF8String]\
 );\
 
 // NSLog
 #define NSLog(format, ...) \
-PrivateLog(NSLogColor, NSLogTitle, StarBackTrace, format, ##__VA_ARGS__)
+PrivateLog(NSLogColor, NSLogTitle, format, ##__VA_ARGS__)
 
 // Information
 #define LogInfo(format, ...) \
-PrivateLog(InfoColor, InfoTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Debug
-#define LogDebug(format, ...) \
-PrivateLog(DebugColor, DebugTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Warning
-#define LogWarning(format, ...) \
-PrivateLog(WarningColor, WarningTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Error
-#define LogError(format, ...) \
-PrivateLog(ErrorColor, ErrorTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Success
-#define LogSuccess(format, ...) \
-PrivateLog(SuccessColor, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Failure
-#define LogFailure(format, ...) \
-PrivateLog(FailureColor, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-
-// Stack
-#define LogBackTrace(format, ...) \
-PrivateLog(BackTraceColor, BackTraceTitle, 1, format, ##__VA_ARGS__)\
+PrivateLog(InfoColor, InfoTitle, format, ##__VA_ARGS__)
 
 #else /* Color Else */
 
-#define PrivateLog(color, title, stack, format, ...)\
-printf("[%s][%s:%d] %s %s\n",\
+#define PrivateLog(color, title, format, ...)\
+printf("[%s][%s:%d] %s\n",\
 [title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
-[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-getBackTrace(stack, StarBackTraceDepth)\
+[[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String]\
 );\
 
 // NSLog
 #define NSLog(format, ...) \
-PrivateLog(0, NSLogTitle, StarBackTrace, format, ##__VA_ARGS__)
+PrivateLog(0, NSLogTitle, format, ##__VA_ARGS__)
 
 // Information
 #define LogInfo(format, ...) \
-PrivateLog(0, InfoTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Debug
-#define LogDebug(format, ...) \
-PrivateLog(0, DebugTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Warning
-#define LogWarning(format, ...) \
-PrivateLog(0, WarningTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Error
-#define LogError(format, ...) \
-PrivateLog(0, ErrorTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Success
-#define LogSuccess(format, ...) \
-PrivateLog(0, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Failure
-#define LogFailure(format, ...) \
-PrivateLog(0, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
-
-// Stack
-#define LogBackTrace(format, ...) \
-PrivateLog(0, BackTraceTitle, 1, format, ##__VA_ARGS__)\
+PrivateLog(0, InfoTitle, format, ##__VA_ARGS__)
 
 #endif /* Color End */
 
@@ -225,12 +124,6 @@ PrivateLog(0, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 #define PrivateLog(color, title, format, ...) while(0){}
 #define NSLog(...) while(0){}
 #define LogInfo(...) while(0){}
-#define LogDebug(...) while(0){}
-#define LogError(...) while(0){}
-#define LogWarning(...) while(0){}
-#define LogSuccess(...) while(0){}
-#define LogFailure(...) while(0){}
-#define LogBackTrace(...) while(0){}
 
 #endif /* Debug End */
 

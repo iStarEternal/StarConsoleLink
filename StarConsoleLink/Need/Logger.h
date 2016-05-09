@@ -9,17 +9,13 @@
 #ifndef Logger_h
 #define Logger_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <execinfo.h>
-
-
+const char* getBackTrace(int stack, int depth);
 
 #define StarDebug DEBUG
 #define StarXCodeColors 1
 #define StarBackTrace 0
-
 #define StarBackTraceDepth 4
+
 
 #define XCODE_COLORS_ESCAPE @"\033["
 #define XCODE_COLORS_ESCAPE_FG XCODE_COLORS_ESCAPE @"fg"
@@ -28,7 +24,6 @@
 #define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
 #define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
 #define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
-
 
 
 #define NSLogColor @"22,22,22"          // 黑色
@@ -54,30 +49,6 @@
 
 #define BackTraceColor @"22,22,22"          // 黑色
 #define BackTraceTitle @"BackTrace"
-
-
-const char* getBackTrace(BOOL stack, int depth);
-
-const char* getBackTrace(BOOL stack, int depth) {
-    
-    if (stack) {
-        void* callstack[128];
-        int frames = backtrace(callstack, 128);
-        char **strs = backtrace_symbols(callstack, frames);
-        
-        NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
-        for (int i = 1; i < frames; i++) {
-            NSString *str = [NSString stringWithUTF8String:strs[i]];
-            [backtrace addObject:str];
-            // [backtrace addObject:[str substringFromIndex:[str rangeOfString:@"0x"].location]];
-            if (i == depth)
-                break;
-        }
-        free(strs);
-        return [[NSString stringWithFormat:@"\n%@", backtrace.description] UTF8String];
-    }
-    return "";
-}
 
 
 #if StarDebug /* Debug Begin */
