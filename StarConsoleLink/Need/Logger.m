@@ -11,7 +11,8 @@
 #import <stdio.h>
 #import <stdlib.h>
 #import <execinfo.h>
-#import <Foundation/Foundation.h>
+
+char * strjoin(char *s1, char *s2);
 
 const char * getBackTrace(int stack, int depth) {
     
@@ -20,15 +21,26 @@ const char * getBackTrace(int stack, int depth) {
         int frames = backtrace(callstack, 128);
         char **strs = backtrace_symbols(callstack, frames);
         
-        NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
+        char * backtrace = "\n<BackTrace Begin>";
         for (int i = 1; i < frames; i++) {
-            NSString *str = [NSString stringWithUTF8String:strs[i]];
-            [backtrace addObject:str];
+            backtrace = strjoin(backtrace, "\n\t");
+            backtrace = strjoin(backtrace, strs[i]);
             if (i == depth)
                 break;
         }
         free(strs);
-        return [[NSString stringWithFormat:@"\n%@", backtrace.description] UTF8String];
+        
+        backtrace = strjoin(backtrace, "\n<End>");
+        return backtrace;
     }
     return "";
+}
+
+char * strjoin(char *s1, char *s2) {
+    char *result = malloc(strlen(s1)+strlen(s2)+1);
+    if (result == NULL)
+        exit (1);
+    strcpy(result, s1);
+    strcat(result, s2);
+    return result;
 }
