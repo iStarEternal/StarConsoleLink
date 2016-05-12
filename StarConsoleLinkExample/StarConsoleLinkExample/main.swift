@@ -24,5 +24,4 @@ Logger.important("测试颜色打印")
 Logger.success("测试颜色打印")
 Logger.failure("测试颜色打印")
 
-
 OCLogger().runLog()

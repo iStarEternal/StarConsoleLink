@@ -13,6 +13,7 @@ class SettingsWindowController: NSWindowController {
     
     var bundle: NSBundle!
     
+    @IBOutlet weak var linkColorWell: NSColorWell!
     
     @IBOutlet weak var debugLogKeywordTextField: NSTextField!
     @IBOutlet weak var infoLogKeywordTextField: NSTextField!
@@ -45,6 +46,8 @@ class SettingsWindowController: NSWindowController {
     
     func loadConfig() {
         
+        linkColorWell.color = ConsoleLinkConfig.linkColor
+        
         debugLogKeywordTextField.stringValue = ConsoleLinkConfig.debugLogKeyword
         infoLogKeywordTextField.stringValue = ConsoleLinkConfig.infoLogKeyword
         warningLogKeywordTextField.stringValue = ConsoleLinkConfig.warningLogKeyword
@@ -76,8 +79,10 @@ class SettingsWindowController: NSWindowController {
     
     
     @IBAction func handleColorChanged(sender: NSColorWell) {
-        Logger.info(sender.color)
-        if sender == debugLogColorWell {
+        if sender == linkColorWell {
+            ConsoleLinkConfig.linkColor = sender.color
+        }
+        else if sender == debugLogColorWell {
             ConsoleLinkConfig.debugLogColor = sender.color
         }
         else if sender == infoLogColorWell {

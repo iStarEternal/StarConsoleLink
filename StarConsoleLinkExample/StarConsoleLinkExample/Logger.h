@@ -47,6 +47,9 @@ const char* getBackTrace(int stack, int depth);
 #define FailureColor @"196,26,22"      // 红色
 #define FailureTitle @"Failure"
 
+#define AssertColor @"196,26,22"      // 红色
+#define AssertTitle @"Assert"
+
 #define BackTraceColor @"22,22,22"          // 黑色
 #define BackTraceTitle @"BackTrace"
 
@@ -95,6 +98,10 @@ PrivateLog(SuccessColor, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
 #define LogFailure(format, ...) \
 PrivateLog(FailureColor, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
 
+// Assert
+#define LogAssert(condition, format, ...)\
+PrivateLog(AssertColor, AssertTitle, StarBackTrace, format, ##__VA_ARGS__)\
+NSAssert(condition, format, ##__VA_ARGS__)
 
 // Stack
 #define LogBackTrace(format, ...) \

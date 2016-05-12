@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F81240401C7427DC0050E620 /* Dispatch-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */; };
+		F86EC9B41CE451EA00AFA9EE /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F86EC9B21CE451EA00AFA9EE /* Logger.m */; };
+		F86EC9B51CE451EA00AFA9EE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86EC9B31CE451EA00AFA9EE /* Logger.swift */; };
 		F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B809361C63255300853EA8 /* NSColor-Extension.swift */; };
 		F8D69B551CD1DF1800F8EB06 /* LogColorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B541CD1DF1800F8EB06 /* LogColorKit.m */; };
 		F8D69B591CD1DFCD00F8EB06 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B581CD1DFCD00F8EB06 /* JRSwizzle.m */; };
@@ -19,7 +21,6 @@
 		F8D69B671CD1E07F00F8EB06 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D69B641CD1E07F00F8EB06 /* SettingsWindowController.xib */; };
 		F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F161CD0F28B002623E4 /* PluginHelper.swift */; };
 		F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F191CD0F28B002623E4 /* StarFunctions.m */; };
-		F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F1E1CD0F2DF002623E4 /* Logger.swift */; };
 		F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */; };
 		F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */; };
 		F8FC45ED1C59E7570037FEE5 /* StarConsoleLink.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = F8FC45EC1C59E7570037FEE5 /* StarConsoleLink.xcscheme */; };
@@ -28,8 +29,10 @@
 
 /* Begin PBXFileReference section */
 		F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch-Extension.swift"; sourceTree = "<group>"; };
+		F86EC9B11CE451EA00AFA9EE /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		F86EC9B21CE451EA00AFA9EE /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		F86EC9B31CE451EA00AFA9EE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F8B809361C63255300853EA8 /* NSColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor-Extension.swift"; sourceTree = "<group>"; };
-		F8D69B4D1CD1DD6300F8EB06 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		F8D69B531CD1DF1800F8EB06 /* LogColorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogColorKit.h; sourceTree = "<group>"; };
 		F8D69B541CD1DF1800F8EB06 /* LogColorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogColorKit.m; sourceTree = "<group>"; };
 		F8D69B571CD1DFCD00F8EB06 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
@@ -43,7 +46,6 @@
 		F8F23F161CD0F28B002623E4 /* PluginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginHelper.swift; sourceTree = "<group>"; };
 		F8F23F181CD0F28B002623E4 /* StarFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarFunctions.h; sourceTree = "<group>"; };
 		F8F23F191CD0F28B002623E4 /* StarFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarFunctions.m; sourceTree = "<group>"; };
-		F8F23F1E1CD0F2DF002623E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F8F804A41C5A1EBC00391DD0 /* Operator-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operator-Extension.swift"; sourceTree = "<group>"; };
 		F8F804A51C5A1EBC00391DD0 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
 		F8FC45E81C59E7570037FEE5 /* StarConsoleLink.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarConsoleLink.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,8 +117,9 @@
 		F8F23F1D1CD0F2C0002623E4 /* Need */ = {
 			isa = PBXGroup;
 			children = (
-				F8F23F1E1CD0F2DF002623E4 /* Logger.swift */,
-				F8D69B4D1CD1DD6300F8EB06 /* Logger.h */,
+				F86EC9B11CE451EA00AFA9EE /* Logger.h */,
+				F86EC9B21CE451EA00AFA9EE /* Logger.m */,
+				F86EC9B31CE451EA00AFA9EE /* Logger.swift */,
 			);
 			path = Need;
 			sourceTree = "<group>";
@@ -246,14 +249,15 @@
 				F8D69B551CD1DF1800F8EB06 /* LogColorKit.m in Sources */,
 				F8F23F1C1CD0F28B002623E4 /* StarFunctions.m in Sources */,
 				F8B809371C63255300853EA8 /* NSColor-Extension.swift in Sources */,
+				F86EC9B41CE451EA00AFA9EE /* Logger.m in Sources */,
 				F8D69B5E1CD1E03F00F8EB06 /* NSTextStorage-Extension.swift in Sources */,
 				F8D69B5D1CD1E03F00F8EB06 /* NSObject-Extension.swift in Sources */,
 				F8D69B651CD1E07F00F8EB06 /* ConsoleLinkConfig.swift in Sources */,
 				F8D69B5F1CD1E03F00F8EB06 /* NSTextView-Extension.swift in Sources */,
+				F86EC9B51CE451EA00AFA9EE /* Logger.swift in Sources */,
 				F8FC45EF1C59E7570037FEE5 /* StarConsoleLink.swift in Sources */,
 				F8F23F1B1CD0F28B002623E4 /* PluginHelper.swift in Sources */,
 				F8F804AA1C5A1EBC00391DD0 /* Operator-Extension.swift in Sources */,
-				F8F23F211CD0F2DF002623E4 /* Logger.swift in Sources */,
 				F8D69B591CD1DFCD00F8EB06 /* JRSwizzle.m in Sources */,
 				F8F804AB1C5A1EBC00391DD0 /* String-Extension.swift in Sources */,
 				F8D69B661CD1E07F00F8EB06 /* SettingsWindowController.swift in Sources */,

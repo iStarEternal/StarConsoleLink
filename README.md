@@ -22,6 +22,14 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 谢谢@robbiehanson提供的支持。
 
+估计也没外国人用这个，就不写英文了。
+
+v1.1将OC的NSLog替换成了printf
+
+v1.3添加了LogAssert，LogBackTrace，并且对LogBackTrace的日志进行了链接注入
+可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择关闭StarConsoleLink
+可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
+
 
 ## Install
 

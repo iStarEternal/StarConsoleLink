@@ -66,6 +66,25 @@ class ConsoleLinkConfig: NSObject {
         }
     }
     
+    
+    private static let linkColorKeywordKey = "iStar.StarConsoleLink.LinkColorKey"
+    private static let linkColorDefaultValue = 0x0000ff
+    
+    private var linkColor: NSColor?
+    
+    static var linkColor: NSColor {
+        get {
+            if shared.linkColor == nil {
+                let intRGB: Int = configForKey(linkColorKeywordKey, defaultValue: linkColorDefaultValue)
+                shared.linkColor = NSColor(rgb: intRGB)
+            }
+            return shared.linkColor!
+        }
+        set {
+            setConfig(newValue.rgb, forKey: linkColorKeywordKey)
+            shared.linkColor = newValue
+        }
+    }
 }
 
 // MARK: - Log config: Base

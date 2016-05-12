@@ -117,15 +117,15 @@ class StarConsoleLink: NSObject {
         
         
         // 在Star Console Link 菜单上创建开关
-        //        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
-        //        if showSettingsItem == nil {
-        //            showSettingsItem = NSMenuItem()
-        //            showSettingsItem.title = "Settings"
-        //            showSettingsItem.target = self
-        //            // showSettingsItem.action = #selector(handleShowSettingsItem(_:))
-        //            showSettingsItem.action = "handleShowSettingsItem:"
-        //            starConsoleLinkItem.submenu?.addItem(showSettingsItem)
-        //        }
+        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("Settings")
+        if showSettingsItem == nil {
+            showSettingsItem = NSMenuItem()
+            showSettingsItem.title = "Settings"
+            showSettingsItem.target = self
+            // showSettingsItem.action = #selector(handleShowSettingsItem(_:))
+            showSettingsItem.action = "handleShowSettingsItem:"
+            starConsoleLinkItem.submenu?.addItem(showSettingsItem)
+        }
         
     }
     

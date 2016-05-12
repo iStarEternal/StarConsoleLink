@@ -37,7 +37,7 @@ const char * getBackTrace(int stack, int depth) {
 }
 
 char * strjoin(char *s1, char *s2) {
-    char *result = malloc(strlen(s1)+strlen(s2)+1);
+    char *result = malloc(strlen(s1) + strlen(s2) + 1);
     if (result == NULL)
         exit (1);
     strcpy(result, s1);

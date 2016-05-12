@@ -10,7 +10,6 @@
 
 #import "OCLogger.h"
 #import "Logger.h"
-//#import "NSLog-Logger.h"
 
 
 
@@ -20,6 +19,12 @@
 
 @implementation OCLogger
 
+//+ (void)backTrace:(NSString *)bt arg1:(NSString *)arg1 arg2:(NSString *)agr2;
++ (void)backTrace:(NSString *)bt
+             arg1:(NSString *)arg1
+             arg2:(NSString *)agr2{
+    LogBackTrace(@"%@", bt);
+}
 - (void)runLog {
     
     LogWarning(@"------------------ ObjectiveC Logger Test ------------------");
@@ -32,6 +37,11 @@
     LogSuccess(@"成功");
     LogFailure(@"失败");
     LogBackTrace(@"堆栈信息");
+    LogBackTrace(@"堆栈信息");
+    LogBackTrace(@"堆栈信息");
+    
+    [OCLogger backTrace:@"啦啦啦" arg1: @"" arg2: @""];
+    // LogAssert(false, @"检测%@",@"错误");
 }
 
 @end
