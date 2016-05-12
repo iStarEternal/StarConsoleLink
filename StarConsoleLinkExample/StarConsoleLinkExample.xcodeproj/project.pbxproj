@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F872AE451CE0514000CB082A /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F872AE441CE0514000CB082A /* Logger.m */; };
-		F8D69B6A1CD1E7B000F8EB06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D69B691CD1E7B000F8EB06 /* Logger.swift */; };
 		F8F23F041CD0EFE0002623E4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F031CD0EFE0002623E4 /* main.swift */; };
 		F8F23F111CD0EFE7002623E4 /* OCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */; };
+		F8F70C021CE455A900B8BC58 /* SwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F70C011CE455A900B8BC58 /* SwiftLogger.swift */; };
+		F8F70C031CE4560300B8BC58 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F70C001CE4553F00B8BC58 /* Logger.swift */; };
+		F8F70C051CE4562800B8BC58 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F70BFF1CE4553F00B8BC58 /* Logger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,14 +27,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F85C54F31CD369710049775F /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		F872AE441CE0514000CB082A /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
-		F8D69B691CD1E7B000F8EB06 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F8F23F001CD0EFE0002623E4 /* StarConsoleLinkExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StarConsoleLinkExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F23F031CD0EFE0002623E4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F8F23F0A1CD0EFE6002623E4 /* StarConsoleLinkExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarConsoleLinkExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
 		F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLogger.m; sourceTree = "<group>"; };
+		F8F70BFE1CE4553F00B8BC58 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		F8F70BFF1CE4553F00B8BC58 /* Logger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		F8F70C001CE4553F00B8BC58 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F8F70C011CE455A900B8BC58 /* SwiftLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +68,25 @@
 		F8F23F021CD0EFE0002623E4 /* StarConsoleLinkExample */ = {
 			isa = PBXGroup;
 			children = (
-				F8D69B691CD1E7B000F8EB06 /* Logger.swift */,
-				F85C54F31CD369710049775F /* Logger.h */,
-				F872AE441CE0514000CB082A /* Logger.m */,
+				F8F70BFD1CE4553F00B8BC58 /* Need */,
 				F8F23F031CD0EFE0002623E4 /* main.swift */,
 				F8F23F0C1CD0EFE7002623E4 /* OCLogger.h */,
 				F8F23F0D1CD0EFE7002623E4 /* OCLogger.m */,
 				F8F23F0A1CD0EFE6002623E4 /* StarConsoleLinkExample-Bridging-Header.h */,
+				F8F70C011CE455A900B8BC58 /* SwiftLogger.swift */,
 			);
 			path = StarConsoleLinkExample;
+			sourceTree = "<group>";
+		};
+		F8F70BFD1CE4553F00B8BC58 /* Need */ = {
+			isa = PBXGroup;
+			children = (
+				F8F70BFE1CE4553F00B8BC58 /* Logger.h */,
+				F8F70BFF1CE4553F00B8BC58 /* Logger.m */,
+				F8F70C001CE4553F00B8BC58 /* Logger.swift */,
+			);
+			name = Need;
+			path = ../../StarConsoleLink/Need;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,10 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F70C051CE4562800B8BC58 /* Logger.m in Sources */,
+				F8F70C031CE4560300B8BC58 /* Logger.swift in Sources */,
 				F8F23F041CD0EFE0002623E4 /* main.swift in Sources */,
-				F8D69B6A1CD1E7B000F8EB06 /* Logger.swift in Sources */,
 				F8F23F111CD0EFE7002623E4 /* OCLogger.m in Sources */,
-				F872AE451CE0514000CB082A /* Logger.m in Sources */,
+				F8F70C021CE455A900B8BC58 /* SwiftLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

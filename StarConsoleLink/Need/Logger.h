@@ -100,7 +100,7 @@ PrivateLog(FailureColor, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
 
 // Assert
 #define LogAssert(condition, format, ...)\
-PrivateLog(AssertColor, AssertTitle, StarBackTrace, format, ##__VA_ARGS__)\
+PrivateLog(AssertColor, AssertTitle, StarBackTrace, format, ##__VA_ARGS__);\
 NSAssert(condition, format, ##__VA_ARGS__)
 
 // Stack
@@ -146,6 +146,11 @@ PrivateLog(0, SuccessTitle, StarBackTrace, format, ##__VA_ARGS__)
 #define LogFailure(format, ...) \
 PrivateLog(0, FailureTitle, StarBackTrace, format, ##__VA_ARGS__)
 
+// Assert
+#define LogAssert(condition, format, ...)\
+PrivateLog(0, FailureTitle, StarBackTrace, format, ##__VA_ARGS__);\
+NSAssert(condition, format, ##__VA_ARGS__)
+
 // Stack
 #define LogBackTrace(format, ...) \
 PrivateLog(0, BackTraceTitle, 1, format, ##__VA_ARGS__)\
@@ -162,6 +167,7 @@ PrivateLog(0, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 #define LogWarning(...) while(0){}
 #define LogSuccess(...) while(0){}
 #define LogFailure(...) while(0){}
+#define LogAssert(condition, format, ...) while(0){}
 #define LogBackTrace(...) while(0){}
 
 #endif /* Debug End */
