@@ -10,8 +10,7 @@ import Foundation
 
 class SwiftLogger: NSObject {
 
-    func runLog() {
-        
+    func runLog() { 
         Logger.info("当前在Swift中测试打印")
         Logger.info("测试打印不存在的文件链接：[viewController-abc.swift:25] ")
         Logger.info("测试打印URL链接：[192.168.8.250:8080]")

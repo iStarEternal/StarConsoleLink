@@ -59,9 +59,10 @@ const char* getBackTrace(int stack, int depth);
 #if StarXCodeColors != 0 /* Color Begin */
 
 #define PrivateLog(color, title, stack, format, ...)\
-printf("%s%s;[%s][%s:%d] %s %s %s\n",\
+printf("%s%s;[%s][%s][%s:%d] %s %s %s\n",\
 [XCODE_COLORS_ESCAPE_FG UTF8String],\
 [color UTF8String],\
+__TIME__,\
 [title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
@@ -110,7 +111,8 @@ PrivateLog(BackTraceColor, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 #else /* Color Else */
 
 #define PrivateLog(color, title, stack, format, ...)\
-printf("[%s][%s:%d] %s %s\n",\
+printf("[%s][%s][%s:%d] %s %s\n",\
+__TIME__,\
 [title UTF8String],\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\

@@ -39,6 +39,8 @@
     LogBackTrace(@"堆栈信息");
     LogBackTrace(@"堆栈信息");
     LogBackTrace(@"堆栈信息");
+    LogInfo(@"%s, ", __TIME__);
+    LogInfo(@"%s, ", __DATE__);
     
     [OCLogger backTrace:@"啦啦啦" arg1: @"" arg2: @""];
     // LogAssert(false, @"检测%@",@"错误");

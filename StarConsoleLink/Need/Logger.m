@@ -6,13 +6,13 @@
 //  Copyright © 2016年 星星. All rights reserved.
 //
 
-#import "Logger.h"
+#include "Logger.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <execinfo.h>
 
-#import <stdio.h>
-#import <stdlib.h>
-#import <execinfo.h>
-
-char * strjoin(char *s1, char *s2);
+char * strjoin(const char *s1, const char *s2);
 
 const char * getBackTrace(int stack, int depth) {
     
@@ -36,7 +36,8 @@ const char * getBackTrace(int stack, int depth) {
     return "";
 }
 
-char * strjoin(char *s1, char *s2) {
+char * strjoin(const char *s1, const char *s2) {
+    
     char *result = malloc(strlen(s1) + strlen(s2) + 1);
     if (result == NULL)
         exit (1);
@@ -44,3 +45,26 @@ char * strjoin(char *s1, char *s2) {
     strcat(result, s2);
     return result;
 }
+
+
+//const char * getBackTrace(int stack, int depth) {
+//
+//    if (stack) {
+//        void* callstack[128];
+//        int frames = backtrace(callstack, 128);
+//        char **strs = backtrace_symbols(callstack, frames);
+//
+//        NSMutableString * backtrace = [@"\n<BackTrace Begin>" mutableCopy];
+//        for (int i = 1; i < frames; i++) {
+//            [backtrace appendString:@"\n\t"];
+//            [backtrace appendString:[NSString stringWithUTF8String:strs[i]]];
+//            if (i == depth)
+//                break;
+//        }
+//        free(strs);
+//
+//        [backtrace appendString:@"\n<End>"];
+//        return [[backtrace copy] UTF8String];
+//    }
+//    return "";
+//}

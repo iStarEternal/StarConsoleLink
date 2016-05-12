@@ -103,7 +103,6 @@ extension NSTextView {
             return
         }
         
-        
         var passTotalCount = 0
         var passIndex = 0
         
@@ -123,7 +122,7 @@ extension NSTextView {
                 }
             }
             
-            // 有参方法已经完成，但是没有考虑换号，任性，不想做。
+            // 有参方法已经完成，但是没有考虑换号，任性，不想做，想让我做给钱。。。。
             if methodComponents.count > 1 {
                 methodComponents.removeLast()
                 methodComponents = methodComponents.map { $0 + ":" }
@@ -135,8 +134,8 @@ extension NSTextView {
                 if lineText.rangeOfString(methodType) != nil {
                     passTotalCount = methodComponents.count
                     
-                    for methodNameElement in methodComponents {
-                        if lineText.rangeOfString(methodNameElement) != nil {
+                    for methodElement in methodComponents {
+                        if lineText.rangeOfString(methodElement) != nil {
                             passIndex += 1
                         }
                     }
