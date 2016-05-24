@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if swift(>=2.0)
+    
+#endif
+
 #if os(iOS) || os(tvOS)
     import UIKit
     public typealias Color = UIColor
@@ -38,13 +42,13 @@ extension Color {
         self.init(red:CGFloat(red), green:CGFloat(green), blue:CGFloat(blue), alpha:alpha)
     }
     
-    //    convenience init(rgba:Int) {
-    //        let red = Double((rgba >> 32) & 0xff) / 255.0
-    //        let green = Double((rgba >> 16) & 0xff) / 255.0
-    //        let blue = Double((rgba >> 8) & 0xff) / 255.0
-    //        let alpha = Double(rgba & 0xff) / 255.0
-    //        self.init(red:CGFloat(red), green:CGFloat(green), blue:CGFloat(blue), alpha:CGFloat(alpha))
-    //    }
+    convenience init(rgba:Int) {
+        let red = Double((rgba >> 32) & 0xff) / 255.0
+        let green = Double((rgba >> 16) & 0xff) / 255.0
+        let blue = Double((rgba >> 8) & 0xff) / 255.0
+        let alpha = Double(rgba & 0xff) / 255.0
+        self.init(red:CGFloat(red), green:CGFloat(green), blue:CGFloat(blue), alpha:CGFloat(alpha))
+    }
     
     
     static func rgb(rgb: Int) -> Color {

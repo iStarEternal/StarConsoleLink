@@ -44,6 +44,7 @@ struct StarConsoleLinkFieldName {
 
 extension NSTextStorage {
     
+    
     var usedInConsole: Bool {
         get {
             return (objc_getAssociatedObject(self, &UsedInConsoleKey) as? NSNumber)?.boolValue ?? false

@@ -122,7 +122,7 @@ extension NSTextView {
                 }
             }
             
-            // 有参方法已经完成，但是没有考虑换号，任性，不想做，想让我做给钱。。。。
+            // 有参方法已经完成，但是没有考虑换行的情况，任性，不想做，想让我做给钱。。。。
             if methodComponents.count > 1 {
                 methodComponents.removeLast()
                 methodComponents = methodComponents.map { $0 + ":" }

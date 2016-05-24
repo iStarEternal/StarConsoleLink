@@ -25,10 +25,16 @@
              arg2:(NSString *)agr2{
     LogBackTrace(@"%@", bt);
 }
+
+
+- (void)POST:(NSString *)paramModal success:(NSInteger)success failure:(NSString *)failure {
+    
+    LogBackTrace(@"%@", @"你好");
+}
 - (void)runLog {
     
     LogWarning(@"------------------ ObjectiveC Logger Test ------------------");
-    PrivateLog(@"0,0,0", @"Hello", 0, @"你好：%@", @"星星");
+    PrivateLog("0,0,0", "Hello", 0, @"你好：%@", @"星星");
     NSLog(@"NSLog");
     LogDebug(@"调试");
     LogInfo(@"消息");
@@ -37,12 +43,9 @@
     LogSuccess(@"成功");
     LogFailure(@"失败");
     LogBackTrace(@"堆栈信息");
-    LogBackTrace(@"堆栈信息");
-    LogBackTrace(@"堆栈信息");
-    LogInfo(@"%s, ", __TIME__);
-    LogInfo(@"%s, ", __DATE__);
     
     [OCLogger backTrace:@"啦啦啦" arg1: @"" arg2: @""];
+    [self POST:@"" success:0 failure:@""];
     // LogAssert(false, @"检测%@",@"错误");
 }
 
