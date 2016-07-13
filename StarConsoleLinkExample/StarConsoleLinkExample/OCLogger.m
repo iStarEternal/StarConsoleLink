@@ -19,10 +19,7 @@
 
 @implementation OCLogger
 
-//+ (void)backTrace:(NSString *)bt arg1:(NSString *)arg1 arg2:(NSString *)agr2;
-+ (void)backTrace:(NSString *)bt
-             arg1:(NSString *)arg1
-             arg2:(NSString *)agr2{
++ (void)backTrace:(NSString *)bt arg1:(NSString *)arg1 arg2:(NSString *)agr2{
     LogBackTrace(@"%@", bt);
 }
 
@@ -46,7 +43,6 @@
     
     [OCLogger backTrace:@"啦啦啦" arg1: @"" arg2: @""];
     [self POST:@"" success:0 failure:@""];
-    // LogAssert(false, @"检测%@",@"错误");
 }
 
 @end

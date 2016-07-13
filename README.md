@@ -5,11 +5,8 @@ StarConsoleLink inject the link to your Xcode console, which allows you to click
 
 StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速跳转到代码位置。
 
-* This is Case Diagram for Objective-C
-![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/example_image_objc.png "Title here")
-
-* This is Case Diagram for Swift
-![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/example_image_swift.png "Title here")
+* This is Case Diagram
+![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
 ## The New Feature

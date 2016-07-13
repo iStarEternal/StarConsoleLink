@@ -9,6 +9,8 @@
 #ifndef Logger_h
 #define Logger_h
 
+#include <stdio.h>
+
 const char * getBackTrace(int open, int depth);
 const char * currentTime();
 
@@ -18,13 +20,13 @@ const char * currentTime();
 #define StarBackTraceDepth 4
 
 
-#define XCODE_COLORS_ESCAPE     "\033["
+//#define XCODE_COLORS_ESCAPE     "\033["
 #define XCODE_COLORS_ESCAPE_FG  "\033[fg"
-#define XCODE_COLORS_ESCAPE_BG  "\033[bg"
+//#define XCODE_COLORS_ESCAPE_BG  "\033[bg"
 
-#define XCODE_COLORS_RESET      "\033[;"
+//#define XCODE_COLORS_RESET      "\033[;"
 #define XCODE_COLORS_RESET_FG   "\033[fg;"
-#define XCODE_COLORS_RESET_BG   "\033[bg;"
+//#define XCODE_COLORS_RESET_BG   "\033[bg;"
 
 
 #define NSLogColor "22,22,22"          // 黑色
@@ -112,7 +114,7 @@ PrivateLog(BackTraceColor, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 #else /* Color Else */
 
 #define PrivateLog(color, title, stack, format, ...)\
-printf("%s[%s][%s:%d] %s %s\n",\
+printf("<%s> [%s][%s:%d] %s %s\n",\
 currentTime(),\
 title,\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\

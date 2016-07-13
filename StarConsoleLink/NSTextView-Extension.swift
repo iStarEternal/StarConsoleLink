@@ -91,7 +91,11 @@ extension NSTextView {
                 let lineRange = text.rangeOfString(lineText)
                 self.scrollRangeToVisible(lineRange)
                 self.setSelectedRange(lineRange)
-                self.lockFocus()
+                // TODO: Expand Code Region
+                
+                // self.setKeyboardFocusRingNeedsDisplayInRect(self.frame)
+                // self.lockFocus()
+                // self.becomeFirstResponder()
                 stop.memory = ObjCBool(true)
             }
         }
