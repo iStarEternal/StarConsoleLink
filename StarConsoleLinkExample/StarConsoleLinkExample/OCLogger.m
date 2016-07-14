@@ -41,6 +41,9 @@
     LogFailure(@"失败");
     LogBackTrace(@"堆栈信息");
     
+    
+    LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
+    
     [OCLogger backTrace:@"啦啦啦" arg1: @"" arg2: @""];
     [self POST:@"" success:0 failure:@""];
 }

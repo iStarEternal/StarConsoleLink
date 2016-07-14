@@ -47,31 +47,48 @@ class ConsoleLinkConfig: NSObject {
         }
     }
     
-    static var isFirstLoad:Bool {
+    
+    // MARK: - 是否打开StarConsoleLink
+    
+    private static var consoleLinkEnabledKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
+    private var consoleLinkEnabled: Bool?
+    static var consoleLinkEnabled: Bool {
         get {
-            let enabled: Bool? = configForKey(isOpenConsoleLinkKey)
-            return enabled == nil
+            if shared.consoleLinkEnabled == nil {
+                let enabled: Bool? = configForKey(consoleLinkEnabledKey)
+                return enabled ?? true
+            }
+            return shared.consoleLinkEnabled!
+        }
+        set {
+            setConfig(newValue, forKey: consoleLinkEnabledKey)
+            shared.consoleLinkEnabled = newValue
         }
     }
     
-    static var isOpenConsoleLinkKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
     
-    static var enabledConsoleLink: Bool {
+    // MARK: - 中文Unicode
+    
+    private static var ChineseUnicodeEnabledKey = "iStar.StarConsoleLink.ChineseUnicodeEnabledKey"
+    private var ChineseUnicodeEnabled: Bool?
+    static var ChineseUnicodeEnabled: Bool {
         get {
-            let enabled: Bool? = configForKey(isOpenConsoleLinkKey)
-            return enabled ?? false
+            if shared.ChineseUnicodeEnabled == nil {
+                let enabled: Bool? = configForKey(ChineseUnicodeEnabledKey)
+                return enabled ?? true
+            }
+            return shared.ChineseUnicodeEnabled!
         }
         set {
-            setConfig(newValue, forKey: isOpenConsoleLinkKey)
+            setConfig(newValue, forKey: ChineseUnicodeEnabledKey)
+            shared.ChineseUnicodeEnabled = newValue
         }
     }
     
     
     private static let linkColorKeywordKey = "iStar.StarConsoleLink.LinkColorKey"
     private static let linkColorDefaultValue = 0x0000ff
-    
     private var linkColor: NSColor?
-    
     static var linkColor: NSColor {
         get {
             if shared.linkColor == nil {

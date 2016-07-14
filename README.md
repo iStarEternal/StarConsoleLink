@@ -20,14 +20,37 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 估计也没多少外国人用这个，就不写英文了。
 
-v1.1将OC的NSLog替换成了printf
+v1.1
 
-v1.3添加了LogAssert，LogBackTrace，并且对LogBackTrace的日志进行了链接注入
+将OC的NSLog替换成了printf
+
+v1.2
+
+添加了LogAssert，LogBackTrace，并且对LogBackTrace的日志进行了链接注入
 
 可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择关闭StarConsoleLink
 
 可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
 
+v1.3
+添加了打印NSDictionary和NSArray的中文Unicode转中文
+```objective-c
+LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
+```
+以前
+```
+<2016-07-14 14:07:03> [Warning][OCLogger.m:45] {
+    age = "18\U5c81";
+    name = "\U661f\U661f";
+} 
+```
+现在
+```
+<2016-07-14 14:07:41> [Warning][OCLogger.m:45] {
+    age = "18岁";
+    name = "星星";
+} 
+```
 
 ## Install
 

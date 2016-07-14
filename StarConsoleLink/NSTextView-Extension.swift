@@ -84,18 +84,15 @@ extension NSTextView {
             return
         }
         
-        var currentLine = 0
+        var currentLine:Int = 0
         text.enumerateLinesUsingBlock { (lineText: String, stop: UnsafeMutablePointer<ObjCBool>) in
             currentLine += 1
             if line == currentLine {
                 let lineRange = text.rangeOfString(lineText)
-                self.scrollRangeToVisible(lineRange)
-                self.setSelectedRange(lineRange)
-                // TODO: Expand Code Region
-                
-                // self.setKeyboardFocusRingNeedsDisplayInRect(self.frame)
-                // self.lockFocus()
-                // self.becomeFirstResponder()
+                if lineRange.location != NSNotFound {
+                    self.scrollRangeToVisible(lineRange)
+                    self.setSelectedRange(lineRange)
+                }
                 stop.memory = ObjCBool(true)
             }
         }

@@ -56,13 +56,12 @@ extension NSTextStorage {
     
     func star_fixAttributesInRange(range: NSRange) {
         star_fixAttributesInRange(range)
-        if self.usedInConsole {
+        if usedInConsole && ConsoleLinkConfig.consoleLinkEnabled {
             LogColorKit.applyANSIColors(self, textStorageRange: range, escapeSeq: XCODE_COLORS_ESCAPE)
             self.injectNormalLinks()
             self.injectBackTraceLinks()
         }
     }
-    
     
     
     private func injectNormalLinks() {
