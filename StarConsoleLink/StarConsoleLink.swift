@@ -118,19 +118,19 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
         
-        if !ConsoleLinkConfig.ChineseUnicodeEnabled {
-            return;
+        guard ConsoleLinkConfig.ChineseUnicodeEnabled else {
+            return
         }
         
         if editedMask == .EditedAttributes || editedRange.length <= 0 {
-            return;
+            return
         }
         
-        let strong = textStorage.string.OCString
+        let string = textStorage.string.OCString
         
-        let contentsStr = editedRange.location == 0 ? strong.substringWithRange(strong.rangeOfComposedCharacterSequencesForRange(editedRange)) : strong
+        let contentsStr = editedRange.location == 0 ? string.substringWithRange(string.rangeOfComposedCharacterSequencesForRange(editedRange)) : string
         
-        if (contentsStr.length < (editedRange.location + editedRange.length)) {
+        if contentsStr.length < (editedRange.location + editedRange.length) {
             return;
         }
         
@@ -144,7 +144,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     private func stringByReplaceUnicode(string: String) -> String {
         
         let convertedString = string.OCString.mutableCopy() as! NSMutableString
-        convertedString .replaceOccurrencesOfString("\\U", withString: "\\u", options: NSStringCompareOptions(), range: NSMakeRange(0, convertedString.length))
+        convertedString.replaceOccurrencesOfString("\\U", withString: "\\u", options: NSStringCompareOptions(), range: NSMakeRange(0, convertedString.length))
         CFStringTransform(convertedString, nil, "Any-Hex/Java", true)
         return convertedString.swiftString
     }

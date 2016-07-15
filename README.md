@@ -12,11 +12,11 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
 
-Thank for you support @robbiehanson.  https://github.com/robbiehanson/XcodeColors
+Thank for @robbiehanson supported.  https://github.com/robbiehanson/XcodeColors
 
 StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
-谢谢@robbiehanson提供的支持。
+感谢@robbiehanson提供的支持。
 
 估计也没多少外国人用这个，就不写英文了。
 
@@ -37,15 +37,14 @@ v1.3
 ```objective-c
 LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 ```
+
 以前
 ```
 <2016-07-14 14:07:03> [Warning][OCLogger.m:45] {
     age = "18\U5c81";
     name = "\U661f\U661f";
 } 
-```
 现在
-```
 <2016-07-14 14:07:41> [Warning][OCLogger.m:45] {
     age = "18岁";
     name = "星星";
