@@ -178,13 +178,13 @@ extension NSTextView {
         guard let textStorage = self.textStorage else {
             return
         }
-        if let starLocationOfLastLine = self.valueForKeyPath("_startLocationOfLastLine") as? Int
-            where textStorage.length <  starLocationOfLastLine {
+        if let startLocationOfLastLine = self.valueForKeyPath("_startLocationOfLastLine") as? Int
+            where textStorage.length < startLocationOfLastLine {
             self.setValue(textStorage.length, forKeyPath: "_startLocationOfLastLine")
         }
         
         if let lastRemovableTextLocation = self.valueForKeyPath("_lastRemovableTextLocation") as? Int
-            where textStorage.length <  lastRemovableTextLocation {
+            where textStorage.length < lastRemovableTextLocation {
             self.setValue(textStorage.length, forKeyPath: "_lastRemovableTextLocation")
         }
     }

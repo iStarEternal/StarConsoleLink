@@ -130,7 +130,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         }
         
         guard let string = textStorage.valueForKeyPath("_contents.mutableString") as? NSString else {
-            return 
+            return
         }
         
         let contentsStr = editedRange.location == 0 ? string.substringWithRange(string.rangeOfComposedCharacterSequencesForRange(editedRange)) : string
@@ -151,6 +151,13 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         let convertedString = string.OCString.mutableCopy() as! NSMutableString
         convertedString.replaceOccurrencesOfString("\\U", withString: "\\u", options: NSStringCompareOptions(), range: NSMakeRange(0, convertedString.length))
         CFStringTransform(convertedString, nil, "Any-Hex/Java", true)
+        
+        // 再找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
+        if string.length - convertedString.swiftString.length > 0 {
+            for _ in (0..<(string.length - convertedString.swiftString.length)) {
+                convertedString.appendString(" ");
+            }
+        }
         return convertedString.swiftString
     }
     
