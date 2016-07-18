@@ -11,6 +11,7 @@ import Cocoa
 
 extension NSTextView {
     
+    
     func star_mouseDown(theEvent: NSEvent) {
         
         
@@ -148,6 +149,43 @@ extension NSTextView {
                     }
                 }
             }
+        }
+    }
+    
+    
+    func star_insertNewline(arg1: AnyObject) {
+        self.star_checkTextView()
+        self.star_insertNewline(arg1)
+    }
+    
+    func star_clearConsoleItems() {
+        self.star_checkTextView()
+        self.star_clearConsoleItems()
+    }
+    
+    func star_shouldChangeTextInRanges(ranges: AnyObject, replacementStrings strings: AnyObject) -> Bool {
+        self.star_checkTextView()
+        return self.star_shouldChangeTextInRanges(ranges, replacementStrings: strings)
+    }
+    
+    
+    func star_checkTextView() {
+        
+        guard let expectedClass = NSClassFromString("IDEConsoleTextView")
+            where self.isKindOfClass(expectedClass) else {
+                return
+        }
+        guard let textStorage = self.textStorage else {
+            return
+        }
+        if let starLocationOfLastLine = self.valueForKeyPath("_startLocationOfLastLine") as? Int
+            where textStorage.length <  starLocationOfLastLine {
+            self.setValue(textStorage.length, forKeyPath: "_startLocationOfLastLine")
+        }
+        
+        if let lastRemovableTextLocation = self.valueForKeyPath("_lastRemovableTextLocation") as? Int
+            where textStorage.length <  lastRemovableTextLocation {
+            self.setValue(textStorage.length, forKeyPath: "_lastRemovableTextLocation")
         }
     }
 }

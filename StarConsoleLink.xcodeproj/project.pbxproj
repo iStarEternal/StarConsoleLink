@@ -29,10 +29,6 @@
 
 /* Begin PBXFileReference section */
 		F812403F1C7427DC0050E620 /* Dispatch-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch-Extension.swift"; sourceTree = "<group>"; };
-		F81972941D3744D40051F0AB /* DVTCompletingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTCompletingTextView.h; sourceTree = "<group>"; };
-		F81972951D3744D40051F0AB /* DVTCompletingTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTCompletingTextViewDelegate.h; sourceTree = "<group>"; };
-		F81972961D3744D40051F0AB /* DVTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTTextView.h; sourceTree = "<group>"; };
-		F81972971D3744D40051F0AB /* IDEConsoleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEConsoleTextView.h; sourceTree = "<group>"; };
 		F86EC9B11CE451EA00AFA9EE /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		F86EC9B21CE451EA00AFA9EE /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		F86EC9B31CE451EA00AFA9EE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -70,17 +66,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F81972931D3744D40051F0AB /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				F81972941D3744D40051F0AB /* DVTCompletingTextView.h */,
-				F81972951D3744D40051F0AB /* DVTCompletingTextViewDelegate.h */,
-				F81972961D3744D40051F0AB /* DVTTextView.h */,
-				F81972971D3744D40051F0AB /* IDEConsoleTextView.h */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
 		F8D69B521CD1DF1800F8EB06 /* LogColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +105,6 @@
 		F8F23F131CD0F28B002623E4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				F81972931D3744D40051F0AB /* Header */,
 				F8D69B561CD1DFCD00F8EB06 /* JRSwizzle */,
 				F8D69B521CD1DF1800F8EB06 /* LogColor */,
 				F8F23F161CD0F28B002623E4 /* PluginHelper.swift */,

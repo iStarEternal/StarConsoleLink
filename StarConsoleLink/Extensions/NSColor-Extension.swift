@@ -34,7 +34,7 @@ extension Color {
         self.init(red:CGFloat(red), green:CGFloat(green), blue:CGFloat(blue), alpha:CGFloat(1))
     }
     
-    /// alpha range: 0.1 - 1.0
+    /// alpha range: 0 - 1.0
     convenience init(rgb: Int, alpha: CGFloat) {
         let red = Double((rgb >> 16) & 0xff) / 255.0
         let green = Double((rgb >> 8) & 0xff) / 255.0

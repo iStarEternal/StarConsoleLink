@@ -13,30 +13,42 @@ var sharedPlugin: StarConsoleLink?
 class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     
-    // MARK: - Swizzle Methods
+    
+    // MARK: - Static
     
     override static func initialize() {
-        self.swizzleMethods()
+        self.swizzleConsoleTextViewMethods()
     }
     
-    static func swizzleMethods() {
+    static func swizzleConsoleTextViewMethods() {
         do {
             
-            #if swift(>=2.2)
-                try NSTextStorage.self.jr_swizzleMethod(#selector(NSTextStorage.fixAttributesInRange(_:)), withMethod: #selector(NSTextStorage.star_fixAttributesInRange(_:)))
-                try NSTextView.self.jr_swizzleMethod(#selector(NSTextView.mouseDown(_:)), withMethod: #selector(NSTextView.star_mouseDown(_:)))
-            #else
-                try NSTextStorage.self.jr_swizzleMethod("fixAttributesInRange:", withMethod: "star_fixAttributesInRange:")
-                try NSTextView.self.jr_swizzleMethod("mouseDown:", withMethod: "star_mouseDown:")
-            #endif
+            // 防止2.2警告，并不用做>=2.1兼容，采用NSSelectorFromString
+            try NSTextStorage.self.jr_swizzleMethod(NSSelectorFromString("fixAttributesInRange:"),
+                                                    withMethod: NSSelectorFromString("star_fixAttributesInRange:"))
+            
+            guard let targetClass = NSClassFromString("IDEConsoleTextView") as? NSObject.Type else {
+                return
+            }
+            // StarFunctions.printMothList(targetClass)
+            // let i = StarFunctions.getAllProperties(targetClass)
+            try targetClass.self.jr_swizzleMethod(NSSelectorFromString("mouseDown:"),
+                                                  withMethod: NSSelectorFromString("star_mouseDown:"))
+            try targetClass.self.jr_swizzleMethod(NSSelectorFromString("star_insertNewline:"),
+                                                  withMethod: NSSelectorFromString("insertNewline:"))
+            try targetClass.self.jr_swizzleMethod(NSSelectorFromString("clearConsoleItems"),
+                                                  withMethod: NSSelectorFromString("star_clearConsoleItems"))
+            try targetClass.self.jr_swizzleMethod(NSSelectorFromString("shouldChangeTextInRanges:replacementStrings:"),
+                                                  withMethod: NSSelectorFromString("star_shouldChangeTextInRanges:replacementStrings:"))
         }
-        catch let error as NSError {
-            Logger.info("Swizzling failure: \(error)")
+        catch let e as NSError {
+            Logger.info("Swizzling failure: \(e)")
         }
     }
     
     
     
+    // MARK: Proptices
     
     var bundle: NSBundle
     
@@ -49,27 +61,19 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     init(bundle: NSBundle) {
         self.bundle = bundle
         super.init()
-        
-        #if swift(>=2.2)
-            notificationCenter.addObserver(self,
-                                           selector: #selector(StarConsoleLink.handleFinishLaunchingNotification(_:)),
-                                           name: NSApplicationDidFinishLaunchingNotification,
-                                           object: nil)
-            
-            //            center.addObserver(self,
-            //                               selector: #selector(StarConsoleLink.handleControlGroupDidChangeNotification(_:)),
-            //                               name: "IDEControlGroupDidChangeNotificationName",
-            //                               object: nil)
-            
-            notificationCenter.addObserver(self,
-                                           selector: #selector(StarConsoleLink.handleTextStorageDidChange(_:)),
-                                           name: NSTextDidChangeNotification,
-                                           object: nil)
-        #else
-            center.addObserver(self, selector: "handleFinishLaunchingNotification:", name: NSApplicationDidFinishLaunchingNotification, object: nil)
-            // center.addObserver(self, selector: "handleControlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
-            center.addObserver(self, selector: "handleTextStorageDidChange:", name: NSTextDidChangeNotification, object: nil)
-        #endif
+        addStarConsoleLinkObserver()
+    }
+    
+    func addStarConsoleLinkObserver() {
+        notificationCenter.addObserver(self,
+                                       selector: NSSelectorFromString("handleFinishLaunchingNotification:"),
+                                       name: NSApplicationDidFinishLaunchingNotification,
+                                       object: nil)
+        // notificationCenter.addObserver(self, selector: "handleControlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: NSSelectorFromString("handleTextStorageDidChange:"),
+                                       name: NSTextDidChangeNotification,
+                                       object: nil)
     }
     
     deinit {
@@ -114,15 +118,14 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     
     
-    // MARK: - 替换Unicode
+    // MARK: - TextStrogage Delegate - 替换Unicode
     
     func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
         
         guard ConsoleLinkConfig.ChineseUnicodeEnabled else {
             return
         }
-        
-        if editedMask == .EditedAttributes || editedRange.length <= 0 {
+        if editedMask == .EditedAttributes || editedRange.length <= 0  {
             return
         }
         
@@ -158,7 +161,6 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     var consoleLinkEnabledItem: NSMenuItem!
     var ChineseUnicodeEnabledItem: NSMenuItem!
     var showSettingsItem: NSMenuItem!
-    
     
     func createMenuItems() {
         createMainMenuItem();
@@ -204,11 +206,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
             consoleLinkEnabledItem = NSMenuItem()
             consoleLinkEnabledItem.title = "😄Enabled"
             consoleLinkEnabledItem.target = self
-            #if swift(>=2.2)
-                consoleLinkEnabledItem.action = #selector(handleConsoleLinkEnabled(_:))
-            #else
-                consoleLinkEnabledItem.action = "handleConsoleLinkEnabled:"
-            #endif
+            consoleLinkEnabledItem.action = NSSelectorFromString("handleConsoleLinkEnabled:")
             starConsoleLinkItem.submenu?.addItem(consoleLinkEnabledItem)
         }
         consoleLinkEnabledItem.state = ConsoleLinkConfig.consoleLinkEnabled ? NSOnState : NSOffState
@@ -224,11 +222,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
             ChineseUnicodeEnabledItem = NSMenuItem()
             ChineseUnicodeEnabledItem.title = "🀄︎Chinese Unicode Enabled"
             ChineseUnicodeEnabledItem.target = self
-            #if swift(>=2.2)
-                ChineseUnicodeEnabledItem.action = #selector(handleChineseUnicodeEnabled(_:))
-            #else
-                enabledConsoleChineseUnicodeItem.action = "handleChineseUnicodeEnabled:"
-            #endif
+            ChineseUnicodeEnabledItem.action = NSSelectorFromString("handleChineseUnicodeEnabled:")
             starConsoleLinkItem.submenu?.addItem(ChineseUnicodeEnabledItem)
         }
         ChineseUnicodeEnabledItem.state = ConsoleLinkConfig.ChineseUnicodeEnabled ? NSOnState : NSOffState
@@ -245,11 +239,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
             showSettingsItem = NSMenuItem()
             showSettingsItem.title = "💭Settings"
             showSettingsItem.target = self
-            #if swift(>=2.2)
-                showSettingsItem.action = #selector(handleShowSettingsItem(_:))
-            #else
-                showSettingsItem.action = "handleShowSettingsItem:"
-            #endif
+            showSettingsItem.action = NSSelectorFromString("handleShowSettingsItem:")
             starConsoleLinkItem.submenu?.addItem(showSettingsItem)
         }
     }

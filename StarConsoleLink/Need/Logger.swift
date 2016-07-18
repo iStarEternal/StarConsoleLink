@@ -50,7 +50,11 @@ let AssertTitle = "Assert"
 let FatalErrorColor = "196,26,22"   // 红色
 let FatalErrorTitle = "FatalError"
 
-
+#if swift(>=2.2)
+    // let functionName = #function
+#else
+    // let functionName = __FUNCTION__
+#endif
 
 class Logger: NSObject {
     

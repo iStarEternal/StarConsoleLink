@@ -7,3 +7,4 @@
 #import "JRSwizzle.h"
 #import "LogColorKit.h"
 #import "StarFunctions.h"
+//#import "IDEConsoleTextView.h"

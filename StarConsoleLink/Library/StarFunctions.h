@@ -10,4 +10,7 @@
 
 @interface StarFunctions: NSObject
 + (NSString*)workspacePath;
++ (void)printMothList:(Class)class;
++ (NSArray *)getAllProperties:(Class)class;
++ (NSDictionary *)properties_aps:(Class)class;
 @end
