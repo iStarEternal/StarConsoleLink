@@ -154,8 +154,14 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         
         // 再找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
         if string.OCString.length - convertedString.length > 0 {
-            for _ in (0..<(string.OCString.length - convertedString.length)) {
-                convertedString.appendString(" ");
+            for i in (0..<(string.OCString.length - convertedString.length)) {
+                if i == string.OCString.length - convertedString.length - 1 {
+                    convertedString.appendString("\n");
+                }
+                else {
+                    convertedString.appendString(" ");
+                }
+                
             }
         }
         return convertedString.swiftString
