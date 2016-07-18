@@ -129,7 +129,9 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
             return
         }
         
-        let string = textStorage.string.OCString
+        guard let string = textStorage.valueForKeyPath("_contents.mutableString") as? NSString else {
+            return 
+        }
         
         let contentsStr = editedRange.location == 0 ? string.substringWithRange(string.rangeOfComposedCharacterSequencesForRange(editedRange)) : string
         
