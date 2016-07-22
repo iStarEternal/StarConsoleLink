@@ -118,9 +118,11 @@ extension NSTextView {
                     && lineText.rangeOfString(methodName) != nil {
                     
                     let lineRange = text.rangeOfString(lineText)
-                    self.scrollRangeToVisible(lineRange)
-                    self.setSelectedRange(lineRange)
-                    stop.memory = ObjCBool(true)
+                    if lineRange.location != NSNotFound {
+                        self.scrollRangeToVisible(lineRange)
+                        self.setSelectedRange(lineRange)
+                        stop.memory = ObjCBool(true)
+                    }
                 }
             }
             
@@ -130,7 +132,6 @@ extension NSTextView {
                 methodComponents = methodComponents.map { $0 + ":" }
                 
                 if lineText.rangeOfString(methodType) == nil {
-                    // passTotalCount =
                 }
                 
                 if lineText.rangeOfString(methodType) != nil {
@@ -143,9 +144,11 @@ extension NSTextView {
                     }
                     if (passIndex == passTotalCount) {
                         let lineRange = text.rangeOfString(lineText)
-                        self.scrollRangeToVisible(lineRange)
-                        self.setSelectedRange(lineRange)
-                        stop.memory = ObjCBool(true)
+                        if lineRange.location != NSNotFound {
+                            self.scrollRangeToVisible(lineRange)
+                            self.setSelectedRange(lineRange)
+                            stop.memory = ObjCBool(true)
+                        }
                     }
                 }
             }

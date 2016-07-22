@@ -153,15 +153,15 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         CFStringTransform(convertedString, nil, "Any-Hex/Java", true)
         
         // 再找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
-        if string.OCString.length - convertedString.length > 0 {
-            for i in (0..<(string.OCString.length - convertedString.length)) {
-                if i == string.OCString.length - convertedString.length - 1 {
+        let tran = string.OCString.length - convertedString.length;
+        if tran > 0 {
+            for i in (0..<tran) {
+                if i == (tran - 1) {
                     convertedString.appendString("\n");
                 }
                 else {
                     convertedString.appendString(" ");
                 }
-                
             }
         }
         return convertedString.swiftString
