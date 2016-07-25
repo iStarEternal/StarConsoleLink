@@ -8,6 +8,35 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
+# Install 终端安装命令
+
+```install
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
+```
+
+
+# Uninstall 终端卸载命令
+
+```uninstall
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
+```
+
+
+# How to use?  使用说明
+
+1.  If you are using Swift, Copy Logger.swift to you project.
+
+2.  If you are using Objective-C, Copy Logger.h and Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
+
+3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
+
+一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
+
+二、如果你使用的是Objective-C，请拷贝Logger.h/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
+
+三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
+
+
 # The New Feature 新功能
 
 ####v1.0
@@ -77,35 +106,6 @@ LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 ####v1.4
 
 修复了1.3在控制台输入文字会发生闪退的BUG
-
-
-# Install 终端安装命令
-
-```install
-curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
-```
-
-
-# Uninstall 终端卸载命令
-
-```uninstall
-curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
-```
-
-
-# How to use?  使用说明
-
-1.  If you are using Swift, Copy Logger.swift to you project.
-
-2.  If you are using Objective-C, Copy Logger.h and Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
-
-3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
-
-一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
-
-二、如果你使用的是Objective-C，请拷贝Logger.h/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
-
-三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
 
 
