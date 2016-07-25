@@ -10,15 +10,15 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 # How to use?  使用说明
 
-1.  If you are using Swift, Copy Logger.swift to you project.
+1.  If you are using Swift, Copy StarConsoleLink/Need/Logger.swift to you project.
 
-2.  If you are using Objective-C, Copy Logger.h and Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
+2.  If you are using Objective-C, Copy StarConsoleLink/Need/Logger.h and StarConsoleLink/Need/Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
 
 3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
 
 一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
 
-二、如果你使用的是Objective-C，请拷贝Logger.h/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
+二、如果你使用的是Objective-C，请拷贝StarConsoleLink/Need/Logger.h和StarConsoleLink/Need/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
 
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
