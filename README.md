@@ -43,7 +43,7 @@ LogError(@"¡Hola")
 // 红色 [Error][ViewController.m:35]¡Hola
 ```
 
-###v1.1
+* v1.1
 
 将OC的NSLog替换成了printf，并添加了日志输出时间
 
