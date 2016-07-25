@@ -22,11 +22,11 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 估计也没多少外国人用这个，就不写英文了。
 
-给您的日志加入了超链接
+给您的日志加入了超链接，让您可以更快的定位到打印日志的文件。
 
-给您的日志加入了彩色元素
+给您的日志加入了彩色元素，让您更好的区分日志的颜色。
 
-增强您的日志语句
+增强您的日志语句，您可以使用下面的
 
 ```objective-c
 LogInfo(@"你好");
@@ -39,26 +39,28 @@ LogError(@"¡Hola");
 // 红色 [Error][ViewController.m:35]¡Hola
 ```
 
+
 ####v1.1
 
 将OC的NSLog替换成了printf，并添加了日志输出时间
 
+
 ####v1.2
 
-添加了LogAssert，LogBackTrace，并且对LogBackTrace的日志进行了链接注入
+添加了LogBackTrace，并对LogBackTrace的日志加入了超链接，您现在也可以更快的定位到日志的方法调用堆栈了。
 
-可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择关闭StarConsoleLink
+您现在可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择是否关闭StarConsoleLink
 
-可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
+您现在可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
 
 
 ####v1.3
 
 添加了NSDictionary和NSArray的日志显示，Unicode转中文
+您现在可以在菜单栏 Plugins -> Star Console Link -> Chinese Unicode Enabled 选择是否关闭中文转换了。
 ```objective-c
 LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 ```
-
 ```
 以前：
 <2016-07-14 14:07:03> [Warning][OCLogger.m:45] {
