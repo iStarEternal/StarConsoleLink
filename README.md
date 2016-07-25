@@ -8,20 +8,6 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
-# Install 终端安装命令
-
-```install
-curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
-```
-
-
-# Uninstall 终端卸载命令
-
-```uninstall
-curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
-```
-
-
 # How to use?  使用说明
 
 1.  If you are using Swift, Copy Logger.swift to you project.
@@ -35,6 +21,20 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 二、如果你使用的是Objective-C，请拷贝Logger.h/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
 
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
+
+
+# Install 终端安装命令
+
+```install
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
+```
+
+
+# Uninstall 终端卸载命令
+
+```uninstall
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
+```
 
 
 # The New Feature 新功能
