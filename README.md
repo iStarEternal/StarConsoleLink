@@ -1,5 +1,5 @@
 
-## Introduction
+# Introduction
 
 StarConsoleLink inject the link to your Xcode console, which allows you to click on the link area rapid positioning to the log line.
 
@@ -8,7 +8,7 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
-## The New Feature
+# The New Feature
 
 StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
 
@@ -59,21 +59,21 @@ LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 修复了1.3在控制台输入文字会发生闪退的BUG
 
 
-## Install
+# Install
 
 ```install
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
 
-## Uninstall
+# Uninstall
 
 ```uninstall
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
 ```
 
 
-## How to use ?
+# How to use ?
 
 1.  If you are using Swift, Copy Logger.swift to you project.
 
@@ -88,7 +88,8 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
 
-## Example
+
+# Example
 
 * Objective-C
 ```objective-c
