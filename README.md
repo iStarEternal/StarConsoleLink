@@ -10,6 +10,8 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 # The New Feature
 
+* v1.0
+
 StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
 
 Thank for @robbiehanson supported.  https://github.com/robbiehanson/XcodeColors
@@ -20,10 +22,7 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 估计也没多少外国人用这个，就不写英文了。
 
-
-* v1.0
-
-给您的日志添加了超链接
+给您的日志加入了超链接
 
 给您的日志加入了彩色元素
 
