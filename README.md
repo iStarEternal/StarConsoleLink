@@ -18,7 +18,7 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 一、如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
 
-二、如果你使用的是Objective-C，请拷贝StarConsoleLink/Need/Logger.h和StarConsoleLink/Need/Logger.m到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
+二、如果你使用的是Objective-C，请拷贝 StarConsoleLink/Need/Logger.h 和 StarConsoleLink/Need/Logger.m 到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
 
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
