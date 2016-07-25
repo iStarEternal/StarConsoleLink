@@ -89,6 +89,7 @@ LogError(@"¡Hola");
 ####v1.3
 
 添加了NSDictionary和NSArray的日志显示，Unicode转中文
+
 您现在可以在菜单栏 Plugins -> Star Console Link -> Chinese Unicode Enabled 选择是否关闭中文转换了。
 ```objective-c
 LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
