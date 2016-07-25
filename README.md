@@ -3,7 +3,7 @@
 
 StarConsoleLink inject the link to your Xcode console, which allows you to click on the link area rapid positioning to the log line.
 
-StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速跳转到代码位置。
+StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速跳转到日志输出语句位置。
 
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
@@ -26,7 +26,7 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 给您的日志加入了彩色元素，让您更好的区分日志的类型。
 
-增强您的日志语句，您可以使用下面的
+增强您的日志语句，您可以使用下面的语句来输出更多类型的日志。
 
 ```objective-c
 LogInfo(@"你好");
