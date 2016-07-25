@@ -20,9 +20,22 @@ StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
 
 估计也没多少外国人用这个，就不写英文了。
 
+
+*v1.0
+完善您的日志输出
+```objective-c
+LogInfo(@"你好")  黑色  [Info][ViewController.m:35]你好
+
+LogSucess(@"Hello")  绿色  [Success][ViewController.m:35]Hello
+
+LogWarning(@"Bonjour")  黄色  [Warning][ViewController.m:35]Bonjour
+
+LogError(@"¡Hola")  红色 [Error][ViewController.m:35]¡Hola
+```
+
 ###v1.1
 
-将OC的NSLog替换成了printf
+将OC的NSLog替换成了printf，并添加了日志输出时间
 
 ###v1.2
 
