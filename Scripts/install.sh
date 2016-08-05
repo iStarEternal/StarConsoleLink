@@ -38,11 +38,11 @@ rm -rf /var/tmp/StarConsoleLink.tmp
 
 # Done
 echo ""
-if [ -d "$PLUGIN_DIR"]; then
+if [ -d "$PLUGIN_DIR" ]; then
     if [ -d "$STARCONSOLELINK_PATH" ]; then
         echo "StarConsoleLink successfully installed! 🍻 Please restart your Xcode."
     else
-        echo "StarConsoleLink installation failed! 🍻 I'm sorry 😭😭😭."
+        echo "StarConsoleLink installation failed! I'm sorry 😭😭😭."
     fi
 fi
 echo ""
