@@ -8,9 +8,9 @@
 
 import Foundation
 
-#if swift(>=2.0)
-    
-#endif
+//#if swift(>=2.0)
+
+//#endif
 
 #if os(iOS) || os(tvOS)
     import UIKit

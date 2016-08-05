@@ -152,7 +152,8 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         convertedString.replaceOccurrencesOfString("\\U", withString: "\\u", options: NSStringCompareOptions(), range: NSMakeRange(0, convertedString.length))
         CFStringTransform(convertedString, nil, "Any-Hex/Java", true)
         
-        // 再找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
+        // 在找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
+        // 注：SwiftString的length 和OCString的Length长度不同，还没有找到解决方案
         let tran = string.OCString.length - convertedString.length;
         if tran > 0 {
             for i in (0..<tran) {
