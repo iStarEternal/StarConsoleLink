@@ -13,9 +13,9 @@
 #include <execinfo.h>
 #include <time.h>
 
-char * strjoin(const char *s1, const char *s2);
+char* strjoin(const char *s1, const char *s2);
 
-char * strjoin(const char *s1, const char *s2) {
+char* strjoin(const char *s1, const char *s2) {
     
     char *result = malloc(strlen(s1) + strlen(s2) + 1);
     if (result == NULL)
@@ -31,7 +31,7 @@ char * strjoin(const char *s1, const char *s2) {
 
 static char backtracestr[BACK_TRACE_BUFFER];
 
-const char * getBackTrace(int open, int depth) {
+const char* getBackTrace(int open, int depth) {
     
     if (!open) {
         return "";
@@ -62,7 +62,7 @@ const char * getBackTrace(int open, int depth) {
 
 static char timestr[TIME_BUFFER];
 
-const char * currentTime() {
+const char* currentTime() {
     
     time_t rawtime;
     struct tm * timeinfo;

@@ -11,13 +11,13 @@
 
 #include <stdio.h>
 
-const char * getBackTrace(int open, int depth);
-const char * currentTime();
+const char* getBackTrace(int open, int depth);
+const char* currentTime();
 
-#define StarDebug DEBUG
-#define StarXCodeColors 1
-#define StarBackTrace 0
-#define StarBackTraceDepth 4
+#define StarDebug DEBUG         // DEBUG环境下使用
+#define StarXCodeColors 1       // 开关颜色
+#define StarBackTrace 0         // 开关方法调用栈输出
+#define StarBackTraceDepth 4    // 栈深度
 
 
 //#define XCODE_COLORS_ESCAPE     "\033["
@@ -29,31 +29,31 @@ const char * currentTime();
 //#define XCODE_COLORS_RESET_BG   "\033[bg;"
 
 
-#define NSLogColor "22,22,22"          // 黑色
+#define NSLogColor "22,22,22"           // 黑色
 #define NSLogTitle "Info"
 
-#define InfoColor "22,22,22"          // 黑色
+#define InfoColor "22,22,22"            // 黑色
 #define InfoTitle "Info"
 
-#define DebugColor "28,0,207"         // 蓝色
+#define DebugColor "28,0,207"           // 蓝色
 #define DebugTitle "Debug"
 
-#define WarningColor "218,130,53"     // 黄色
+#define WarningColor "218,130,53"       // 黄色
 #define WarningTitle "Warning"
 
-#define ErrorColor "196,26,22"        // 红色
+#define ErrorColor "196,26,22"          // 红色
 #define ErrorTitle "Error"
 
-#define SuccessColor "0,116,0"        // 绿色
+#define SuccessColor "0,116,0"          // 绿色
 #define SuccessTitle "Success"
 
-#define FailureColor "196,26,22"      // 红色
+#define FailureColor "196,26,22"        // 红色
 #define FailureTitle "Failure"
 
-#define AssertColor "196,26,22"      // 红色
+#define AssertColor "196,26,22"         // 红色
 #define AssertTitle "Assert"
 
-#define BackTraceColor "22,22,22"          // 黑色
+#define BackTraceColor "22,22,22"       // 黑色
 #define BackTraceTitle "BackTrace"
 
 
