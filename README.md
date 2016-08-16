@@ -82,19 +82,11 @@ LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 
 ####v1.0
 
-StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
+StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。感谢@robbiehanson提供的支持：https://github.com/robbiehanson/XcodeColors
 
-Thank for @robbiehanson supported.  https://github.com/robbiehanson/XcodeColors
+给您的日志加入了超链接，让您可以更快的定位到打印输出的位置。
 
-StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
-
-感谢@robbiehanson提供的支持。
-
-估计也没多少外国人用这个，就不写英文了。
-
-给您的日志加入了超链接，让您可以更快的定位到打印日志的文件。
-
-给您的日志加入了彩色元素，让您更好的区分日志的类型。
+给您的日志加入了色彩元素，让您可以更好的区分日志的类型。
 
 增强您的日志语句，您可以使用下面的语句来输出更多类型的日志。
 
@@ -126,8 +118,6 @@ LogError(@"¡Hola");
 #define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
 #define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
 #define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
-
-
 
 #define NSLogColor @"22,22,22"          // 黑色
 #define NSLogTitle @"Info"
@@ -230,7 +220,6 @@ let ImportantTitle = "Important - 如果发现该行日志，应该及时处理"
 
 class Logger: NSObject {
 
-    // WEIGHT: 0
     class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
         guard StarDebug else {
             return
@@ -242,32 +231,21 @@ class Logger: NSObject {
             Swift.print("[\(title)][\((fileName as NSString).lastPathComponent):\(lineNumber)] \(value)")
         }
     }
-
-    // WEIGHT: 0
     class func info<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: InfoTitle, color: InfoColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
-
-    // WEIGHT: 0
     class func debug<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: DebugTitle, color: DebugColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
-
-    // WEIGHT: 2
     class func warning<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: WarningTitle, color: WarningColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
-
-    // WEIGHT: 4
     class func error<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: ErrorTitle, color: ErrorColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
-
-    // WEIGHT: 5
     class func important<T>(value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: ImportantTitle, color: ImportantColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
-
 }
 
 ```
