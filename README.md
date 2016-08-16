@@ -23,14 +23,14 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
 
-# Install 【终端安装】
+# Install 【安装】
 
 ```install
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
 
-# Uninstall 【终端卸载】
+# Uninstall 【卸载】
 
 ```uninstall
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
@@ -38,37 +38,6 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 
 
 # The New Feature 【新功能】
-
-####v1.0
-
-StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
-
-Thank for @robbiehanson supported.  https://github.com/robbiehanson/XcodeColors
-
-StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
-
-感谢@robbiehanson提供的支持。
-
-估计也没多少外国人用这个，就不写英文了。
-
-给您的日志加入了超链接，让您可以更快的定位到打印日志的文件。
-
-给您的日志加入了彩色元素，让您更好的区分日志的类型。
-
-增强您的日志语句，您可以使用下面的语句来输出更多类型的日志。
-
-```objective-c
-LogInfo(@"你好");
-// 黑色  [Info][ViewController.m:35]你好
-LogSuccess(@"Hello");
-// 绿色  [Success][ViewController.m:35]Hello
-LogWarning(@"Bonjour");
-// 黄色  [Warning][ViewController.m:35]Bonjour
-LogError(@"¡Hola");
-// 红色 [Error][ViewController.m:35]¡Hola
-```
-
-
 ####v1.4
 
 修复了1.3在控制台输入文字会发生闪退的BUG
@@ -108,6 +77,37 @@ LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 ####v1.1
 
 将OC的NSLog替换成了printf，并添加了日志输出时间
+
+
+
+####v1.0
+
+StarConsoleLink Integrated with XcodeColors, which allows you to custom you logs color.
+
+Thank for @robbiehanson supported.  https://github.com/robbiehanson/XcodeColors
+
+StarConsoleLink集成了XcodeColors，他可以让你自定义你Log的颜色。
+
+感谢@robbiehanson提供的支持。
+
+估计也没多少外国人用这个，就不写英文了。
+
+给您的日志加入了超链接，让您可以更快的定位到打印日志的文件。
+
+给您的日志加入了彩色元素，让您更好的区分日志的类型。
+
+增强您的日志语句，您可以使用下面的语句来输出更多类型的日志。
+
+```objective-c
+LogInfo(@"你好");
+// 黑色  [Info][ViewController.m:35]你好
+LogSuccess(@"Hello");
+// 绿色  [Success][ViewController.m:35]Hello
+LogWarning(@"Bonjour");
+// 黄色  [Warning][ViewController.m:35]Bonjour
+LogError(@"¡Hola");
+// 红色 [Error][ViewController.m:35]¡Hola
+```
 
 
 
