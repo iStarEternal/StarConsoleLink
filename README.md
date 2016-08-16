@@ -1,14 +1,14 @@
 
-# Introduction 简介
+# Introduction 【简介】
 
 StarConsoleLink inject the link to your Xcode console, which allows you to click on the link area rapid positioning to the log line.
 
-StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接区域快速跳转到日志输出语句位置。
+StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链接时，快速跳转到日志输出语句位置。
 
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
-# How to use?  使用说明
+# How to use?  【使用说明】
 
 1.  If you are using Swift, Copy StarConsoleLink/Need/Logger.swift to you project.
 
@@ -23,24 +23,21 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 三、如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
 
-
-# Install 终端安装命令
+# Install 【终端安装】
 
 ```install
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
 
-
-# Uninstall 终端卸载命令
+# Uninstall 【终端卸载】
 
 ```uninstall
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/uninstall.sh | sh
 ```
 
 
-
-# The New Feature 新功能
+# The New Feature 【新功能】
 
 ####v1.0
 
@@ -72,18 +69,9 @@ LogError(@"¡Hola");
 ```
 
 
-####v1.1
+####v1.4
 
-将OC的NSLog替换成了printf，并添加了日志输出时间
-
-
-####v1.2
-
-添加了LogBackTrace，并对LogBackTrace的日志加入了超链接，您现在也可以更快的定位到日志的方法调用堆栈了。
-
-您现在可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择是否关闭StarConsoleLink
-
-您现在可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
+修复了1.3在控制台输入文字会发生闪退的BUG
 
 
 ####v1.3
@@ -107,13 +95,23 @@ LogWarning(@"%@", @{@"name": @"星星", @"age": @"18岁"});
 } 
 ```
 
-####v1.4
 
-修复了1.3在控制台输入文字会发生闪退的BUG
+####v1.2
+
+添加了LogBackTrace，并对LogBackTrace的日志加入了超链接，您现在也可以更快的定位到日志的方法调用堆栈了。
+
+您现在可以在菜单栏 Plugins -> Star Console Link -> Enabled 选择是否关闭StarConsoleLink
+
+您现在可以在菜单栏 Plugins -> Star Console Link -> Setting 进行Link的颜色配置
+
+
+####v1.1
+
+将OC的NSLog替换成了printf，并添加了日志输出时间
 
 
 
-# Example 案例
+# Example 【案例】
 
 * Objective-C
 ```objective-c
