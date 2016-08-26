@@ -32,6 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 ```
 
 
+
 # Uninstall 【卸载】
 
 ```uninstall
@@ -103,11 +104,23 @@ LogError(@"¡Hola");
 // 红色 [Error][ViewController.m:35]¡Hola
 ```
 
+# If Ineffective【如果插件未生效】
 
+第一步：请先检查你是否启用了该插件
+```
+defaults read com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current Xcode Version}
+```
+
+第二步：如果发现插件在skipped中，请执行下列代码，然后重启Xcode，重新点击Load Bundles
+```
+defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current Xcode Version}
+{Current Xcode Version}
+```
 
 # Example 【案例】
 
 * Objective-C
+
 ```objective-c
 
 #define StarDebug DEBUG

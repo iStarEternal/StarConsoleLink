@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 
-const char* getBackTrace(int open, int depth);
-const char* currentTime();
+const char* star_back_trace(int open, int depth);
+const char* star_current_time();
 
 #define StarDebug DEBUG         // DEBUG环境下使用
 #define StarXCodeColors 1       // 开关颜色
@@ -65,13 +65,13 @@ const char* currentTime();
 printf("%s%s;<%s> [%s][%s:%d] %s %s %s\n",\
 XCODE_COLORS_ESCAPE_FG,\
 color,\
-currentTime(),\
+star_current_time(),\
 title,\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
 [[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
 XCODE_COLORS_RESET_FG,\
-getBackTrace(stack, StarBackTraceDepth)\
+star_back_trace(stack, StarBackTraceDepth)\
 )\
 
 // NSLog
@@ -115,12 +115,12 @@ PrivateLog(BackTraceColor, BackTraceTitle, 1, format, ##__VA_ARGS__)\
 
 #define PrivateLog(color, title, stack, format, ...)\
 printf("<%s> [%s][%s:%d] %s %s\n",\
-currentTime(),\
+star_current_time(),\
 title,\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
 [[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-getBackTrace(stack, StarBackTraceDepth)\
+star_back_trace(stack, StarBackTraceDepth)\
 );\
 
 // NSLog

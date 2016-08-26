@@ -12,26 +12,14 @@
 #include <stdlib.h>
 #include <execinfo.h>
 #include <time.h>
-
-char* strjoin(const char *s1, const char *s2);
-
-char* strjoin(const char *s1, const char *s2) {
-    
-    char *result = malloc(strlen(s1) + strlen(s2) + 1);
-    if (result == NULL)
-        exit (EXIT_FAILURE);
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
-}
+#include <sys/timeb.h>
 
 
+#define STAR_BACK_TRACE_BUFFER 4096
 
-#define BACK_TRACE_BUFFER 4096
+static char star_back_trace_str[STAR_BACK_TRACE_BUFFER];
 
-static char backtracestr[BACK_TRACE_BUFFER];
-
-const char* getBackTrace(int open, int depth) {
+const char* star_back_trace(int open, int depth) {
     
     if (!open) {
         return "";
@@ -40,39 +28,59 @@ const char* getBackTrace(int open, int depth) {
     int frames = backtrace(callstack, 128);
     char **strs = backtrace_symbols(callstack, frames);
     
-    memset(backtracestr, 0, BACK_TRACE_BUFFER * sizeof(char));
-    strcat(backtracestr, "\n<BackTrace Begin>");
+    memset(star_back_trace_str, 0, STAR_BACK_TRACE_BUFFER * sizeof(char));
+    strcat(star_back_trace_str, "\n<BackTrace Begin>");
     for (int i = 1; i < frames; i++) {
-        strcat(backtracestr, "\n\t");
-        strcat(backtracestr, strs[i]);
+        // if (strlen(star_back_trace_str) + strlen(strs[i]) + 16 > STAR_BACK_TRACE_BUFFER)
+        //     break;
+        strcat(star_back_trace_str, "\n\t");
+        strcat(star_back_trace_str, strs[i]);
         if (i == depth)
             break;
     }
-    strcat(backtracestr, "\n<End>");
+    strcat(star_back_trace_str, "\n<End>");
     
     free(strs);
     strs = NULL;
     
-    return backtracestr;
+    return star_back_trace_str;
     
 }
 
 
-#define TIME_BUFFER 255
+#define STAR_TIME_BUFFER 255
 
-static char timestr[TIME_BUFFER];
+static char star_time_str[STAR_TIME_BUFFER];
 
-const char* currentTime() {
+const char* star_current_time() {
     
     time_t rawtime;
     struct tm * timeinfo;
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    memset(timestr, 0, TIME_BUFFER * sizeof(char));
-    strftime(timestr, TIME_BUFFER, "%Y-%m-%d %H:%M:%S", timeinfo);
-    return timestr;
+    memset(star_time_str, 0, STAR_TIME_BUFFER * sizeof(char));
+    strftime(star_time_str, STAR_TIME_BUFFER, "%Y-%m-%d %H:%M:%S", timeinfo);
+    return star_time_str;
 }
 
 
+// 某些用户需要用到毫秒，那就替换成下列函数好了
+
+//const char* star_current_time() {
+//
+//    struct timeb timeinfo;
+//    ftime(&timeinfo);
+//
+//    struct tm * second_timeinfo;
+//    second_timeinfo = localtime(&timeinfo.time);
+//
+//    memset(star_time_str, 0, STAR_TIME_BUFFER * sizeof(char));
+//    strftime(star_time_str, STAR_TIME_BUFFER, "%Y-%m-%d %H:%M:%S", second_timeinfo);
+//
+//    char millitm[16];
+//    sprintf(millitm, ".%03d", timeinfo.millitm);
+//    strcat(star_time_str, millitm);
+//    return star_time_str;
+//}
 
 
