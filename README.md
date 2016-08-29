@@ -114,7 +114,6 @@ defaults read com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current 
 第二步：如果发现插件在skipped中，请执行下列代码，然后重启Xcode，重新点击Load Bundles
 ```
 defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current Xcode Version}
-{Current Xcode Version}
 ```
 
 # Example 【案例】
