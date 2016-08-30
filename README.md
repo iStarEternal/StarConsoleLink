@@ -10,17 +10,16 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 # How to use?  【使用说明】
 
-1.  If you are using Swift, Copy ./StarConsoleLink/Need/Logger.swift to you project.
+1.  If you are using Swift, Copy Logger.swift to you project.
 
-2.  If you are using Objective-C, Copy ./StarConsoleLink/Need/Logger.h and ./StarConsoleLink/Need/Logger.m to you project and #import "Logger.h" to you PrefixHeader.pch.
+2.  If you are using Objective-C, Copy Logger.h to you project and #import "Logger.h" to you PrefixHeader.pch.
 
 3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
 
 
+1.  如果你使用的是Swift，请拷贝 Logger.swift 到你的项目中去。
 
-1.  如果你使用的是Swift，请拷贝Logger.swift到你的项目中去。
-
-2.  如果你使用的是Objective-C，请拷贝 ./StarConsoleLink/Need/Logger.h 和 ./StarConsoleLink/Need/Logger.m 到你的项目中去，并在你的.pch文件中 #import "Logger.h"。
+2.  如果你使用的是Objective-C，请拷贝 Logger.h 到你的项目中，并在你的.pch文件中添加 #import "Logger.h"。
 
 3.  如果你想要自定义你的日志，请遵照[FileName.extension:LineNumber]的书写规范，例：[main.swift:15]。
 
@@ -41,6 +40,12 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 
 
 # The New Feature 【新功能】
+
+####v1.4.1
+
+重构Logger.h并删除了Logger.m
+
+
 ####v1.4
 
 修复了1.3在控制台输入文字会发生闪退的BUG
@@ -111,7 +116,7 @@ LogError(@"¡Hola");
 defaults read com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current Xcode Version}
 ```
 
-第二步：如果发现插件在skipped中，请执行下列代码，然后重启Xcode，重新点击Load Bundles
+第二步：如果发现插件在skipped中，请执行下列代码，然后重启Xcode，并点击Load Bundles
 ```
 defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{Current Xcode Version}
 ```

@@ -67,7 +67,7 @@ let FatalErrorTitle = "FatalError"
 class Logger: NSObject {
     
     class func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
-        star_back_trace(4)
+//        star_back_trace(4)
         guard StarDebug else {
             return
         }
