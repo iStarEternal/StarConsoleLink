@@ -44,6 +44,7 @@ curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master
 ####v1.4.1
 
 重构Logger.h并删除了Logger.m
+现已加入alcatraz-packages（Package Manager）
 
 
 ####v1.4
