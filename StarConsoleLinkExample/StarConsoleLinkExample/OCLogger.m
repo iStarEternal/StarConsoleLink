@@ -31,7 +31,7 @@
 - (void)runLog {
     
     LogWarning(@"------------------ ObjectiveC Logger Test ------------------");
-    PrivateLog("0,0,0", "Hello", 0, @"你好：%@", @"星星");
+    PrivateLog("0,0,0", "Hello", 0, @"你好：星星，%@", @"请不要使用PrivateLog");
     NSLog(@"NSLog");
     LogDebug(@"调试");
     LogInfo(@"消息");
