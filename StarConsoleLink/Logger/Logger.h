@@ -15,13 +15,13 @@
 #define StarBackTraceDepth 4    // 栈深度
 
 
-//#define XCODE_COLORS_ESCAPE     "\033["
-#define XCODE_COLORS_ESCAPE_FG  "\033[fg"
-//#define XCODE_COLORS_ESCAPE_BG  "\033[bg"
+//#define STAR_CONSOLE_COLOR_ESCAPE     "\033["
+#define STAR_CONSOLE_COLOR_ESCAPE_FG  "\033[fg"
+//#define STAR_CONSOLE_COLOR_ESCAPE_BG  "\033[bg"
 
-//#define XCODE_COLORS_RESET      "\033[;"
-#define XCODE_COLORS_RESET_FG   "\033[fg;"
-//#define XCODE_COLORS_RESET_BG   "\033[bg;"
+//#define STAR_CONSOLE_COLOR_RESET      "\033[;"
+#define STAR_CONSOLE_COLOR_RESET_FG   "\033[fg;"
+//#define STAR_CONSOLE_COLOR_RESET_BG   "\033[bg;"
 
 
 #define NSLogColor "22,22,22"           // 黑色
@@ -58,14 +58,14 @@
 
 #define PrivateLog(color, title, stack, format, ...)\
 printf("%s%s;<%s> [%s][%s:%d] %s %s %s\n",\
-XCODE_COLORS_ESCAPE_FG,\
+STAR_CONSOLE_COLOR_ESCAPE_FG,\
 color,\
 star_current_time(),\
 title,\
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],\
 __LINE__,\
 [[NSString stringWithFormat:format,##__VA_ARGS__] UTF8String],\
-XCODE_COLORS_RESET_FG,\
+STAR_CONSOLE_COLOR_RESET_FG,\
 star_back_trace(stack, StarBackTraceDepth)\
 )\
 
