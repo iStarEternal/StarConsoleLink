@@ -10,6 +10,9 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 # How to use?  【使用说明】
 
+Please note that plugins are not supported by Xcode 8. See https://github.com/alcatraz/Alcatraz/issues/475 for more information.
+
+
 1.  If you are using Swift, Copy Logger.swift to you project.
 
 2.  If you are using Objective-C, Copy Logger.h to you project and #import "Logger.h" to you PrefixHeader.pch.
