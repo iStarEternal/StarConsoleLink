@@ -17,12 +17,16 @@ Xcode8之后，Xcode增加签名，默认不再支持自定义插件，但可以
 步骤：
 
 0、你可以先备份自己的未签名的Xcode，但是我没有备份，并没有什么影响。
+
 1、打开钥匙串，点击钥匙串访问->证书助理->创建证书
+
 2、名称输入"XcodeSigner"，身份类型选择"自签名证书"，证书类型选择"代码签名"
+
 3、打开终端，输入：
 ```
 sudo codesign -f -s XcodeSigner /Applications/Xcode.app
 ```
+
 4、可能你之前安装过的其他插件已经失效，一些插件不兼容Xcode8甚至会导致Xcode崩溃，我们只能让引起崩溃的插件删除，可以执行这句命令解决。
 ```
 find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID`
