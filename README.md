@@ -9,20 +9,20 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 
 
 
-# How to user in Xcode8
+# How to use in Xcode8
 
 
-Xcode8之后，Xcode增加签名，默认不再支持自定义插件，但可以通过重新签名Xcode来打到安装插件的效果
+自Xcode8之后，Xcode增加了签名，默认不再支持自定义插件，但可以通过重新签名Xcode安装插件
 
 步骤：
 
-0、你可以先备份自己的未签名的Xcode，但是我没有备份，并没有什么影响。
+0、你可以先备份自己的未签名的Xcode，但是我没有备份，目前没发现什么影响，推荐你们备份。
 
 1、打开钥匙串，点击钥匙串访问->证书助理->创建证书
 
-2、名称输入"XcodeSigner"，身份类型选择"自签名证书"，证书类型选择"代码签名"
+2、名称输入"XcodeSigner"，身份类型选择"自签名证书"，证书类型选择"代码签名"，点击创建，创建出来的证书保存起来，以后或许还用得着。
 
-3、打开终端，输入：
+3、打开终端，执行下面代码，等待几分钟，Xcode8就重新被签名了。
 ```
 sudo codesign -f -s XcodeSigner /Applications/Xcode.app
 ```
@@ -39,7 +39,7 @@ find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.p
 curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
 ```
 
-6、重启Xcode，运行的时候就会出现Load Bundle，点击Load，这时你就会发现插件已经可以重新使用了，如果插件未生效，下文中还有其他解决方案可以帮助你。
+6、重启Xcode，运行的时候就会出现Load Bundle，点击Load Bundle，这时你就会发现插件已经可以使用了。如果插件未生效，下文中还有其他解决方案可以帮助你。
 
 
 # How to use?  【使用说明】
