@@ -1,0 +1,582 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SettingsWindowController"
+provides-nominal:
+- "C15StarConsoleLink24SettingsWindowController"
+provides-member:
+- ["C15StarConsoleLink24SettingsWindowController", ""]
+provides-dynamic-lookup:
+- "assertLogColorWell"
+- "assertLogKeywordTextField"
+- "bundle"
+- "debugLogColorWell"
+- "debugLogKeywordTextField"
+- "errorLogColorWell"
+- "errorLogKeywordTextField"
+- "failureLogColorWell"
+- "failureLogKeywordTextField"
+- "fatalLogColorWell"
+- "fatalLogKeywordTextField"
+- "handleColorChanged"
+- "handleKeywordChanged"
+- "infoLogColorWell"
+- "infoLogKeywordTextField"
+- "linkColorWell"
+- "loadConfig"
+- "successLogColorWell"
+- "successLogKeywordTextField"
+- "warningLogColorWell"
+- "warningLogKeywordTextField"
+- "windowDidLoad"
+depends-top-level:
+- !private "=="
+- "AssignmentPrecedence"
+- "Bundle"
+- !private "ConsoleLinkConfig"
+- !private "Logger"
+- "NSColorWell"
+- "NSTextField"
+- "NSWindowController"
+- "SettingsWindowController"
+- !private "StringLiteralType"
+depends-member:
+- !private ["Ps9AnyObject", "ConsoleLinkConfig"]
+- !private ["Ps9AnyObject", "Logger"]
+- !private ["Ps9AnyObject", "color"]
+- !private ["Ps9AnyObject", "debugLogColor"]
+- !private ["Ps9AnyObject", "debugLogColorWell"]
+- !private ["Ps9AnyObject", "debugLogKeyword"]
+- !private ["Ps9AnyObject", "debugLogKeywordTextField"]
+- !private ["Ps9AnyObject", "errorLogColor"]
+- !private ["Ps9AnyObject", "errorLogColorWell"]
+- !private ["Ps9AnyObject", "errorLogKeyword"]
+- !private ["Ps9AnyObject", "errorLogKeywordTextField"]
+- !private ["Ps9AnyObject", "infoLogColor"]
+- !private ["Ps9AnyObject", "infoLogColorWell"]
+- !private ["Ps9AnyObject", "infoLogKeyword"]
+- !private ["Ps9AnyObject", "infoLogKeywordTextField"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "linkColor"]
+- !private ["Ps9AnyObject", "linkColorWell"]
+- !private ["Ps9AnyObject", "loadConfig"]
+- !private ["Ps9AnyObject", "stringValue"]
+- !private ["Ps9AnyObject", "warningLogColor"]
+- !private ["Ps9AnyObject", "warningLogColorWell"]
+- !private ["Ps9AnyObject", "warningLogKeyword"]
+- !private ["Ps9AnyObject", "warningLogKeywordTextField"]
+- !private ["Ps9AnyObject", "windowDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "ConsoleLinkConfig"]
+- !private ["Ps7CVarArg", "Logger"]
+- !private ["Ps7CVarArg", "color"]
+- !private ["Ps7CVarArg", "debugLogColor"]
+- !private ["Ps7CVarArg", "debugLogColorWell"]
+- !private ["Ps7CVarArg", "debugLogKeyword"]
+- !private ["Ps7CVarArg", "debugLogKeywordTextField"]
+- !private ["Ps7CVarArg", "errorLogColor"]
+- !private ["Ps7CVarArg", "errorLogColorWell"]
+- !private ["Ps7CVarArg", "errorLogKeyword"]
+- !private ["Ps7CVarArg", "errorLogKeywordTextField"]
+- !private ["Ps7CVarArg", "infoLogColor"]
+- !private ["Ps7CVarArg", "infoLogColorWell"]
+- !private ["Ps7CVarArg", "infoLogKeyword"]
+- !private ["Ps7CVarArg", "infoLogKeywordTextField"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "linkColor"]
+- !private ["Ps7CVarArg", "linkColorWell"]
+- !private ["Ps7CVarArg", "loadConfig"]
+- !private ["Ps7CVarArg", "stringValue"]
+- !private ["Ps7CVarArg", "warningLogColor"]
+- !private ["Ps7CVarArg", "warningLogColorWell"]
+- !private ["Ps7CVarArg", "warningLogKeyword"]
+- !private ["Ps7CVarArg", "warningLogKeywordTextField"]
+- !private ["Ps7CVarArg", "windowDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "debugLogColor"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "debugLogKeyword"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "errorLogColor"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "errorLogKeyword"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "infoLogColor"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "infoLogKeyword"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "linkColor"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "warningLogColor"]
+- !private ["C15StarConsoleLink17ConsoleLinkConfig", "warningLogKeyword"]
+- !private ["Ps28CustomDebugStringConvertible", "ConsoleLinkConfig"]
+- !private ["Ps28CustomDebugStringConvertible", "Logger"]
+- !private ["Ps28CustomDebugStringConvertible", "color"]
+- !private ["Ps28CustomDebugStringConvertible", "debugLogColor"]
+- !private ["Ps28CustomDebugStringConvertible", "debugLogColorWell"]
+- !private ["Ps28CustomDebugStringConvertible", "debugLogKeyword"]
+- !private ["Ps28CustomDebugStringConvertible", "debugLogKeywordTextField"]
+- !private ["Ps28CustomDebugStringConvertible", "errorLogColor"]
+- !private ["Ps28CustomDebugStringConvertible", "errorLogColorWell"]
+- !private ["Ps28CustomDebugStringConvertible", "errorLogKeyword"]
+- !private ["Ps28CustomDebugStringConvertible", "errorLogKeywordTextField"]
+- !private ["Ps28CustomDebugStringConvertible", "infoLogColor"]
+- !private ["Ps28CustomDebugStringConvertible", "infoLogColorWell"]
+- !private ["Ps28CustomDebugStringConvertible", "infoLogKeyword"]
+- !private ["Ps28CustomDebugStringConvertible", "infoLogKeywordTextField"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "linkColor"]
+- !private ["Ps28CustomDebugStringConvertible", "linkColorWell"]
+- !private ["Ps28CustomDebugStringConvertible", "loadConfig"]
+- !private ["Ps28CustomDebugStringConvertible", "stringValue"]
+- !private ["Ps28CustomDebugStringConvertible", "warningLogColor"]
+- !private ["Ps28CustomDebugStringConvertible", "warningLogColorWell"]
+- !private ["Ps28CustomDebugStringConvertible", "warningLogKeyword"]
+- !private ["Ps28CustomDebugStringConvertible", "warningLogKeywordTextField"]
+- !private ["Ps28CustomDebugStringConvertible", "windowDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "ConsoleLinkConfig"]
+- !private ["Ps23CustomStringConvertible", "Logger"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "color"]
+- !private ["Ps23CustomStringConvertible", "debugLogColor"]
+- !private ["Ps23CustomStringConvertible", "debugLogColorWell"]
+- !private ["Ps23CustomStringConvertible", "debugLogKeyword"]
+- !private ["Ps23CustomStringConvertible", "debugLogKeywordTextField"]
+- !private ["Ps23CustomStringConvertible", "errorLogColor"]
+- !private ["Ps23CustomStringConvertible", "errorLogColorWell"]
+- !private ["Ps23CustomStringConvertible", "errorLogKeyword"]
+- !private ["Ps23CustomStringConvertible", "errorLogKeywordTextField"]
+- !private ["Ps23CustomStringConvertible", "infoLogColor"]
+- !private ["Ps23CustomStringConvertible", "infoLogColorWell"]
+- !private ["Ps23CustomStringConvertible", "infoLogKeyword"]
+- !private ["Ps23CustomStringConvertible", "infoLogKeywordTextField"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "linkColor"]
+- !private ["Ps23CustomStringConvertible", "linkColorWell"]
+- !private ["Ps23CustomStringConvertible", "loadConfig"]
+- !private ["Ps23CustomStringConvertible", "stringValue"]
+- !private ["Ps23CustomStringConvertible", "warningLogColor"]
+- !private ["Ps23CustomStringConvertible", "warningLogColorWell"]
+- !private ["Ps23CustomStringConvertible", "warningLogKeyword"]
+- !private ["Ps23CustomStringConvertible", "warningLogKeywordTextField"]
+- !private ["Ps23CustomStringConvertible", "windowDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "ConsoleLinkConfig"]
+- !private ["Ps9Equatable", "Logger"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "color"]
+- !private ["Ps9Equatable", "debugLogColor"]
+- !private ["Ps9Equatable", "debugLogColorWell"]
+- !private ["Ps9Equatable", "debugLogKeyword"]
+- !private ["Ps9Equatable", "debugLogKeywordTextField"]
+- !private ["Ps9Equatable", "errorLogColor"]
+- !private ["Ps9Equatable", "errorLogColorWell"]
+- !private ["Ps9Equatable", "errorLogKeyword"]
+- !private ["Ps9Equatable", "errorLogKeywordTextField"]
+- !private ["Ps9Equatable", "infoLogColor"]
+- !private ["Ps9Equatable", "infoLogColorWell"]
+- !private ["Ps9Equatable", "infoLogKeyword"]
+- !private ["Ps9Equatable", "infoLogKeywordTextField"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "linkColor"]
+- !private ["Ps9Equatable", "linkColorWell"]
+- !private ["Ps9Equatable", "loadConfig"]
+- !private ["Ps9Equatable", "stringValue"]
+- !private ["Ps9Equatable", "warningLogColor"]
+- !private ["Ps9Equatable", "warningLogColorWell"]
+- !private ["Ps9Equatable", "warningLogKeyword"]
+- !private ["Ps9Equatable", "warningLogKeywordTextField"]
+- !private ["Ps9Equatable", "windowDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "ConsoleLinkConfig"]
+- !private ["Ps8Hashable", "Logger"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "color"]
+- !private ["Ps8Hashable", "debugLogColor"]
+- !private ["Ps8Hashable", "debugLogColorWell"]
+- !private ["Ps8Hashable", "debugLogKeyword"]
+- !private ["Ps8Hashable", "debugLogKeywordTextField"]
+- !private ["Ps8Hashable", "errorLogColor"]
+- !private ["Ps8Hashable", "errorLogColorWell"]
+- !private ["Ps8Hashable", "errorLogKeyword"]
+- !private ["Ps8Hashable", "errorLogKeywordTextField"]
+- !private ["Ps8Hashable", "infoLogColor"]
+- !private ["Ps8Hashable", "infoLogColorWell"]
+- !private ["Ps8Hashable", "infoLogKeyword"]
+- !private ["Ps8Hashable", "infoLogKeywordTextField"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "linkColor"]
+- !private ["Ps8Hashable", "linkColorWell"]
+- !private ["Ps8Hashable", "loadConfig"]
+- !private ["Ps8Hashable", "stringValue"]
+- !private ["Ps8Hashable", "warningLogColor"]
+- !private ["Ps8Hashable", "warningLogColorWell"]
+- !private ["Ps8Hashable", "warningLogKeyword"]
+- !private ["Ps8Hashable", "warningLogKeywordTextField"]
+- !private ["Ps8Hashable", "windowDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["V15StarConsoleLink6Logger", "info"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo15NSAccessibility", "color"]
+- !private ["PSo15NSAccessibility", "stringValue"]
+- !private ["PSo30NSAccessibilityElementProtocol", "color"]
+- !private ["PSo30NSAccessibilityElementProtocol", "stringValue"]
+- !private ["PSo34NSAccessibilityNavigableStaticText", "stringValue"]
+- !private ["PSo25NSAccessibilityStaticText", "stringValue"]
+- !private ["PSo29NSAnimatablePropertyContainer", "color"]
+- !private ["PSo29NSAnimatablePropertyContainer", "stringValue"]
+- !private ["PSo25NSAppearanceCustomization", "color"]
+- !private ["PSo25NSAppearanceCustomization", "stringValue"]
+- !private ["PSo8NSCoding", "ConsoleLinkConfig"]
+- !private ["PSo8NSCoding", "Logger"]
+- !private ["PSo8NSCoding", "color"]
+- !private ["PSo8NSCoding", "debugLogColorWell"]
+- !private ["PSo8NSCoding", "debugLogKeywordTextField"]
+- !private ["PSo8NSCoding", "errorLogColorWell"]
+- !private ["PSo8NSCoding", "errorLogKeywordTextField"]
+- !private ["PSo8NSCoding", "infoLogColorWell"]
+- !private ["PSo8NSCoding", "infoLogKeywordTextField"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "linkColorWell"]
+- !private ["PSo8NSCoding", "loadConfig"]
+- !private ["PSo8NSCoding", "stringValue"]
+- !private ["PSo8NSCoding", "warningLogColorWell"]
+- !private ["PSo8NSCoding", "warningLogKeywordTextField"]
+- !private ["PSo8NSCoding", "windowDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["CSo11NSColorWell", "color"]
+- !private ["CSo9NSControl", "color"]
+- !private ["CSo9NSControl", "stringValue"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo21NSDraggingDestination", "color"]
+- !private ["PSo21NSDraggingDestination", "stringValue"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Bundle"]
+- !private ["CSo8NSObject", "ConsoleLinkConfig"]
+- !private ["CSo8NSObject", "Logger"]
+- ["CSo8NSObject", "NSColorWell"]
+- ["CSo8NSObject", "NSTextField"]
+- ["CSo8NSObject", "assertLogColorWell"]
+- ["CSo8NSObject", "assertLogKeywordTextField"]
+- ["CSo8NSObject", "bundle"]
+- !private ["CSo8NSObject", "color"]
+- !private ["CSo8NSObject", "debugLogColor"]
+- ["CSo8NSObject", "debugLogColorWell"]
+- !private ["CSo8NSObject", "debugLogKeyword"]
+- ["CSo8NSObject", "debugLogKeywordTextField"]
+- !private ["CSo8NSObject", "errorLogColor"]
+- ["CSo8NSObject", "errorLogColorWell"]
+- !private ["CSo8NSObject", "errorLogKeyword"]
+- ["CSo8NSObject", "errorLogKeywordTextField"]
+- ["CSo8NSObject", "failureLogColorWell"]
+- ["CSo8NSObject", "failureLogKeywordTextField"]
+- ["CSo8NSObject", "fatalLogColorWell"]
+- ["CSo8NSObject", "fatalLogKeywordTextField"]
+- ["CSo8NSObject", "handleColorChanged"]
+- ["CSo8NSObject", "handleKeywordChanged"]
+- !private ["CSo8NSObject", "infoLogColor"]
+- ["CSo8NSObject", "infoLogColorWell"]
+- !private ["CSo8NSObject", "infoLogKeyword"]
+- ["CSo8NSObject", "infoLogKeywordTextField"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "linkColor"]
+- ["CSo8NSObject", "linkColorWell"]
+- ["CSo8NSObject", "loadConfig"]
+- !private ["CSo8NSObject", "stringValue"]
+- ["CSo8NSObject", "successLogColorWell"]
+- ["CSo8NSObject", "successLogKeywordTextField"]
+- !private ["CSo8NSObject", "warningLogColor"]
+- ["CSo8NSObject", "warningLogColorWell"]
+- !private ["CSo8NSObject", "warningLogKeyword"]
+- ["CSo8NSObject", "warningLogKeywordTextField"]
+- ["CSo8NSObject", "windowDidLoad"]
+- !private ["PSo16NSObjectProtocol", "ConsoleLinkConfig"]
+- !private ["PSo16NSObjectProtocol", "Logger"]
+- !private ["PSo16NSObjectProtocol", "color"]
+- !private ["PSo16NSObjectProtocol", "debugLogColor"]
+- !private ["PSo16NSObjectProtocol", "debugLogColorWell"]
+- !private ["PSo16NSObjectProtocol", "debugLogKeyword"]
+- !private ["PSo16NSObjectProtocol", "debugLogKeywordTextField"]
+- !private ["PSo16NSObjectProtocol", "errorLogColor"]
+- !private ["PSo16NSObjectProtocol", "errorLogColorWell"]
+- !private ["PSo16NSObjectProtocol", "errorLogKeyword"]
+- !private ["PSo16NSObjectProtocol", "errorLogKeywordTextField"]
+- !private ["PSo16NSObjectProtocol", "infoLogColor"]
+- !private ["PSo16NSObjectProtocol", "infoLogColorWell"]
+- !private ["PSo16NSObjectProtocol", "infoLogKeyword"]
+- !private ["PSo16NSObjectProtocol", "infoLogKeywordTextField"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "linkColor"]
+- !private ["PSo16NSObjectProtocol", "linkColorWell"]
+- !private ["PSo16NSObjectProtocol", "loadConfig"]
+- !private ["PSo16NSObjectProtocol", "stringValue"]
+- !private ["PSo16NSObjectProtocol", "warningLogColor"]
+- !private ["PSo16NSObjectProtocol", "warningLogColorWell"]
+- !private ["PSo16NSObjectProtocol", "warningLogKeyword"]
+- !private ["PSo16NSObjectProtocol", "warningLogKeywordTextField"]
+- !private ["PSo16NSObjectProtocol", "windowDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- ["CSo11NSResponder", "Bundle"]
+- !private ["CSo11NSResponder", "ConsoleLinkConfig"]
+- !private ["CSo11NSResponder", "Logger"]
+- ["CSo11NSResponder", "NSColorWell"]
+- ["CSo11NSResponder", "NSTextField"]
+- ["CSo11NSResponder", "assertLogColorWell"]
+- ["CSo11NSResponder", "assertLogKeywordTextField"]
+- ["CSo11NSResponder", "bundle"]
+- !private ["CSo11NSResponder", "color"]
+- ["CSo11NSResponder", "debugLogColorWell"]
+- ["CSo11NSResponder", "debugLogKeywordTextField"]
+- ["CSo11NSResponder", "errorLogColorWell"]
+- ["CSo11NSResponder", "errorLogKeywordTextField"]
+- ["CSo11NSResponder", "failureLogColorWell"]
+- ["CSo11NSResponder", "failureLogKeywordTextField"]
+- ["CSo11NSResponder", "fatalLogColorWell"]
+- ["CSo11NSResponder", "fatalLogKeywordTextField"]
+- ["CSo11NSResponder", "handleColorChanged"]
+- ["CSo11NSResponder", "handleKeywordChanged"]
+- ["CSo11NSResponder", "infoLogColorWell"]
+- ["CSo11NSResponder", "infoLogKeywordTextField"]
+- ["CSo11NSResponder", "init"]
+- ["CSo11NSResponder", "linkColorWell"]
+- ["CSo11NSResponder", "loadConfig"]
+- !private ["CSo11NSResponder", "stringValue"]
+- ["CSo11NSResponder", "successLogColorWell"]
+- ["CSo11NSResponder", "successLogKeywordTextField"]
+- ["CSo11NSResponder", "warningLogColorWell"]
+- ["CSo11NSResponder", "warningLogKeywordTextField"]
+- ["CSo11NSResponder", "windowDidLoad"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo17NSSeguePerforming", "ConsoleLinkConfig"]
+- !private ["PSo17NSSeguePerforming", "Logger"]
+- !private ["PSo17NSSeguePerforming", "debugLogColorWell"]
+- !private ["PSo17NSSeguePerforming", "debugLogKeywordTextField"]
+- !private ["PSo17NSSeguePerforming", "errorLogColorWell"]
+- !private ["PSo17NSSeguePerforming", "errorLogKeywordTextField"]
+- !private ["PSo17NSSeguePerforming", "infoLogColorWell"]
+- !private ["PSo17NSSeguePerforming", "infoLogKeywordTextField"]
+- !private ["PSo17NSSeguePerforming", "init"]
+- !private ["PSo17NSSeguePerforming", "linkColorWell"]
+- !private ["PSo17NSSeguePerforming", "loadConfig"]
+- !private ["PSo17NSSeguePerforming", "warningLogColorWell"]
+- !private ["PSo17NSSeguePerforming", "warningLogKeywordTextField"]
+- !private ["PSo17NSSeguePerforming", "windowDidLoad"]
+- ["PSo17NSSeguePerforming", ""]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo11NSTextField", "stringValue"]
+- !private ["PSo18NSTouchBarProvider", "ConsoleLinkConfig"]
+- !private ["PSo18NSTouchBarProvider", "Logger"]
+- !private ["PSo18NSTouchBarProvider", "color"]
+- !private ["PSo18NSTouchBarProvider", "debugLogColorWell"]
+- !private ["PSo18NSTouchBarProvider", "debugLogKeywordTextField"]
+- !private ["PSo18NSTouchBarProvider", "errorLogColorWell"]
+- !private ["PSo18NSTouchBarProvider", "errorLogKeywordTextField"]
+- !private ["PSo18NSTouchBarProvider", "infoLogColorWell"]
+- !private ["PSo18NSTouchBarProvider", "infoLogKeywordTextField"]
+- !private ["PSo18NSTouchBarProvider", "init"]
+- !private ["PSo18NSTouchBarProvider", "linkColorWell"]
+- !private ["PSo18NSTouchBarProvider", "loadConfig"]
+- !private ["PSo18NSTouchBarProvider", "stringValue"]
+- !private ["PSo18NSTouchBarProvider", "warningLogColorWell"]
+- !private ["PSo18NSTouchBarProvider", "warningLogKeywordTextField"]
+- !private ["PSo18NSTouchBarProvider", "windowDidLoad"]
+- ["PSo18NSTouchBarProvider", ""]
+- !private ["PSo33NSUserInterfaceItemIdentification", "color"]
+- !private ["PSo33NSUserInterfaceItemIdentification", "stringValue"]
+- !private ["PSo26NSUserInterfaceValidations", "stringValue"]
+- !private ["CSo6NSView", "color"]
+- !private ["CSo6NSView", "stringValue"]
+- ["CSo18NSWindowController", "Bundle"]
+- !private ["CSo18NSWindowController", "ConsoleLinkConfig"]
+- !private ["CSo18NSWindowController", "Logger"]
+- ["CSo18NSWindowController", "NSColorWell"]
+- ["CSo18NSWindowController", "NSTextField"]
+- ["CSo18NSWindowController", "assertLogColorWell"]
+- ["CSo18NSWindowController", "assertLogKeywordTextField"]
+- ["CSo18NSWindowController", "bundle"]
+- ["CSo18NSWindowController", "debugLogColorWell"]
+- ["CSo18NSWindowController", "debugLogKeywordTextField"]
+- ["CSo18NSWindowController", "errorLogColorWell"]
+- ["CSo18NSWindowController", "errorLogKeywordTextField"]
+- ["CSo18NSWindowController", "failureLogColorWell"]
+- ["CSo18NSWindowController", "failureLogKeywordTextField"]
+- ["CSo18NSWindowController", "fatalLogColorWell"]
+- ["CSo18NSWindowController", "fatalLogKeywordTextField"]
+- ["CSo18NSWindowController", "handleColorChanged"]
+- ["CSo18NSWindowController", "handleKeywordChanged"]
+- ["CSo18NSWindowController", "infoLogColorWell"]
+- ["CSo18NSWindowController", "infoLogKeywordTextField"]
+- ["CSo18NSWindowController", "init"]
+- ["CSo18NSWindowController", "linkColorWell"]
+- ["CSo18NSWindowController", "loadConfig"]
+- ["CSo18NSWindowController", "successLogColorWell"]
+- ["CSo18NSWindowController", "successLogKeywordTextField"]
+- ["CSo18NSWindowController", "warningLogColorWell"]
+- ["CSo18NSWindowController", "warningLogKeywordTextField"]
+- ["CSo18NSWindowController", "windowDidLoad"]
+- ["CSo18NSWindowController", ""]
+- ["C15StarConsoleLink24SettingsWindowController", "Bundle"]
+- !private ["C15StarConsoleLink24SettingsWindowController", "ConsoleLinkConfig"]
+- !private ["C15StarConsoleLink24SettingsWindowController", "Logger"]
+- ["C15StarConsoleLink24SettingsWindowController", "NSColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "NSTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "assertLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "assertLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "bundle"]
+- ["C15StarConsoleLink24SettingsWindowController", "debugLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "debugLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "deinit"]
+- ["C15StarConsoleLink24SettingsWindowController", "errorLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "errorLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "failureLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "failureLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "fatalLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "fatalLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "handleColorChanged"]
+- ["C15StarConsoleLink24SettingsWindowController", "handleKeywordChanged"]
+- ["C15StarConsoleLink24SettingsWindowController", "infoLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "infoLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "init"]
+- ["C15StarConsoleLink24SettingsWindowController", "linkColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "loadConfig"]
+- ["C15StarConsoleLink24SettingsWindowController", "successLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "successLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "warningLogColorWell"]
+- ["C15StarConsoleLink24SettingsWindowController", "warningLogKeywordTextField"]
+- ["C15StarConsoleLink24SettingsWindowController", "windowDidLoad"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "color"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "stringValue"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "ConsoleLinkConfig"]
+- !private ["Ps9_Hashable", "Logger"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "color"]
+- !private ["Ps9_Hashable", "debugLogColor"]
+- !private ["Ps9_Hashable", "debugLogColorWell"]
+- !private ["Ps9_Hashable", "debugLogKeyword"]
+- !private ["Ps9_Hashable", "debugLogKeywordTextField"]
+- !private ["Ps9_Hashable", "errorLogColor"]
+- !private ["Ps9_Hashable", "errorLogColorWell"]
+- !private ["Ps9_Hashable", "errorLogKeyword"]
+- !private ["Ps9_Hashable", "errorLogKeywordTextField"]
+- !private ["Ps9_Hashable", "infoLogColor"]
+- !private ["Ps9_Hashable", "infoLogColorWell"]
+- !private ["Ps9_Hashable", "infoLogKeyword"]
+- !private ["Ps9_Hashable", "infoLogKeywordTextField"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "linkColor"]
+- !private ["Ps9_Hashable", "linkColorWell"]
+- !private ["Ps9_Hashable", "loadConfig"]
+- !private ["Ps9_Hashable", "stringValue"]
+- !private ["Ps9_Hashable", "warningLogColor"]
+- !private ["Ps9_Hashable", "warningLogColorWell"]
+- !private ["Ps9_Hashable", "warningLogKeyword"]
+- !private ["Ps9_Hashable", "warningLogKeywordTextField"]
+- !private ["Ps9_Hashable", "windowDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sb"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "C15StarConsoleLink17ConsoleLinkConfig"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "V15StarConsoleLink6Logger"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "PSo15NSAccessibility"
+- !private "PSo30NSAccessibilityElementProtocol"
+- !private "PSo34NSAccessibilityNavigableStaticText"
+- !private "PSo25NSAccessibilityStaticText"
+- !private "PSo29NSAnimatablePropertyContainer"
+- !private "PSo25NSAppearanceCustomization"
+- "PSo8NSCoding"
+- !private "CSo11NSColorWell"
+- !private "CSo9NSControl"
+- !private "PSo9NSCopying"
+- !private "PSo21NSDraggingDestination"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- "CSo11NSResponder"
+- !private "PSo14NSSecureCoding"
+- "PSo17NSSeguePerforming"
+- !private "CSo8NSString"
+- !private "CSo11NSTextField"
+- "PSo18NSTouchBarProvider"
+- !private "PSo33NSUserInterfaceItemIdentification"
+- !private "PSo26NSUserInterfaceValidations"
+- !private "CSo6NSView"
+- "CSo18NSWindowController"
+- "C15StarConsoleLink24SettingsWindowController"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps33_ExpressibleByStringInterpolation"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/StarConsoleLink-Bridging-Header.h"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/JRSwizzle/JRSwizzle.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/LogColor/LogColorKit.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/StarFunctions.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "0960122ea3acc1a28cc97ee13bac1018"

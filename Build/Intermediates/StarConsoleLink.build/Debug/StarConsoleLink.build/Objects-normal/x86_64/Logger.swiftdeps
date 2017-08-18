@@ -1,0 +1,348 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StarDebug"
+- "LogColor"
+- "InfoColor"
+- "InfoTitle"
+- "DebugColor"
+- "DebugTitle"
+- "WarningColor"
+- "WarningTitle"
+- "ErrorColor"
+- "ErrorTitle"
+- "ImportantColor"
+- "ImportantTitle"
+- "SuccessColor"
+- "SuccessTitle"
+- "FailureColor"
+- "FailureTitle"
+- "AssertColor"
+- "AssertTitle"
+- "FatalErrorColor"
+- "FatalErrorTitle"
+- "Logger"
+provides-nominal:
+- "V15StarConsoleLink8LogColor"
+- "V15StarConsoleLink6Logger"
+provides-member:
+- ["V15StarConsoleLink8LogColor", ""]
+- ["V15StarConsoleLink6Logger", ""]
+- ["V15StarConsoleLink6Logger", "success"]
+- ["V15StarConsoleLink6Logger", "failure"]
+- ["V15StarConsoleLink6Logger", "assertionFailure"]
+- ["V15StarConsoleLink6Logger", "assert"]
+- ["V15StarConsoleLink6Logger", "fatalError"]
+provides-dynamic-lookup:
+depends-top-level:
+- "+"
+- "AssertColor"
+- "AssertTitle"
+- "Bool"
+- "BooleanLiteralType"
+- "CastingPrecedence"
+- "DebugColor"
+- "DebugTitle"
+- "ErrorColor"
+- "ErrorTitle"
+- "FailureColor"
+- "FailureTitle"
+- "FatalErrorColor"
+- "FatalErrorTitle"
+- "ImportantColor"
+- "ImportantTitle"
+- "InfoColor"
+- "InfoTitle"
+- "Int"
+- !private "Int8"
+- "LogColor"
+- "Logger"
+- !private "NSString"
+- "StarDebug"
+- "String"
+- "StringLiteralType"
+- "SuccessColor"
+- "SuccessTitle"
+- !private "Swift"
+- !private "Thread"
+- "UInt"
+- "UnicodeScalarType"
+- "WarningColor"
+- "WarningTitle"
+- !private "localtime"
+- !private "strftime"
+- !private "time"
+depends-member:
+- !private ["Ps9AnyObject", "Encoding"]
+- !private ["Ps9AnyObject", "callStackSymbols"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "lastPathComponent"]
+- !private ["Sa", "init"]
+- !private ["Ps23BidirectionalCollection", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "Encoding"]
+- !private ["Ps7CVarArg", "callStackSymbols"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "lastPathComponent"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Comparable", "Encoding"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Encoding"]
+- !private ["Ps28CustomDebugStringConvertible", "callStackSymbols"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "lastPathComponent"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Encoding"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "lastPathComponent"]
+- !private ["Ps17CustomReflectable", "Encoding"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Encoding"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "callStackSymbols"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "lastPathComponent"]
+- !private ["Ps23CustomStringConvertible", "utf8"]
+- !private ["VE10FoundationSS8Encoding", "utf8"]
+- !private ["Ps9Equatable", "Encoding"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "callStackSymbols"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "lastPathComponent"]
+- !private ["Ps9Equatable", "utf8"]
+- !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Encoding"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "lastPathComponent"]
+- !private ["Ps26ExpressibleByStringLiteral", "Encoding"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "lastPathComponent"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "Encoding"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "lastPathComponent"]
+- !private ["Ps8Hashable", "Encoding"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "callStackSymbols"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "lastPathComponent"]
+- !private ["Ps8Hashable", "utf8"]
+- ["V15StarConsoleLink8LogColor", "ESCAPE"]
+- ["V15StarConsoleLink8LogColor", "ESCAPE_BG"]
+- ["V15StarConsoleLink8LogColor", "ESCAPE_FG"]
+- ["V15StarConsoleLink8LogColor", "RESET"]
+- ["V15StarConsoleLink8LogColor", "RESET_BG"]
+- ["V15StarConsoleLink8LogColor", "RESET_FG"]
+- ["V15StarConsoleLink8LogColor", "XcodeColors"]
+- ["V15StarConsoleLink8LogColor", "init"]
+- !private ["V15StarConsoleLink6Logger", "AssertColor"]
+- !private ["V15StarConsoleLink6Logger", "AssertTitle"]
+- ["V15StarConsoleLink6Logger", "Bool"]
+- !private ["V15StarConsoleLink6Logger", "DebugColor"]
+- !private ["V15StarConsoleLink6Logger", "DebugTitle"]
+- !private ["V15StarConsoleLink6Logger", "ErrorColor"]
+- !private ["V15StarConsoleLink6Logger", "ErrorTitle"]
+- !private ["V15StarConsoleLink6Logger", "FailureColor"]
+- !private ["V15StarConsoleLink6Logger", "FailureTitle"]
+- !private ["V15StarConsoleLink6Logger", "FatalErrorColor"]
+- !private ["V15StarConsoleLink6Logger", "FatalErrorTitle"]
+- !private ["V15StarConsoleLink6Logger", "ImportantColor"]
+- !private ["V15StarConsoleLink6Logger", "ImportantTitle"]
+- !private ["V15StarConsoleLink6Logger", "InfoColor"]
+- !private ["V15StarConsoleLink6Logger", "InfoTitle"]
+- ["V15StarConsoleLink6Logger", "Int"]
+- !private ["V15StarConsoleLink6Logger", "Int8"]
+- !private ["V15StarConsoleLink6Logger", "LogColor"]
+- !private ["V15StarConsoleLink6Logger", "NSString"]
+- !private ["V15StarConsoleLink6Logger", "StarDebug"]
+- ["V15StarConsoleLink6Logger", "String"]
+- !private ["V15StarConsoleLink6Logger", "SuccessColor"]
+- !private ["V15StarConsoleLink6Logger", "SuccessTitle"]
+- !private ["V15StarConsoleLink6Logger", "Swift"]
+- !private ["V15StarConsoleLink6Logger", "Thread"]
+- ["V15StarConsoleLink6Logger", "UInt"]
+- !private ["V15StarConsoleLink6Logger", "WarningColor"]
+- !private ["V15StarConsoleLink6Logger", "WarningTitle"]
+- ["V15StarConsoleLink6Logger", "assert"]
+- ["V15StarConsoleLink6Logger", "assertionFailure"]
+- !private ["V15StarConsoleLink6Logger", "current_time"]
+- ["V15StarConsoleLink6Logger", "debug"]
+- ["V15StarConsoleLink6Logger", "error"]
+- ["V15StarConsoleLink6Logger", "failure"]
+- ["V15StarConsoleLink6Logger", "fatalError"]
+- ["V15StarConsoleLink6Logger", "important"]
+- ["V15StarConsoleLink6Logger", "info"]
+- ["V15StarConsoleLink6Logger", "init"]
+- !private ["V15StarConsoleLink6Logger", "localtime"]
+- ["V15StarConsoleLink6Logger", "print"]
+- ["V15StarConsoleLink6Logger", "star_back_trace"]
+- !private ["V15StarConsoleLink6Logger", "strftime"]
+- ["V15StarConsoleLink6Logger", "success"]
+- !private ["V15StarConsoleLink6Logger", "time"]
+- ["V15StarConsoleLink6Logger", "warning"]
+- !private ["Ps25LosslessStringConvertible", "Encoding"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "Encoding"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "init"]
+- !private ["PSo8NSCoding", "Encoding"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "lastPathComponent"]
+- !private ["PSo9NSCopying", "Encoding"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "lastPathComponent"]
+- !private ["PSo16NSMutableCopying", "Encoding"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "lastPathComponent"]
+- !private ["CSo8NSObject", "Encoding"]
+- !private ["CSo8NSObject", "callStackSymbols"]
+- !private ["CSo8NSObject", "lastPathComponent"]
+- !private ["PSo16NSObjectProtocol", "Encoding"]
+- !private ["PSo16NSObjectProtocol", "callStackSymbols"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "lastPathComponent"]
+- !private ["PSo19NSPasteboardReading", "Encoding"]
+- ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardReading", "lastPathComponent"]
+- !private ["PSo19NSPasteboardWriting", "Encoding"]
+- ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo19NSPasteboardWriting", "lastPathComponent"]
+- !private ["PSo14NSSecureCoding", "Encoding"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "lastPathComponent"]
+- !private ["CSo8NSString", "Encoding"]
+- ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "lastPathComponent"]
+- !private ["Ps22RandomAccessCollection", "init"]
+- !private ["Ps26RangeReplaceableCollection", "init"]
+- !private ["Ps16RawRepresentable", "utf8"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Vs12StaticString", "init"]
+- !private ["SS", "Encoding"]
+- ["SS", "init"]
+- !private ["Ps16TextOutputStream", "Encoding"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "Encoding"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["CSo6Thread", "callStackSymbols"]
+- !private ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps23_BidirectionalIndexable", "init"]
+- !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "Encoding"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "Encoding"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "Encoding"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "Encoding"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "Encoding"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "Encoding"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "lastPathComponent"]
+- !private ["Ps9_Hashable", "Encoding"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "callStackSymbols"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "lastPathComponent"]
+- !private ["Ps9_Hashable", "utf8"]
+- !private ["Ps10_Indexable", "init"]
+- !private ["Ps14_IndexableBase", "init"]
+- !private ["Ps17_MutableIndexable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "Encoding"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps22_RandomAccessIndexable", "init"]
+- !private ["Ps26_RangeReplaceableIndexable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Sb"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "VE10FoundationSS8Encoding"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "V15StarConsoleLink8LogColor"
+- "V15StarConsoleLink6Logger"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo19NSPasteboardReading"
+- "PSo19NSPasteboardWriting"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps16RawRepresentable"
+- !private "Ps8Sequence"
+- !private "Vs12StaticString"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "CSo6Thread"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps17_MutableIndexable"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/StarConsoleLink-Bridging-Header.h"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/JRSwizzle/JRSwizzle.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/LogColor/LogColorKit.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/StarFunctions.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "53b570f305db8076628bb3a5abe9736b"

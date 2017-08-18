@@ -8,29 +8,29 @@
 
 import Foundation
 
-extension dispatch_queue_t {
+extension DispatchQueue {
     
-    func async(closure: dispatch_block_t) {
-        dispatch_async(self, closure)
-    }
-    
-    func sync(closure: dispatch_block_t) {
-        dispatch_sync(self, closure)
-    }
-    
-    func delay(delay: Double, _ block: dispatch_block_t) {
-        dispatch_delay(delay, self, block)
-    }
+//    func async(_ closure: @escaping ()->()) {
+//        self.async(execute: closure)
+//    }
+//    
+//    func sync(_ closure: ()->()) {
+//        self.sync(execute: closure)
+//    }
+//    
+//    func delay(_ delay: Double, _ block: @escaping ()->()) {
+//        dispatch_delay(delay, self, block)
+//    }
 }
 
-func dispatch_delay(delay: Double, _ block: dispatch_block_t) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+func dispatch_delay(_ delay: Double, _ block: @escaping ()->()) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: { () -> Void in
         block()
     })
 }
 
-func dispatch_delay(delay: Double, _ queue: dispatch_queue_t, _ block: dispatch_block_t) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(delay * Double(NSEC_PER_SEC))), queue, { () -> Void in
+func dispatch_delay(_ delay: Double, _ queue: DispatchQueue, _ block: @escaping ()->()) {
+    queue.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: { () -> Void in
         block()
     })
 }

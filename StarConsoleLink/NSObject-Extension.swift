@@ -9,8 +9,8 @@
 import Foundation
 
 extension NSObject {
-    class func pluginDidLoad(bundle: NSBundle) {
-        let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
+    class func pluginDidLoad(_ bundle: Bundle) {
+        let appName = Bundle.main.infoDictionary?["CFBundleName"] as? NSString
         if appName == "Xcode" {
         	if sharedPlugin == nil {
         		sharedPlugin = StarConsoleLink(bundle: bundle)

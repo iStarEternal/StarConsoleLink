@@ -15,10 +15,10 @@ import AppKit
 // [workspacePath : [fileName : filePath]]
 var filePathCache = [String : [String : String]]()
 
-func findFile(workspacePath : String, _ fileName : String) -> String? {
+func findFile(_ workspacePath : String, _ fileName : String) -> String? {
     var thisWorkspaceCache = filePathCache[workspacePath] ?? [:]
     if let result = thisWorkspaceCache[fileName] {
-        if NSFileManager.defaultManager().fileExistsAtPath(result) {
+        if FileManager.default.fileExists(atPath: result) {
             return result
         }
     }
@@ -27,23 +27,23 @@ func findFile(workspacePath : String, _ fileName : String) -> String? {
     var prevSearchPath : String? = nil
     var searchCount = 0
     while true {
-        if let result = findFile(fileName, searchPath, prevSearchPath) where !result.isEmpty {
+        if let result = findFile(fileName, searchPath, prevSearchPath) , !result.isEmpty {
             thisWorkspaceCache[fileName] = result
             filePathCache[workspacePath] = thisWorkspaceCache
             return result
         }
         
         prevSearchPath = searchPath
-        searchPath = searchPath.OCString.stringByDeletingLastPathComponent
+        searchPath = searchPath.OCString.deletingLastPathComponent
         searchCount += 1
-        let searchPathCount = searchPath.componentsSeparatedByString("/").count
+        let searchPathCount = searchPath.components(separatedBy: "/").count
         if searchPathCount <= 3 || searchCount >= 2 {
             return nil
         }
     }
 }
 
-func findFile(fileName : String, _ searchPath : String, _ prevSearchPath : String?) -> String? {
+func findFile(_ fileName : String, _ searchPath : String, _ prevSearchPath : String?) -> String? {
     let args = (prevSearchPath == nil ?
         ["-L", searchPath, "-name", fileName, "-print", "-quit"] :
         ["-L", searchPath, "-name", prevSearchPath!, "-prune", "-o", "-name", fileName, "-print", "-quit"])
@@ -55,27 +55,27 @@ func findFile(fileName : String, _ searchPath : String, _ prevSearchPath : Strin
 
 class PluginHelper: NSObject {
     
-    static func runShellCommand(launchPath: String, arguments: [String]) -> String? {
-        let pipe = NSPipe()
-        let task = NSTask()
+    static func runShellCommand(_ launchPath: String, arguments: [String]) -> String? {
+        let pipe = Pipe()
+        let task = Process()
         task.launchPath = launchPath
         task.arguments = arguments
         task.standardOutput = pipe
         let file = pipe.fileHandleForReading
         task.launch()
-        guard let result = NSString(data: file.readDataToEndOfFile(), encoding: NSUTF8StringEncoding)?.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()) else {
+        guard let result = NSString(data: file.readDataToEndOfFile(), encoding: String.Encoding.utf8.rawValue)?.trimmingCharacters(in: CharacterSet.newlines) else {
             return nil
         }
         return result as String
     }
     
-    static func getViewByClassName(name: String, inContainer container: NSView) -> NSView? {
+    static func getViewByClassName(_ name: String, inContainer container: NSView) -> NSView? {
         
         guard let targetClass = NSClassFromString(name) else {
             return nil
         }
         for subview in container.subviews {
-            if subview.isKindOfClass(targetClass) {
+            if subview.isKind(of: targetClass) {
                 return subview
             }
             if let view = getViewByClassName(name, inContainer: subview) {
@@ -95,32 +95,32 @@ extension PluginHelper {
         }
         
         guard let anyClass = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type,
-            let windowControllers = anyClass.valueForKey("workspaceWindowControllers") as? [NSObject],
+            let windowControllers = anyClass.value(forKey: "workspaceWindowControllers") as? [NSObject],
             let window = NSApp.keyWindow ?? NSApp.windows.first else {
                 Logger.info("Failed to establish workspace path")
                 return nil
         }
         var workspace: NSObject?
         for controller in windowControllers {
-            if controller.valueForKey("window")?.isEqual(window) == true {
-                workspace = controller.valueForKey("_workspace") as? NSObject
+            if (controller.value(forKey: "window") as AnyObject).isEqual(window) == true {
+                workspace = controller.value(forKey: "_workspace") as? NSObject
             }
         }
         
-        guard let workspacePath = workspace?.valueForKeyPath("representingFilePath._pathString") as? NSString else {
+        guard let workspacePath = workspace?.value(forKeyPath: "representingFilePath._pathString") as? NSString else {
             Logger.info("Failed to establish workspace path")
             return nil
         }
         
-        return workspacePath.stringByDeletingLastPathComponent as String
+        return workspacePath.deletingLastPathComponent as String
     }
     
     // 代码台
     static func editorTextView(inWindow window: NSWindow? = NSApp.mainWindow) -> NSTextView? {
         guard let window = window,
             let windowController = window.windowController,
-            let editor = windowController.valueForKeyPath("editorArea.lastActiveEditorContext.editor"),
-            let textView = editor.valueForKey("textView") as? NSTextView else {
+            let editor = windowController.value(forKeyPath: "editorArea.lastActiveEditorContext.editor"),
+            let textView = (editor as AnyObject).value(forKey: "textView") as? NSTextView else {
                 return nil
         }
         

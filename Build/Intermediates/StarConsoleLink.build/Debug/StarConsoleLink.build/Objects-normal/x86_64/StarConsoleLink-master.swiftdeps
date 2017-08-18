@@ -1,0 +1,16 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "e24b0a86b223c22fb6b3dedfb84ecd33"
+build_time: [550668481, 966565000]
+inputs:
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Extensions/NSColor-Extension.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/NSTextStorage-Extension.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/NSObject-Extension.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Business/Settings/ConsoleLinkConfig.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/NSTextView-Extension.swift": [527493790, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/StarConsoleLink.swift": [549085319, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/PluginHelper.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Extensions/Operator-Extension.swift": [524928582, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Logger/Logger.swift": [527493714, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Extensions/String-Extension.swift": [527493550, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Business/Settings/SettingsWindowController.swift": [527493456, 0]
+  "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Extensions/Dispatch-Extension.swift": [527493790, 0]

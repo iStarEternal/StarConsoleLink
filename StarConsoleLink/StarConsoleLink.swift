@@ -50,15 +50,15 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     // MARK: Proptices
     
-    var bundle: NSBundle
+    var bundle: Bundle
     
-    lazy var notificationCenter = NSNotificationCenter.defaultCenter()
+    lazy var notificationCenter = NotificationCenter.default
     
     
     
     // MARK: - Init
     
-    init(bundle: NSBundle) {
+    init(bundle: Bundle) {
         self.bundle = bundle
         super.init()
         addStarConsoleLinkObserver()
@@ -67,12 +67,12 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     func addStarConsoleLinkObserver() {
         notificationCenter.addObserver(self,
                                        selector: NSSelectorFromString("handleFinishLaunchingNotification:"),
-                                       name: NSApplicationDidFinishLaunchingNotification,
+                                       name: NSNotification.Name.NSApplicationDidFinishLaunching,
                                        object: nil)
         // notificationCenter.addObserver(self, selector: "handleControlGroupDidChangeNotification:", name: "IDEControlGroupDidChangeNotificationName", object: nil)
         notificationCenter.addObserver(self,
                                        selector: NSSelectorFromString("handleTextStorageDidChange:"),
-                                       name: NSTextDidChangeNotification,
+                                       name: NSNotification.Name.NSTextDidChange,
                                        object: nil)
     }
     
@@ -84,22 +84,24 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     // MARK: - 通知
     
-    func handleFinishLaunchingNotification(notification: NSNotification) {
-        notificationCenter.removeObserver(self, name: NSApplicationDidFinishLaunchingNotification, object: nil)
+    func handleFinishLaunchingNotification(_ notification: Notification) {
+        notificationCenter.removeObserver(self, name: NSNotification.Name.NSApplicationDidFinishLaunching, object: nil)
         createMenuItems()
     }
     
-    func handleControlGroupDidChangeNotification(notification: NSNotification) {
+    func handleControlGroupDidChangeNotification(_ notification: Notification) {
         
     }
     
-    func handleTextStorageDidChange(notification: NSNotification) {
+    func handleTextStorageDidChange(_ notification: Notification) {
+        
+        
         
         guard let targetClass = NSClassFromString("IDEConsoleTextView") else {
             return
         }
         
-        guard let obj = notification.object where obj.isKindOfClass(targetClass) else {
+        guard let obj = notification.object , (obj as AnyObject).isKind(of: targetClass) else {
             return
         }
         guard let consoleTextView = obj as? NSTextView, let textStorage = consoleTextView.textStorage else {
@@ -107,8 +109,8 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         }
         
         consoleTextView.linkTextAttributes = [
-            NSCursorAttributeName: NSCursor.pointingHandCursor(),
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
+            NSCursorAttributeName: NSCursor.pointingHand(),
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue
         ]
         
         textStorage.usedInConsole = true
@@ -120,37 +122,39 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     // MARK: - TextStrogage Delegate - 替换Unicode
     
-    func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+    func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
         
         guard ConsoleLinkConfig.ChineseUnicodeEnabled else {
             return
         }
-        if editedMask == .EditedAttributes || editedRange.length <= 0  {
+        if editedMask == .editedAttributes || editedRange.length <= 0  {
             return
         }
         
-        guard let string = textStorage.valueForKeyPath("_contents.mutableString") as? NSString else {
+        guard let string = textStorage.value(forKeyPath: "_contents.mutableString") as? NSString else {
             return
         }
         
-        let contentsStr = editedRange.location == 0 ? string.substringWithRange(string.rangeOfComposedCharacterSequencesForRange(editedRange)) : string
+        let contentsStr = editedRange.location == 0 ? string.substring(with: string.rangeOfComposedCharacterSequences(for: editedRange)) : string as String
         
         if contentsStr.length < (editedRange.location + editedRange.length) {
             return;
         }
+        let tempRange = contentsStr.OCString.rangeOfComposedCharacterSequences(for: editedRange)
+        let editRangeStr = contentsStr.OCString.substring(with: tempRange)
         
-        let editRangeStr = contentsStr.substringWithRange(contentsStr.rangeOfComposedCharacterSequencesForRange(editedRange))
+        // let editRangeStr = contentsStr.substring(with: contentsStr.rangeOfComposedCharacterSequences(at: editedRange.toRange()!)!)
         
         textStorage.beginEditing()
-        textStorage.replaceCharactersInRange(editedRange, withString: self.stringByReplaceUnicode(editRangeStr))
+        textStorage.replaceCharacters(in: editedRange, with: self.stringByReplaceUnicode(editRangeStr))
         textStorage.endEditing()
     }
     
-    private func stringByReplaceUnicode(string: String) -> String {
+    fileprivate func stringByReplaceUnicode(_ string: String) -> String {
         
         let convertedString = string.OCString.mutableCopy() as! NSMutableString
-        convertedString.replaceOccurrencesOfString("\\U", withString: "\\u", options: NSStringCompareOptions(), range: NSMakeRange(0, convertedString.length))
-        CFStringTransform(convertedString, nil, "Any-Hex/Java", true)
+        convertedString.replaceOccurrences(of: "\\U", with: "\\u", options: NSString.CompareOptions(), range: NSMakeRange(0, convertedString.length))
+        CFStringTransform(convertedString, nil, "Any-Hex/Java" as CFString!, true)
         
         // 在找到解决方案之前，先用空格填充补全的方式来解决系统的索引越界问题
         // 注：SwiftString的length 和OCString的Length长度不同，还没有找到解决方案
@@ -158,10 +162,10 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         if tran > 0 {
             for i in (0..<tran) {
                 if i == (tran - 1) {
-                    convertedString.appendString("\n");
+                    convertedString.append("\n");
                 }
                 else {
-                    convertedString.appendString(" ");
+                    convertedString.append(" ");
                 }
             }
         }
@@ -190,13 +194,13 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     func createMainMenuItem() {
         
         // 主菜单上添加Plugins菜单
-        pluginsMenuItem = NSApp.mainMenu?.itemWithTitle("Plugins")
+        pluginsMenuItem = NSApp.mainMenu?.item(withTitle: "Plugins")
         if pluginsMenuItem == nil {
             pluginsMenuItem = NSMenuItem()
             pluginsMenuItem.title = "Plugins"
             pluginsMenuItem.submenu = NSMenu(title: "Plugins")
-            if let windowIndex = NSApp.mainMenu?.indexOfItemWithTitle("Window") {
-                NSApp.mainMenu?.insertItem(pluginsMenuItem, atIndex: windowIndex)
+            if let windowIndex = NSApp.mainMenu?.indexOfItem(withTitle: "Window") {
+                NSApp.mainMenu?.insertItem(pluginsMenuItem, at: windowIndex)
             }
         }
     }
@@ -204,12 +208,12 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     func createStarConsoleLinkItem() {
         
         // 在Plugins上添加Star Console Link
-        starConsoleLinkItem = pluginsMenuItem.submenu?.itemWithTitle("Star Console Link")
+        starConsoleLinkItem = pluginsMenuItem.submenu?.item(withTitle: "Star Console Link")
         if starConsoleLinkItem == nil {
             starConsoleLinkItem = NSMenuItem()
             starConsoleLinkItem.title = "Star Console Link"
             starConsoleLinkItem.submenu = NSMenu(title: "Star Console Link")
-            pluginsMenuItem.submenu?.addItem(NSMenuItem.separatorItem())
+            pluginsMenuItem.submenu?.addItem(NSMenuItem.separator())
             pluginsMenuItem.submenu?.addItem(starConsoleLinkItem)
         }
     }
@@ -217,7 +221,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     func createConsoleLinkEnabledItem() {
         
         // 在Star Console Link 菜单上添加Enabled
-        consoleLinkEnabledItem = starConsoleLinkItem.submenu?.itemWithTitle("😄Enabled")
+        consoleLinkEnabledItem = starConsoleLinkItem.submenu?.item(withTitle: "😄Enabled")
         if consoleLinkEnabledItem == nil {
             consoleLinkEnabledItem = NSMenuItem()
             consoleLinkEnabledItem.title = "😄Enabled"
@@ -233,7 +237,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     func createChineseUnicodeEnabledItem() {
         
         // 在StarConsoleLink 菜单上添加Chinese Unicode Enabled
-        ChineseUnicodeEnabledItem = starConsoleLinkItem.submenu?.itemWithTitle("🀄︎Chinese Unicode Enabled")
+        ChineseUnicodeEnabledItem = starConsoleLinkItem.submenu?.item(withTitle: "🀄︎Chinese Unicode Enabled")
         if ChineseUnicodeEnabledItem == nil {
             ChineseUnicodeEnabledItem = NSMenuItem()
             ChineseUnicodeEnabledItem.title = "🀄︎Chinese Unicode Enabled"
@@ -250,7 +254,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         
         
         // 在Star Console Link 菜单添加 Settings
-        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.itemWithTitle("💭Settings")
+        var showSettingsItem: NSMenuItem! = starConsoleLinkItem.submenu?.item(withTitle: "💭Settings")
         if showSettingsItem == nil {
             showSettingsItem = NSMenuItem()
             showSettingsItem.title = "💭Settings"
@@ -263,7 +267,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     
     
-    func handleConsoleLinkEnabled(item: NSMenuItem) {
+    func handleConsoleLinkEnabled(_ item: NSMenuItem) {
         
         if item.state == NSOnState {
             ConsoleLinkConfig.consoleLinkEnabled = false
@@ -275,7 +279,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
         }
     }
     
-    func handleChineseUnicodeEnabled(item: NSMenuItem) {
+    func handleChineseUnicodeEnabled(_ item: NSMenuItem) {
         
         if item.state == NSOnState {
             ConsoleLinkConfig.ChineseUnicodeEnabled = false
@@ -292,7 +296,7 @@ class StarConsoleLink: NSObject, NSTextStorageDelegate {
     
     var settingsWindowController: SettingsWindowController!
     
-    func handleShowSettingsItem(item: NSMenuItem) {
+    func handleShowSettingsItem(_ item: NSMenuItem) {
         settingsWindowController = SettingsWindowController(windowNibName: "SettingsWindowController")
         settingsWindowController.bundle = bundle
         settingsWindowController.showWindow(nil)

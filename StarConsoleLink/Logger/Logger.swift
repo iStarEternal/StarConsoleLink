@@ -66,7 +66,7 @@ let FatalErrorTitle = "FatalError"
 
 struct Logger {
     
-    static func print<T>(value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
+    static func print<T>(_ value: T, title: String, color: String, functionName: String, fileName: String, lineNumber: Int) {
         
         guard StarDebug else {
             return
@@ -79,41 +79,42 @@ struct Logger {
         }
     }
     
-    static func info<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func info<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: InfoTitle, color: InfoColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    static func debug<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func debug<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: DebugTitle, color: DebugColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    static func warning<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func warning<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: WarningTitle, color: WarningColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    static func error<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func error<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: ErrorTitle, color: ErrorColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    static func important<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func important<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: ImportantTitle, color: ImportantColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    private static func current_time() -> String {
+    fileprivate static func current_time() -> String {
         let bufferSize = 255
-        var buffer = [Int8](count: bufferSize, repeatedValue: 0)
+        var buffer = [Int8](repeating: 0, count: bufferSize)
         var rawtime = time(nil)
         let timeinfo = localtime(&rawtime)
         strftime(&buffer, 32, "%Y-%m-%d %H:%M:%S", timeinfo) // %B
-        let datetime = String(CString: buffer, encoding: NSUTF8StringEncoding)!
+//        String
+        let datetime = String(cString: buffer, encoding: String.Encoding.utf8)!
         // free(buffer)
         return datetime
     }
     
-    static func star_back_trace(depth: UInt) -> String {
+    static func star_back_trace(_ depth: UInt) -> String {
         
         
-        Swift.print(NSThread.callStackSymbols());
+        Swift.print(Thread.callStackSymbols);
         
         
         //        void *callstack[128];
@@ -144,11 +145,11 @@ struct Logger {
 // MARK: - Resoponse
 extension Logger {
     
-    static func success<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func success<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: SuccessTitle, color: SuccessColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
     
-    static func failure<T>(value: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func failure<T>(_ value: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: FailureTitle, color: FailureColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 }
@@ -156,18 +157,18 @@ extension Logger {
 // MARK: - Assert
 extension Logger {
     
-    static func assertionFailure(value: String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func assertionFailure(_ value: String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: AssertTitle, color: AssertColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.assertionFailure(value)
         
     }
     
-    static func assert(flag: Bool, value:String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func assert(_ flag: Bool, value:String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: AssertTitle, color: AssertColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.assert(flag)
     }
     
-    static func fatalError(value: String, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
+    static func fatalError(_ value: String, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
         print(value, title: FatalErrorTitle, color: FatalErrorColor, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         Swift.fatalError(value)
     }

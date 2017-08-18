@@ -25,8 +25,8 @@ extension NSString {
         }
     }
     
-    func sizeWithFont(font: Font,maxSize:CGSize) -> CGSize {
-        return self.boundingRectWithSize(maxSize, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil).size
+    func sizeWithFont(_ font: Font,maxSize:CGSize) -> CGSize {
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil).size
     }
 }
 
@@ -41,77 +41,38 @@ extension String {
         }
     }
     
-    subscript (r: Range<Int>) -> String {
-        get {
-            let startIndex = self.startIndex.advancedBy(r.startIndex)
-            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
-            return self[startIndex ..< endIndex]
-            // return self[Range(start: startIndex, end: endIndex)]
-        }
-    }
+//    subscript (r: Range<Int>) -> String {
+//        get {
+//            let startIndex = self.characters.index(self.startIndex, offsetBy: r.lowerBound)
+//            let endIndex = <#T##String.CharacterView corresponding to `startIndex`##String.CharacterView#>.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+//            return self[startIndex ..< endIndex]
+//            // return self[Range(start: startIndex, end: endIndex)]
+//        }
+//    }
     
-    func rangeFromNSRange(nsRange : NSRange) -> Range<String.Index>? {
-        
-        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
-        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
-        if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
-            return from ..< to
-        }
-        return nil
-    }
+//    func rangeFromNSRange(_ nsRange : NSRange) -> Range<String.Index>? {
+//        
+//        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
+//        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+//        if let from = String.Index(from16, within: self),
+//            let to = String.Index(to16, within: self) {
+//            return from ..< to
+//        }
+//        return nil
+//    }
     
-    func NSRangeFromRange(range : Range<String.Index>) -> NSRange {
-        let utf16view = self.utf16
-        let from = String.UTF16View.Index(range.startIndex, within: utf16view)
-        let to = String.UTF16View.Index(range.endIndex, within: utf16view)
-        return NSMakeRange(utf16view.startIndex.distanceTo(from), from.distanceTo(to))
-    }
-    
+//    func NSRangeFromRange(_ range : Range<String.Index>) -> NSRange {
+//        let utf16view = self.utf16
+//        let from = String.UTF16View.Index(range.lowerBound, within: utf16view)
+//        let to = String.UTF16View.Index(range.upperBound, within: utf16view)
+//        return NSMakeRange(utf16view.startIndex.distanceTo(from), from.distanceTo(to))
+//    }
+//    
     var length:Int{
         get {
             // return self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
             return self.characters.count
         }
-    }
-    
-    
-    func stringByAppendingPathComponent(pathConmonent: String) -> String {
-        
-        var first = self
-        var last = pathConmonent
-        
-        if first.hasSuffix("/") {
-            var firstArray = first.componentsSeparatedByString("/")
-            for var i = firstArray.count - 1; i >= 0; i -= 1 {
-                if firstArray[i] == "" {
-                    firstArray.removeLast()
-                }
-                else {
-                    break
-                }
-            }
-            first = firstArray.joinWithSeparator("/")
-        }
-        
-        if last.hasPrefix("/") {
-            var lastArray = last.componentsSeparatedByString("/")
-            for i in lastArray {
-                if i == "" {
-                    lastArray.removeFirst()
-                }
-                else {
-                    break
-                }
-            }
-            last = lastArray.joinWithSeparator("/")
-        }
-        
-        if !String.isNullOrWhiteSpace(last) {
-            last = "/" + last
-        }
-        
-        return first + last
     }
     
     var lastPathComponent: String {
@@ -122,7 +83,7 @@ extension String {
     
     func isAllDigit() -> Bool {
         for uni in unicodeScalars{
-            if NSCharacterSet.decimalDigitCharacterSet().longCharacterIsMember(uni.value){
+            if CharacterSet.decimalDigits.contains(UnicodeScalar(uni.value)!){
                 continue
             }
             return false
@@ -131,17 +92,17 @@ extension String {
     }
     
     var isEmptyOrWhiteSpace: Bool {
-        if self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+        if self.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty {
             return true
         }
         return false
     }
     
-    func sizeWithFont(font: Font, maxSize:CGSize) -> CGSize {
+    func sizeWithFont(_ font: Font, maxSize:CGSize) -> CGSize {
         return self.OCString.sizeWithFont(font, maxSize: maxSize)
     }
     
-    static func isNullOrEmpty(str: String?) -> Bool {
+    static func isNullOrEmpty(_ str: String?) -> Bool {
         if str == nil {
             return true
         }
@@ -151,11 +112,11 @@ extension String {
         return false
     }
     
-    static func isNullOrWhiteSpace(str: String?) -> Bool {
+    static func isNullOrWhiteSpace(_ str: String?) -> Bool {
         if str == nil {
             return true
         }
-        if str!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+        if str!.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty {
             return true
         }
         return false

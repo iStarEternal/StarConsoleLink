@@ -12,24 +12,24 @@ import Cocoa
 extension NSTextView {
     
     
-    func star_mouseDown(theEvent: NSEvent) {
+    func star_mouseDown(_ theEvent: NSEvent) {
         
         
         // 当前点击的TextView是否是Xcode的Console
-        guard let expectedClass = NSClassFromString("IDEConsoleTextView") where self.isKindOfClass(expectedClass) else {
+        guard let expectedClass = NSClassFromString("IDEConsoleTextView") , self.isKind(of: expectedClass) else {
             star_mouseDown(theEvent)
             return
         }
         
         // 点击区域是否是rich text
-        let pos = self.convertPoint(theEvent.locationInWindow, fromView:nil)
-        let index = self.characterIndexForInsertionAtPoint(pos)
+        let pos = self.convert(theEvent.locationInWindow, from:nil)
+        let index = self.characterIndexForInsertion(at: pos)
         guard self.attributedString().length > 1 && index < self.attributedString().length else {
             star_mouseDown(theEvent)
             return
         }
         
-        let attr = self.attributedString().attributesAtIndex(index, effectiveRange: nil)
+        let attr = self.attributedString().attributes(at: index, effectiveRange: nil)
         
         // 验证标志
         guard attr[StarConsoleLinkFieldName.flag] != nil else {
@@ -47,12 +47,12 @@ extension NSTextView {
             }
             
             // 用编辑器打开文件
-            if let open = NSApplication.sharedApplication().delegate?.application?(NSApplication.sharedApplication(), openFile: filePath) where open {
+            if let open = NSApplication.shared().delegate?.application?(NSApplication.shared(), openFile: filePath) , open {
                 // 主线程异步调用，防止闪退
-                dispatch_get_main_queue().async { () -> Void in
+                DispatchQueue.main.async { () -> Void in
                     if let textView = PluginHelper.editorTextView(inWindow: self.window),
                         let line = Int(lineNumber)
-                        where line >= 1 {
+                        , line >= 1 {
                         textView.scrollToLine(line)
                     }
                 }
@@ -65,12 +65,13 @@ extension NSTextView {
             let methodName = attr[StarConsoleLinkFieldName.methodName] as? String {
             
             // 暂时只支持查找.m结尾的文件
-            fileName.appendContentsOf(".m")
+            fileName.append(".m")
             guard let workspacePath = PluginHelper.workspacePath(), let filePath = findFile(workspacePath, fileName) else {
                 return
             }
-            if let open = NSApplication.sharedApplication().delegate?.application?(NSApplication.sharedApplication(), openFile: filePath) where open {
-                dispatch_get_main_queue().async {
+            if let open = NSApplication.shared().delegate?.application?(NSApplication.shared(), openFile: filePath) , open {
+                
+                DispatchQueue.main.async {
                     if let textView = PluginHelper.editorTextView(inWindow: self.window) {
                         textView.scrollToMethod(methodType, methodName)
                     }
@@ -79,27 +80,27 @@ extension NSTextView {
         }
     }
     
-    private func scrollToLine(line: Int) {
+    fileprivate func scrollToLine(_ line: Int) {
         
         guard let text = self.string?.OCString else {
             return
         }
         
         var currentLine:Int = 0
-        text.enumerateLinesUsingBlock { (lineText: String, stop: UnsafeMutablePointer<ObjCBool>) in
+        text.enumerateLines { (lineText: String, stop: UnsafeMutablePointer<ObjCBool>) in
             currentLine += 1
             if line == currentLine {
-                let lineRange = text.rangeOfString(lineText)
+                let lineRange = text.range(of: lineText)
                 if lineRange.location != NSNotFound {
                     self.scrollRangeToVisible(lineRange)
                     self.setSelectedRange(lineRange)
                 }
-                stop.memory = ObjCBool(true)
+                stop.pointee = ObjCBool(true)
             }
         }
     }
     
-    private func scrollToMethod(methodType: String, _ methodName: String) {
+    fileprivate func scrollToMethod(_ methodType: String, _ methodName: String) {
         
         guard let text = self.string?.OCString else {
             return
@@ -108,20 +109,20 @@ extension NSTextView {
         var passTotalCount = 0
         var passIndex = 0
         
-        text.enumerateLinesUsingBlock { (lineText, stop) in
+        text.enumerateLines { (lineText, stop) in
             
-            var methodComponents = methodName.componentsSeparatedByString(":")
+            var methodComponents = methodName.components(separatedBy: ":")
             
             // 无参函数直接处理
             if methodComponents.count == 1 {
-                if lineText.rangeOfString(methodType) != nil
-                    && lineText.rangeOfString(methodName) != nil {
+                if lineText.range(of: methodType) != nil
+                    && lineText.range(of: methodName) != nil {
                     
-                    let lineRange = text.rangeOfString(lineText)
+                    let lineRange = text.range(of: lineText)
                     if lineRange.location != NSNotFound {
                         self.scrollRangeToVisible(lineRange)
                         self.setSelectedRange(lineRange)
-                        stop.memory = ObjCBool(true)
+                        stop.pointee = ObjCBool(true)
                     }
                 }
             }
@@ -131,23 +132,23 @@ extension NSTextView {
                 methodComponents.removeLast()
                 methodComponents = methodComponents.map { $0 + ":" }
                 
-                if lineText.rangeOfString(methodType) == nil {
+                if lineText.range(of: methodType) == nil {
                 }
                 
-                if lineText.rangeOfString(methodType) != nil {
+                if lineText.range(of: methodType) != nil {
                     passTotalCount = methodComponents.count
                     
                     for methodElement in methodComponents {
-                        if lineText.rangeOfString(methodElement) != nil {
+                        if lineText.range(of: methodElement) != nil {
                             passIndex += 1
                         }
                     }
                     if (passIndex == passTotalCount) {
-                        let lineRange = text.rangeOfString(lineText)
+                        let lineRange = text.range(of: lineText)
                         if lineRange.location != NSNotFound {
                             self.scrollRangeToVisible(lineRange)
                             self.setSelectedRange(lineRange)
-                            stop.memory = ObjCBool(true)
+                            stop.pointee = ObjCBool(true)
                         }
                     }
                 }
@@ -156,7 +157,7 @@ extension NSTextView {
     }
     
     
-    func star_insertNewline(arg1: AnyObject) {
+    func star_insertNewline(_ arg1: AnyObject) {
         self.star_checkTextView()
         self.star_insertNewline(arg1)
     }
@@ -166,7 +167,7 @@ extension NSTextView {
         self.star_clearConsoleItems()
     }
     
-    func star_shouldChangeTextInRanges(ranges: AnyObject, replacementStrings strings: AnyObject) -> Bool {
+    func star_shouldChangeTextInRanges(_ ranges: AnyObject, replacementStrings strings: AnyObject) -> Bool {
         self.star_checkTextView()
         return self.star_shouldChangeTextInRanges(ranges, replacementStrings: strings)
     }
@@ -175,19 +176,19 @@ extension NSTextView {
     func star_checkTextView() {
         
         guard let expectedClass = NSClassFromString("IDEConsoleTextView")
-            where self.isKindOfClass(expectedClass) else {
+            , self.isKind(of: expectedClass) else {
                 return
         }
         guard let textStorage = self.textStorage else {
             return
         }
-        if let startLocationOfLastLine = self.valueForKeyPath("_startLocationOfLastLine") as? Int
-            where textStorage.length < startLocationOfLastLine {
+        if let startLocationOfLastLine = self.value(forKeyPath: "_startLocationOfLastLine") as? Int
+            , textStorage.length < startLocationOfLastLine {
             self.setValue(textStorage.length, forKeyPath: "_startLocationOfLastLine")
         }
         
-        if let lastRemovableTextLocation = self.valueForKeyPath("_lastRemovableTextLocation") as? Int
-            where textStorage.length < lastRemovableTextLocation {
+        if let lastRemovableTextLocation = self.value(forKeyPath: "_lastRemovableTextLocation") as? Int
+            , textStorage.length < lastRemovableTextLocation {
             self.setValue(textStorage.length, forKeyPath: "_lastRemovableTextLocation")
         }
     }

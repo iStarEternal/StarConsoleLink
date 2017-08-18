@@ -51,7 +51,7 @@ extension Color {
     }
     
     
-    static func rgb(rgb: Int) -> Color {
+    static func rgb(_ rgb: Int) -> Color {
         return Color(rgb: rgb)
     }
     

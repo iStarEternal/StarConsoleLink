@@ -8,9 +8,31 @@ StarConsoleLink给你的Xcode控制台注入了超链接，它能让你点击链
 ![Smaller icon](https://github.com/iStarEternal/StarConsoleLink/blob/master/ExampleImage/StarConsoleLink.gif "Case Diagram")
 
 
-# How to use?  【使用说明】
 
-Please note that plugins are not supported by Xcode 8. See https://github.com/alcatraz/Alcatraz/issues/475 for more information.
+# How to user in Xcode8
+
+
+Xcode8之后，Xcode增加签名，默认不再支持自定义插件，但可以通过重新签名Xcode来打到安装插件的效果
+
+步骤：
+0. 你可以先备份自己的未签名的Xcode，但是我没有备份，并没有什么影响。
+1. 打开钥匙串，点击钥匙串访问->证书助理->创建证书
+2. 名称输入"XcodeSigner"，身份类型选择"自签名证书"，证书类型选择"代码签名"
+3. 打开终端，输入：
+```sudo codesign -f -s XcodeSigner /Applications/Xcode.app```
+4. 可能你之前安装过的其他插件已经失效，可以执行这句命令解决
+```
+find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID`
+```
+一些插件不兼容Xcode8甚至会导致Xcode崩溃，我们只能让引起崩溃的插件删除。
+5. 执行下面代码，安装StarConsoleLink，重启Xcode，选择
+```install
+curl -fsSL https://raw.githubusercontent.com/iStarEternal/StarConsoleLink/master/Scripts/install.sh | sh
+```
+6、重启Xcode，运行的时候就会出现Load Bundle，点击Load，这时你就会发现插件已经可以重新使用了，如果插件未生效，下文中还有其他解决方案可以帮助你。
+
+
+# How to use?  【使用说明】
 
 
 1.  If you are using Swift, Copy Logger.swift to you project.
@@ -18,6 +40,7 @@ Please note that plugins are not supported by Xcode 8. See https://github.com/al
 2.  If you are using Objective-C, Copy Logger.h to you project and #import "Logger.h" to you PrefixHeader.pch.
 
 3.  If you want to custom you logs, please follow the rules: [FileName.extension:LineNumber], Just like [main.swift:15].
+
 
 
 1.  如果你使用的是Swift，请拷贝 Logger.swift 到你的项目中去。

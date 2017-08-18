@@ -11,26 +11,29 @@ import Cocoa
 class ConsoleLinkConfig: NSObject {
     
     
-    private struct ConsoleLinkConfigSingleton {
-        static var predicate: dispatch_once_t = 0
+    private static var __once: () = { () -> Void in
+            ConsoleLinkConfigSingleton.instance = ConsoleLinkConfig()
+        }()
+    
+    
+    fileprivate struct ConsoleLinkConfigSingleton {
+        static var predicate: Int = 0
         static var instance: ConsoleLinkConfig! = nil
     }
     
     static var shared: ConsoleLinkConfig {
-        dispatch_once(&ConsoleLinkConfigSingleton.predicate) { () -> Void in
-            ConsoleLinkConfigSingleton.instance = ConsoleLinkConfig()
-        }
+        _ = ConsoleLinkConfig.__once
         return ConsoleLinkConfigSingleton.instance
     }
     
     
-    static func setConfig(config: AnyObject, forKey key: String) {
-        NSUserDefaults.standardUserDefaults().setObject(config, forKey: key)
-        NSUserDefaults.standardUserDefaults().synchronize()
+    static func setConfig(_ config: AnyObject, forKey key: String) {
+        UserDefaults.standard.set(config, forKey: key)
+        UserDefaults.standard.synchronize()
     }
     
-    static func configForKey<T>(key: String, defaultValue: T) -> T {
-        if let obj = NSUserDefaults.standardUserDefaults().objectForKey(key) {
+    static func configForKey<T>(_ key: String, defaultValue: T) -> T {
+        if let obj = UserDefaults.standard.object(forKey: key) {
             return obj as? T ?? defaultValue
         }
         else {
@@ -38,8 +41,8 @@ class ConsoleLinkConfig: NSObject {
         }
     }
     
-    static func configForKey<T>(key: String) -> T? {
-        if let obj = NSUserDefaults.standardUserDefaults().objectForKey(key) {
+    static func configForKey<T>(_ key: String) -> T? {
+        if let obj = UserDefaults.standard.object(forKey: key) {
             return obj as? T
         }
         else {
@@ -50,8 +53,8 @@ class ConsoleLinkConfig: NSObject {
     
     // MARK: - 是否打开StarConsoleLink
     
-    private static var consoleLinkEnabledKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
-    private var consoleLinkEnabled: Bool?
+    fileprivate static var consoleLinkEnabledKey = "iStar.StarConsoleLink.IsOpenConsoleLink"
+    fileprivate var consoleLinkEnabled: Bool?
     static var consoleLinkEnabled: Bool {
         get {
             if shared.consoleLinkEnabled == nil {
@@ -61,7 +64,7 @@ class ConsoleLinkConfig: NSObject {
             return shared.consoleLinkEnabled!
         }
         set {
-            setConfig(newValue, forKey: consoleLinkEnabledKey)
+            setConfig(newValue as AnyObject, forKey: consoleLinkEnabledKey)
             shared.consoleLinkEnabled = newValue
         }
     }
@@ -69,8 +72,8 @@ class ConsoleLinkConfig: NSObject {
     
     // MARK: - 中文Unicode
     
-    private static var ChineseUnicodeEnabledKey = "iStar.StarConsoleLink.ChineseUnicodeEnabledKey"
-    private var ChineseUnicodeEnabled: Bool?
+    fileprivate static var ChineseUnicodeEnabledKey = "iStar.StarConsoleLink.ChineseUnicodeEnabledKey"
+    fileprivate var ChineseUnicodeEnabled: Bool?
     static var ChineseUnicodeEnabled: Bool {
         get {
             if shared.ChineseUnicodeEnabled == nil {
@@ -80,15 +83,15 @@ class ConsoleLinkConfig: NSObject {
             return shared.ChineseUnicodeEnabled!
         }
         set {
-            setConfig(newValue, forKey: ChineseUnicodeEnabledKey)
+            setConfig(newValue as AnyObject, forKey: ChineseUnicodeEnabledKey)
             shared.ChineseUnicodeEnabled = newValue
         }
     }
     
     
-    private static let linkColorKeywordKey = "iStar.StarConsoleLink.LinkColorKey"
-    private static let linkColorDefaultValue = 0x0000ff
-    private var linkColor: NSColor?
+    fileprivate static let linkColorKeywordKey = "iStar.StarConsoleLink.LinkColorKey"
+    fileprivate static let linkColorDefaultValue = 0x0000ff
+    fileprivate var linkColor: NSColor?
     static var linkColor: NSColor {
         get {
             if shared.linkColor == nil {
@@ -98,7 +101,7 @@ class ConsoleLinkConfig: NSObject {
             return shared.linkColor!
         }
         set {
-            setConfig(newValue.rgb, forKey: linkColorKeywordKey)
+            setConfig(newValue.rgb as AnyObject, forKey: linkColorKeywordKey)
             shared.linkColor = newValue
         }
     }
@@ -108,15 +111,15 @@ class ConsoleLinkConfig: NSObject {
 extension ConsoleLinkConfig {
     
     
-    private static let debugLogKeywordKey = "iStar.StarConsoleLink.DebugLogColorKey"
-    private static let infoLogKeywordKey = "iStar.StarConsoleLink.InfoLogKeywordKey"
-    private static let warningLogKeywordKey = "iStar.StarConsoleLink.WarningLogKeywordKey"
-    private static let errorLogKeywordKey = "iStar.StarConsoleLink.ErrorLogKeywordKey"
+    fileprivate static let debugLogKeywordKey = "iStar.StarConsoleLink.DebugLogColorKey"
+    fileprivate static let infoLogKeywordKey = "iStar.StarConsoleLink.InfoLogKeywordKey"
+    fileprivate static let warningLogKeywordKey = "iStar.StarConsoleLink.WarningLogKeywordKey"
+    fileprivate static let errorLogKeywordKey = "iStar.StarConsoleLink.ErrorLogKeywordKey"
     
-    private static let debugLogColorKey = "iStar.StarConsoleLink.DebugLogColorKey"
-    private static let infoLogColorKey = "iStar.StarConsoleLink.InfoLogColorKey"
-    private static let warningLogColorKey = "iStar.StarConsoleLink.WarningLogColorKey"
-    private static let errorLogColorKey = "iStar.StarConsoleLink.ErrorLogColorKey"
+    fileprivate static let debugLogColorKey = "iStar.StarConsoleLink.DebugLogColorKey"
+    fileprivate static let infoLogColorKey = "iStar.StarConsoleLink.InfoLogColorKey"
+    fileprivate static let warningLogColorKey = "iStar.StarConsoleLink.WarningLogColorKey"
+    fileprivate static let errorLogColorKey = "iStar.StarConsoleLink.ErrorLogColorKey"
     
     
     static var debugLogKeyword: String {
@@ -124,7 +127,7 @@ extension ConsoleLinkConfig {
             return configForKey(debugLogKeywordKey, defaultValue: "[Debug]")
         }
         set {
-            setConfig(newValue, forKey: debugLogKeywordKey)
+            setConfig(newValue as AnyObject, forKey: debugLogKeywordKey)
         }
     }
     
@@ -133,7 +136,7 @@ extension ConsoleLinkConfig {
             return configForKey(infoLogKeywordKey, defaultValue: "[Info]")
         }
         set {
-            setConfig(newValue, forKey: infoLogKeywordKey)
+            setConfig(newValue as AnyObject, forKey: infoLogKeywordKey)
         }
     }
     
@@ -142,7 +145,7 @@ extension ConsoleLinkConfig {
             return configForKey(warningLogKeywordKey, defaultValue: "[Warning]")
         }
         set {
-            setConfig(newValue, forKey: warningLogKeywordKey)
+            setConfig(newValue as AnyObject, forKey: warningLogKeywordKey)
         }
     }
     
@@ -151,7 +154,7 @@ extension ConsoleLinkConfig {
             return configForKey(errorLogKeywordKey, defaultValue: "[Error]")
         }
         set {
-            setConfig(newValue, forKey: errorLogKeywordKey)
+            setConfig(newValue as AnyObject, forKey: errorLogKeywordKey)
         }
     }
     
@@ -164,7 +167,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: debugLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: debugLogColorKey)
         }
     }
     
@@ -174,7 +177,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: infoLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: infoLogColorKey)
         }
     }
     
@@ -184,7 +187,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: warningLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: warningLogColorKey)
         }
     }
     
@@ -194,7 +197,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: errorLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: errorLogColorKey)
         }
     }
 }
@@ -202,8 +205,8 @@ extension ConsoleLinkConfig {
 // MARK: - Log color config: HttpRequest
 extension ConsoleLinkConfig {
     
-    private static var successLogColorKey = "iStar.StarConsoleLink.SuccessLogColorKey"
-    private static var failureLogColorKey = "iStar.StarConsoleLink.FailureLogColorKey"
+    fileprivate static var successLogColorKey = "iStar.StarConsoleLink.SuccessLogColorKey"
+    fileprivate static var failureLogColorKey = "iStar.StarConsoleLink.FailureLogColorKey"
     
     
     static var successLogColor: NSColor {
@@ -212,7 +215,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: successLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: successLogColorKey)
         }
     }
     
@@ -222,7 +225,7 @@ extension ConsoleLinkConfig {
             return NSColor(rgb: intRGB)
         }
         set {
-            setConfig(newValue.rgb, forKey: failureLogColorKey)
+            setConfig(newValue.rgb as AnyObject, forKey: failureLogColorKey)
         }
     }
 }

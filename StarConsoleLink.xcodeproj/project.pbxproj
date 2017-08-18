@@ -206,6 +206,7 @@
 				TargetAttributes = {
 					F8FC45E71C59E7570037FEE5 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -357,6 +358,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "StarConsoleLink/StarConsoleLink-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -380,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iStar.AbsoluteStar.StarConsoleLink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "StarConsoleLink/StarConsoleLink-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;

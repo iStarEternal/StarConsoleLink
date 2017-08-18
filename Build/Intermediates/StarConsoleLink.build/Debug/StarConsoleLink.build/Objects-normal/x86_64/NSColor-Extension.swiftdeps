@@ -1,0 +1,261 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Color"
+provides-nominal:
+provides-member:
+- ["CSo7NSColor", ""]
+- ["CSo7NSColor", "init"]
+- ["CSo7NSColor", "init"]
+- ["CSo7NSColor", "init"]
+- ["CSo7NSColor", "init"]
+- ["CSo7NSColor", "rgb"]
+- ["CSo7NSColor", "rgb"]
+provides-dynamic-lookup:
+- "rgb"
+depends-top-level:
+- !private "&"
+- !private "*"
+- !private "+"
+- !private "/"
+- !private "<<"
+- !private ">>"
+- "CGFloat"
+- "Color"
+- !private "Double"
+- "Int"
+- "NSColor"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Ps9AnyObject", "CGFloat"]
+- !private ["Ps9AnyObject", "Color"]
+- !private ["Ps9AnyObject", "Double"]
+- !private ["Ps9AnyObject", "Int"]
+- !private ["Ps9AnyObject", "blueComponent"]
+- !private ["Ps9AnyObject", "greenComponent"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "redComponent"]
+- !private ["Ps19BinaryFloatingPoint", "init"]
+- !private ["Ps17BitwiseOperations", "init"]
+- !private ["V12CoreGraphics7CGFloat", "init"]
+- !private ["Ps7CVarArg", "CGFloat"]
+- !private ["Ps7CVarArg", "Color"]
+- !private ["Ps7CVarArg", "Double"]
+- !private ["Ps7CVarArg", "Int"]
+- !private ["Ps7CVarArg", "blueComponent"]
+- !private ["Ps7CVarArg", "greenComponent"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "redComponent"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "CGFloat"]
+- !private ["Ps28CustomDebugStringConvertible", "Color"]
+- !private ["Ps28CustomDebugStringConvertible", "Double"]
+- !private ["Ps28CustomDebugStringConvertible", "Int"]
+- !private ["Ps28CustomDebugStringConvertible", "blueComponent"]
+- !private ["Ps28CustomDebugStringConvertible", "greenComponent"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "redComponent"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "CGFloat"]
+- !private ["Ps23CustomStringConvertible", "Color"]
+- !private ["Ps23CustomStringConvertible", "Double"]
+- !private ["Ps23CustomStringConvertible", "Int"]
+- !private ["Ps23CustomStringConvertible", "blueComponent"]
+- !private ["Ps23CustomStringConvertible", "greenComponent"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "redComponent"]
+- !private ["Sd", "init"]
+- !private ["Ps9Equatable", "CGFloat"]
+- !private ["Ps9Equatable", "Color"]
+- !private ["Ps9Equatable", "Double"]
+- !private ["Ps9Equatable", "Int"]
+- !private ["Ps9Equatable", "blueComponent"]
+- !private ["Ps9Equatable", "greenComponent"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "redComponent"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps13FloatingPoint", "init"]
+- !private ["Ps8Hashable", "CGFloat"]
+- !private ["Ps8Hashable", "Color"]
+- !private ["Ps8Hashable", "Double"]
+- !private ["Ps8Hashable", "Int"]
+- !private ["Ps8Hashable", "blueComponent"]
+- !private ["Ps8Hashable", "greenComponent"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "redComponent"]
+- !private ["Si", "init"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["PSo8NSCoding", "CGFloat"]
+- !private ["PSo8NSCoding", "Color"]
+- !private ["PSo8NSCoding", "Double"]
+- !private ["PSo8NSCoding", "Int"]
+- !private ["PSo8NSCoding", "blueComponent"]
+- !private ["PSo8NSCoding", "greenComponent"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "redComponent"]
+- ["CSo7NSColor", "CGFloat"]
+- ["CSo7NSColor", "Color"]
+- !private ["CSo7NSColor", "Double"]
+- ["CSo7NSColor", "Int"]
+- !private ["CSo7NSColor", "blueComponent"]
+- !private ["CSo7NSColor", "greenComponent"]
+- ["CSo7NSColor", "init"]
+- !private ["CSo7NSColor", "redComponent"]
+- ["CSo7NSColor", "rgb"]
+- !private ["PSo9NSCopying", "CGFloat"]
+- !private ["PSo9NSCopying", "Color"]
+- !private ["PSo9NSCopying", "Double"]
+- !private ["PSo9NSCopying", "Int"]
+- !private ["PSo9NSCopying", "blueComponent"]
+- !private ["PSo9NSCopying", "greenComponent"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "redComponent"]
+- ["CSo8NSObject", "CGFloat"]
+- ["CSo8NSObject", "Color"]
+- !private ["CSo8NSObject", "Double"]
+- ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "blueComponent"]
+- !private ["CSo8NSObject", "greenComponent"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "redComponent"]
+- ["CSo8NSObject", "rgb"]
+- !private ["PSo16NSObjectProtocol", "CGFloat"]
+- !private ["PSo16NSObjectProtocol", "Color"]
+- !private ["PSo16NSObjectProtocol", "Double"]
+- !private ["PSo16NSObjectProtocol", "Int"]
+- !private ["PSo16NSObjectProtocol", "blueComponent"]
+- !private ["PSo16NSObjectProtocol", "greenComponent"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "redComponent"]
+- !private ["PSo19NSPasteboardReading", "CGFloat"]
+- !private ["PSo19NSPasteboardReading", "Color"]
+- !private ["PSo19NSPasteboardReading", "Double"]
+- !private ["PSo19NSPasteboardReading", "Int"]
+- !private ["PSo19NSPasteboardReading", "blueComponent"]
+- !private ["PSo19NSPasteboardReading", "greenComponent"]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardReading", "redComponent"]
+- !private ["PSo19NSPasteboardWriting", "CGFloat"]
+- !private ["PSo19NSPasteboardWriting", "Color"]
+- !private ["PSo19NSPasteboardWriting", "Double"]
+- !private ["PSo19NSPasteboardWriting", "Int"]
+- !private ["PSo19NSPasteboardWriting", "blueComponent"]
+- !private ["PSo19NSPasteboardWriting", "greenComponent"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo19NSPasteboardWriting", "redComponent"]
+- !private ["PSo14NSSecureCoding", "CGFloat"]
+- !private ["PSo14NSSecureCoding", "Color"]
+- !private ["PSo14NSSecureCoding", "Double"]
+- !private ["PSo14NSSecureCoding", "Int"]
+- !private ["PSo14NSSecureCoding", "blueComponent"]
+- !private ["PSo14NSSecureCoding", "greenComponent"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "redComponent"]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "init"]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps26_ExpressibleByColorLiteral", "CGFloat"]
+- !private ["Ps26_ExpressibleByColorLiteral", "Color"]
+- !private ["Ps26_ExpressibleByColorLiteral", "Double"]
+- !private ["Ps26_ExpressibleByColorLiteral", "Int"]
+- !private ["Ps26_ExpressibleByColorLiteral", "blueComponent"]
+- !private ["Ps26_ExpressibleByColorLiteral", "greenComponent"]
+- !private ["Ps26_ExpressibleByColorLiteral", "init"]
+- !private ["Ps26_ExpressibleByColorLiteral", "redComponent"]
+- !private ["Ps9_Hashable", "CGFloat"]
+- !private ["Ps9_Hashable", "Color"]
+- !private ["Ps9_Hashable", "Double"]
+- !private ["Ps9_Hashable", "Int"]
+- !private ["Ps9_Hashable", "blueComponent"]
+- !private ["Ps9_Hashable", "greenComponent"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "redComponent"]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- !private "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- !private "Ps17BitwiseOperations"
+- !private "V12CoreGraphics7CGFloat"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Sd"
+- !private "Ps9Equatable"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps13FloatingPoint"
+- !private "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "PSo8NSCoding"
+- "CSo7NSColor"
+- !private "PSo9NSCopying"
+- "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- !private "PSo14NSSecureCoding"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps26_ExpressibleByColorLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/StarConsoleLink-Bridging-Header.h"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/JRSwizzle/JRSwizzle.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/LogColor/LogColorKit.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/XPC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+- "/Users/Star/Documents/GitHub/StarConsoleLink-Xcode8+/StarConsoleLink/Library/StarFunctions.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "3ed8461ec4dfca788af275263a786cfd"
