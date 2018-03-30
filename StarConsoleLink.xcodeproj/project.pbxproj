@@ -64,6 +64,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F816FF96206E1AFE00B834C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F8D69B521CD1DF1800F8EB06 /* LogColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +133,7 @@
 			children = (
 				F8FC45EA1C59E7570037FEE5 /* StarConsoleLink */,
 				F8FC45E91C59E7570037FEE5 /* Products */,
+				F816FF96206E1AFE00B834C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

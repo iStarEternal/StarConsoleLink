@@ -8,6 +8,7 @@
 
 import Foundation
 import AppKit
+//import XcodeKit
 
 
 // MARK: - File Cache & Find File
@@ -123,8 +124,13 @@ extension PluginHelper {
             let textView = (editor as AnyObject).value(forKey: "textView") as? NSTextView else {
                 return nil
         }
-        
         return textView
+        //        let window = window!
+        //        let windowController = window.windowController!
+        //        let editor = windowController.value(forKeyPath: "editorArea.lastActiveEditorContext.editor")!
+        //        let textView = (editor as AnyObject).value(forKey: "textView") as! NSView
+        
+        // SourceCodeEditorView
     }
     
     // DVTSourceTextView 控制台
